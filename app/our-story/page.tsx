@@ -19,44 +19,68 @@ const icons = [Leaf, Rabbit, FlaskConicalOff, Sprout];
 export default function OurStoryPage() {
   return (
     <>
-      {/* Opening: the full founders photograph, never cropped, so the SB
-          monogram, the Luxe box and the candle stay in view. */}
-      <section aria-labelledby="story-title" className="bg-ivory pb-[var(--section-y)] pt-36 md:pt-44 lg:pb-24">
-        <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-4">
+      {/* Opening: the founders photograph as a full-bleed background. The
+          room is extended (wall to the left on desktop, above on phones) so
+          the copy sits on open wall and the SB monogram, the Luxe box and the
+          founders all stay in view. */}
+      <section
+        aria-labelledby="story-title"
+        data-header="clear"
+        className="relative flex h-[100svh] min-h-[40rem] flex-col overflow-hidden bg-cream text-chocolate md:max-h-[64rem] lg:justify-center"
+      >
+        <Image
+          src="/images/site/story-hero-desktop.webp"
+          alt=""
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="hero-drift hidden object-cover object-[62%_72%] md:block"
+        />
+        <Image
+          src="/images/site/story-hero-mobile.webp"
+          alt=""
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="hero-drift object-cover object-[30%_100%] md:hidden"
+        />
+        <p className="sr-only">
+          Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beneath the gold SB monogram, beside the
+          Luxe Bath &amp; Body Care Kit and a lit candle.
+        </p>
+        {/* Soft ivory veil behind the copy: left on desktop, top on phones */}
+        <div
+          aria-hidden
+          className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgb(246_240_232/0.55)_0%,rgb(246_240_232/0.25)_30%,rgb(246_240_232/0)_48%),linear-gradient(180deg,rgb(246_240_232/0.5)_0%,rgb(246_240_232/0)_18%)] md:block"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgb(246_240_232/0.7)_0%,rgb(246_240_232/0.35)_34%,rgb(246_240_232/0)_52%)] md:hidden"
+        />
+
+        <div className="shell relative pt-36 md:pt-44 lg:pt-28">
+          <div className="max-w-[30rem] lg:max-w-[min(30rem,34vw)]">
             <p className="eyebrow flex items-center gap-3 text-gold" data-reveal="fade">
               <Lotus className="h-3.5 w-6" />
               About us
             </p>
             <h1
               id="story-title"
-              className="mt-5 text-balance font-display text-[clamp(2.75rem,4.4vw,4.6rem)] font-light leading-[1.02] tracking-[-0.015em] text-chocolate"
+              className="mt-5 text-balance font-display text-[clamp(2.6rem,4.4vw,4.6rem)] font-light leading-[1.02] tracking-[-0.015em]"
             >
               <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask" data-reveal-delay="0.15">
                 <span className="block">Rooted in purpose. Driven by care.</span>
               </span>
             </h1>
-            <p className="lede mt-6 max-w-md text-cocoa/78" data-reveal="fade" data-reveal-delay="0.45">
+            <p className="lede mt-6 max-w-md text-cocoa/80" data-reveal="fade" data-reveal-delay="0.45">
               Sacred Basil is a doctor-led brand where authenticity, quality and intention come first.
             </p>
-            <p className="eyebrow mt-9 text-cocoa/55" data-reveal="fade" data-reveal-delay="0.6">
+            <p className="eyebrow mt-8 text-cocoa/60" data-reveal="fade" data-reveal-delay="0.6">
               Parita &amp; Ananya, founders
             </p>
           </div>
-
-          <figure className="-mx-[var(--gutter)] sm:mx-0 lg:col-span-8">
-            <div className="hero-emerge relative aspect-[4/3] overflow-hidden bg-cream sm:aspect-[3/2] sm:rounded-[3px]">
-              <Image
-                src="/images/site/founders-wide.webp"
-                alt="Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beneath the gold SB monogram, beside the Luxe Bath & Body Care Kit and a lit candle"
-                fill
-                priority
-                quality={85}
-                sizes="(min-width: 1024px) 64vw, 100vw"
-                className="object-cover object-[30%_50%] sm:object-center"
-              />
-            </div>
-          </figure>
         </div>
       </section>
 
