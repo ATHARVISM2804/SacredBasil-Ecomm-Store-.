@@ -1,26 +1,376 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Sacred Basil design tokens (docs/spec/02_SACRED_BASIL_DESIGN_SYSTEM.md)
+   ------------------------------------------------------------------ */
+@theme {
+  /* Sacred Basil palette, sampled from the brand brochure */
+  --color-ivory: #f6f0e8;
+  --color-cream: #ece3d6;
+  --color-sand: #d9c8b0;
+  --color-latte: #b99872;
+  --color-cocoa: #3a261b;
+  --color-espresso: #24170f;
+  --color-chocolate: #3e271b;
+  --color-chocolate-deep: #2a1a12;
+  --color-gold: #a9824a;
+  --color-champagne: #dcc297;
+  --color-sage: #8a9178;
+  --color-terracotta: #a45f42;
+  --color-rose: #b9898a;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --breakpoint-xs: 26rem;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section-y: clamp(5rem, 10vw, 11rem);
+  --line: rgb(62 39 27 / 0.14);
+  --line-light: rgb(220 194 151 / 0.24);
+  --header-h: 4.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-ivory);
+  color: var(--color-cocoa);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  background: var(--color-ivory);
+}
+
+::selection {
+  background: var(--color-chocolate);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section-y {
+    padding-block: var(--section-y);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .display-hero {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3.1rem, 6.6vw, 7rem);
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+  }
+
+  .display-section {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+
+  .display-sub {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .lede {
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    line-height: 1.75;
+    max-width: 34rem;
+  }
+
+  /* Buttons: subtle rounded rectangle, never pill */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-height: 3.25rem;
+    padding: 0 1.6rem;
+    border-radius: 2px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition:
+      background-color 0.45s var(--ease-editorial),
+      color 0.45s var(--ease-editorial),
+      border-color 0.45s var(--ease-editorial),
+      transform 0.45s var(--ease-editorial);
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn .btn-arrow {
+    transition: transform 0.45s var(--ease-editorial);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+  .btn-primary {
+    background: var(--color-chocolate);
+    color: var(--color-ivory);
+  }
+  .btn-primary:hover {
+    background: var(--color-chocolate-deep);
+  }
+  .btn-outline-light {
+    border: 1px solid rgb(207 192 166 / 0.5);
+    color: var(--color-ivory);
+  }
+  .btn-outline-light:hover {
+    background: var(--color-ivory);
+    border-color: var(--color-ivory);
+    color: var(--color-chocolate);
+  }
+  .btn-light {
+    background: var(--color-ivory);
+    color: var(--color-espresso);
+  }
+  .btn-light:hover {
+    background: var(--color-cream);
+  }
+  .btn-text {
+    padding-inline: 0;
+    min-height: 2.75rem;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.6s var(--ease-editorial);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Carved lattice (jaali) texture, used on tonal fields */
+  .jaali {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23B08A4A' stroke-width='0.6'%3E%3Ccircle cx='0' cy='0' r='28'/%3E%3Ccircle cx='56' cy='0' r='28'/%3E%3Ccircle cx='0' cy='56' r='28'/%3E%3Ccircle cx='56' cy='56' r='28'/%3E%3Ccircle cx='28' cy='28' r='28'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 56px 56px;
+  }
+
+  /* Jharokha arch: semicircular head on a portrait frame.
+     --arch-ratio = width / height of the frame. */
+  .arch {
+    --arch-ratio: 0.75;
+    border-radius: 50% 50% 0 0 / calc(50% * var(--arch-ratio)) calc(50% * var(--arch-ratio)) 0 0;
+    overflow: hidden;
+  }
+  .arch-line {
+    position: relative;
+  }
+  .arch-line::before {
+    content: "";
+    position: absolute;
+    inset: -14px -14px auto -14px;
+    height: calc(100% + 14px);
+    border: 1px solid rgb(176 138 74 / 0.55);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / calc(50% * var(--arch-ratio)) calc(50% * var(--arch-ratio)) 0 0;
+    pointer-events: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Form fields: underline style */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .field label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(58 36 26 / 0.72);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0.7rem 0;
+    font-size: 1rem;
+    color: var(--color-cocoa);
+    border-radius: 0;
+    transition: border-color 0.4s var(--ease-editorial);
+    appearance: none;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%233A241A' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    padding-right: 1.5rem;
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 7rem;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-cocoa);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: rgb(58 36 26 / 0.38);
+  }
+  .field [aria-invalid="true"] {
+    border-bottom-color: var(--color-terracotta);
+  }
+}
+
+/* Motion: reveal start states, applied only when motion is allowed and only
+   until the reveal system binds the element (it then sets them inline).
+   Failsafe: anything never bound fades in by itself, so content can never
+   be left hidden. */
+html.motion [data-reveal]:not([data-bound]) {
+  opacity: 0;
+  animation: reveal-failsafe 0.8s ease 2.5s forwards;
+}
+html.motion [data-reveal="mask"]:not([data-bound]) {
+  opacity: 1;
+  animation: none;
+}
+html.motion [data-reveal="mask"]:not([data-bound]) > * {
+  transform: translateY(105%);
+  animation: reveal-failsafe-rise 0.8s ease 2.5s forwards;
+}
+@keyframes reveal-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes reveal-failsafe-rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-drift {
+  animation: hero-drift 14s var(--ease-editorial) both;
+}
+
+/* Hero film: settles from a slight zoom as the page opens */
+@keyframes hero-emerge {
+  from {
+    opacity: 0;
+    transform: scale(1.07);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-emerge {
+  animation: hero-emerge 2.6s var(--ease-editorial) both;
+}
+
+/* Scroll cue: a slow bead of light travelling down a hairline */
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(250%);
+  }
+}
+.scroll-cue::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  background: var(--color-champagne);
+  animation: scroll-cue 2.2s var(--ease-editorial) infinite;
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+.glow-breathe {
+  animation: glow-breathe 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

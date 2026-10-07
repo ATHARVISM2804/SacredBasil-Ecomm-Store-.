@@ -1,0 +1,148 @@
+"use client";
+
+import Link from "next/link";
+import { useId, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import type { Product } from "@/lib/catalog/types";
+import { formatINR, tierFor, tierLabel } from "@/lib/catalog/pricing";
+import { MAX_QUANTITY } from "@/lib/cart/pricing";
+import { cart } from "@/lib/cart/store";
+import { QuantityStepper } from "./QuantityStepper";
+import { cn } from "@/lib/utils";
+
+type AddToCartProduct = Pick<Product, "id" | "slug" | "name" | "variants" | "tiers" | "bespokeFrom" | "stock">;
+
+/**
+ * Product purchase block: option, quantity, live tier price and "Add to bag".
+ * Pass a plain (serialisable) Product from a Server Component.
+ */
+export function AddToCart({ product, className }: { product: AddToCartProduct; className?: string }) {
+  const id = useId();
+  const [variantId, setVariantId] = useState(product.variants?.[0]?.id);
+  const [quantity, setQuantity] = useState(product.tiers[0]?.min ?? 1);
+  const [added, setAdded] = useState(false);
+
+  const soldOut = product.stock !== null && product.stock <= 0;
+  const max = product.stock === null ? MAX_QUANTITY : Math.max(1, Math.min(MAX_QUANTITY, product.stock));
+  const tier = product.tiers.length ? tierFor(product.tiers, quantity) : null;
+  const bespoke = product.bespokeFrom !== undefined && quantity >= product.bespokeFrom;
+
+  const update = (n: number) => {
+    setQuantity(n);
+    setAdded(false);
+  };
+
+  const add = () => {
+    if (soldOut || !tier) return;
+    cart.add(product.id, quantity, variantId);
+    setAdded(true);
+    cart.open();
+  };
+
+  return (
+    <div className={cn("space-y-8", className)}>
+      {product.variants && product.variants.length > 0 && (
+        <fieldset>
+          <legend className="eyebrow mb-3 text-cocoa/70">Choose</legend>
+          <div className="flex flex-wrap gap-2">
+            {product.variants.map((v) => {
+              const checked = v.id === variantId;
+              return (
+                <label
+                  key={v.id}
+                  className={cn(
+                    "cursor-pointer border px-4 py-2.5 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-1 has-[:focus-visible]:outline-gold",
+                    checked ? "border-chocolate bg-chocolate text-ivory" : "border-[var(--line)] text-cocoa hover:border-cocoa/40",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name={`${id}-variant`}
+                    value={v.id}
+                    checked={checked}
+                    onChange={() => {
+                      setVariantId(v.id);
+                      setAdded(false);
+                    }}
+                    className="sr-only"
+                  />
+                  {v.name}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
+
+      <div className="flex flex-wrap items-end gap-x-8 gap-y-4">
+        <div>
+          <p className="eyebrow mb-3 text-cocoa/70" aria-hidden>
+            Quantity
+          </p>
+          <QuantityStepper value={quantity} onChange={update} max={max} label={`Quantity of ${product.name}`} />
+        </div>
+        {tier && (
+          <div aria-live="polite">
+            <p className="font-display text-3xl text-chocolate tabular-nums">
+              {formatINR(tier.unitPrice)}
+              <span className="ml-2 font-sans text-sm text-cocoa/60">each</span>
+            </p>
+            <p className="text-sm text-cocoa/65 tabular-nums">
+              {quantity} × {formatINR(tier.unitPrice)} = {formatINR(quantity * tier.unitPrice)}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {product.tiers.length > 1 && (
+        <table className="w-full max-w-sm text-sm">
+          <caption className="eyebrow mb-2 text-left text-cocoa/60">Price per kit</caption>
+          <tbody>
+            {product.tiers.map((t) => {
+              const active = t === tier;
+              return (
+                <tr key={t.min} className={cn("border-b border-[var(--line)]", active ? "text-chocolate" : "text-cocoa/60")}>
+                  <th scope="row" className={cn("py-2 text-left font-normal", active && "font-medium")}>
+                    {tierLabel(t)} {t.max === t.min ? "kit" : "kits"}
+                  </th>
+                  <td className={cn("py-2 text-right tabular-nums", active && "font-medium")}>{formatINR(t.unitPrice)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+
+      {product.stock !== null && !soldOut && product.stock <= 10 && (
+        <p className="text-sm text-cocoa/65">Only {product.stock} available.</p>
+      )}
+
+      {bespoke && (
+        <p className="border-l border-gold pl-4 text-sm text-cocoa/75">
+          For {product.bespokeFrom}+ kits we customise with your logo, packaging and message.{" "}
+          <Link
+            href={`/corporate-gifting?collection=${encodeURIComponent(product.slug)}#enquire`}
+            className="text-chocolate underline underline-offset-4"
+          >
+            Enquire for bespoke pricing
+          </Link>
+        </p>
+      )}
+
+      <div className="flex flex-wrap items-center gap-4">
+        <button
+          type="button"
+          onClick={add}
+          disabled={soldOut || !tier}
+          className="btn btn-primary disabled:pointer-events-none disabled:opacity-50"
+        >
+          <span>{soldOut ? "Currently unavailable" : "Add to bag"}</span>
+          {!soldOut && <ArrowRight aria-hidden className="btn-arrow size-3.5" strokeWidth={1.25} />}
+        </button>
+        <p className="text-sm text-cocoa/65" role="status">
+          {added ? "Added to your bag." : ""}
+        </p>
+      </div>
+    </div>
+  );
+}

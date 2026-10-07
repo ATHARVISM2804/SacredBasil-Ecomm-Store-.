@@ -39,3 +39,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# gstack browser profile (contains login cookies)
+.gstack/
+!.env.example
+
+# Media working files (raw frames, AI clips, exports, photo sources). Kept on
+# disk only; the published assets live in public/.
+/docs/hero-film/**/*.mp4
+/docs/hero-film/**/*.png
+/docs/hero-film/**/*.jpg
+/docs/hero-film/**/*.wav
+/docs/product-photos/**/*.png
+/docs/product-photos/**/*.jpg
+/docs/product-photos/**/*.jpeg
+/docs/product-photos/**/*.webp
+/docs/product-photos/**/*.heic
+/docs/inputs/**/*
+!/docs/inputs/SB Diwali Gifting Collection.pdf
+/reel/
