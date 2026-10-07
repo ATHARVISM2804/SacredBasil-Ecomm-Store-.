@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: Props) {
       <section className="bg-ivory pb-[var(--section-y)] pt-32 md:pt-40">
         <div className="shell">
           <nav aria-label="Breadcrumb" className="eyebrow mb-8 flex items-center gap-3 text-cocoa/55">
-            <Link href="/collections" className="link-underline pb-0.5">
+            <Link href="/collections" className="link-underline -my-3 inline-block py-3">
               Shop
             </Link>
             <span aria-hidden>/</span>
@@ -142,7 +142,7 @@ export default async function ProductPage({ params }: Props) {
                     <p className="mt-2">{orderTerms.bulkPayment}</p>
                     <Link
                       href={`/corporate-gifting?collection=${p.slug}#enquire`}
-                      className="link-underline mt-3 inline-block pb-0.5 text-chocolate"
+                      className="link-underline mt-1 inline-block py-2 text-chocolate"
                     >
                       Request a corporate quote
                     </Link>

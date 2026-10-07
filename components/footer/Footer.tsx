@@ -24,8 +24,8 @@ const help = [
 export function Footer() {
   return (
     <footer className="bg-chocolate-deep text-ivory">
-      <div className="shell grid gap-14 py-20 md:grid-cols-12 md:py-24">
-        <div className="md:col-span-4">
+      <div className="shell grid grid-cols-2 gap-x-6 gap-y-14 py-20 md:grid-cols-12 md:gap-x-10 md:py-24">
+        <div className="col-span-2 md:col-span-4">
           <Logo variant="lockup" className="w-32 text-champagne" />
           <p className="mt-8 max-w-xs font-display text-[1.3rem] italic leading-snug text-ivory/75">{site.statement}</p>
           <Ornament tone="champagne" className="mt-8 justify-start" />
@@ -69,19 +69,19 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className="md:col-span-3">
+        <div className="col-span-2 md:col-span-3">
           <p className="eyebrow text-champagne/80">Get in touch</p>
           <ul className="mt-6 space-y-4 text-[0.92rem] text-ivory/75">
             <li className="flex gap-3">
               <Mail aria-hidden className="mt-0.5 size-4 shrink-0 text-champagne" strokeWidth={1.25} />
-              <a href={`mailto:${site.contact.email}`} className="link-underline break-all hover:text-ivory">
+              <a href={`mailto:${site.contact.email}`} className="link-underline -my-2 inline-block break-all py-2 hover:text-ivory">
                 {site.contact.email}
               </a>
             </li>
             {site.contact.phones.map((p) => (
               <li key={p.number} className="flex gap-3">
                 <Phone aria-hidden className="mt-0.5 size-4 shrink-0 text-champagne" strokeWidth={1.25} />
-                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="link-underline hover:text-ivory">
+                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="link-underline -my-2 inline-block py-2 hover:text-ivory">
                   {p.name}: {p.number}
                 </a>
               </li>

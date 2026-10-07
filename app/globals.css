@@ -184,6 +184,8 @@ html.lenis body {
     background-size: 0% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
+    /* underline the text itself, even when the link has extra tap padding */
+    background-origin: content-box;
     transition: background-size 0.6s var(--ease-editorial);
   }
   .link-underline:hover,

@@ -13,14 +13,15 @@ import { cn } from "@/lib/utils";
  *
  * Sources (public/video/), cut from docs/hero-film/luxe/exports/luxe-hero-final.mp4:
  *   hero-desktop.mp4  1600×900, full-bleed
- *   hero-mobile.mp4   720×1280 vertical cut (exports/luxe-hero-mobile-v2.mp4),
- *                     from the 9:16 Veo clips in docs/hero-film/luxe/mobile-clips;
- *                     natural speed, long dissolves, top third left clear for the copy
+ *   hero-mobile.mp4   720×1280 vertical cut (exports/luxe-hero-mobile-v3.mp4),
+ *                     from the 9:16 Veo clips in docs/hero-film/luxe/mobile-clips:
+ *                     seven single, slow camera moves at one even pace, equal
+ *                     1.2 s dissolves, top third left clear for the copy
  */
 
 /**
  * Chapters, timed to each film's shot changes (seconds). `at` is the desktop
- * film (40.5 s loop); `atMobile` the vertical film (28.5 s loop).
+ * film (40.5 s loop); `atMobile` the vertical film (26 s loop).
  */
 const chapters = [
   {
@@ -32,42 +33,42 @@ const chapters = [
   },
   {
     at: 3.8,
-    atMobile: 2.6,
+    atMobile: 3.6,
     eyebrow: "The Luxe Bath & Body Care Kit",
     title: ["Crafted for your", "Diwali dawn."],
     text: "Our signature kit, finished in deep chocolate and gold foil.",
   },
   {
     at: 10.1,
-    atMobile: 7.9,
+    atMobile: 7.7,
     eyebrow: "Five handcrafted pieces",
     title: ["Open to a", "ritual of care."],
     text: "Made to nourish the body, calm the mind and uplift the spirit.",
   },
   {
     at: 15.8,
-    atMobile: 11.5,
+    atMobile: 11.3,
     eyebrow: "Body Scrub & Face Scrub",
     title: ["Exfoliate.", "Nourish. Glow."],
     text: "Gentle care for a natural glow.",
   },
   {
     at: 22,
-    atMobile: 14,
+    atMobile: 14.7,
     eyebrow: "Body Oil & Artisanal Soap",
     title: ["Deeply hydrating,", "gently cleansing."],
     text: "Handmade in small batches, free from harsh chemicals.",
   },
   {
     at: 27.2,
-    atMobile: 17.3,
+    atMobile: 18.2,
     eyebrow: "Soy Wax Scented Candle",
     title: ["A calm,", "cozy evening."],
     text: "Long-lasting fragrance to close the day softly.",
   },
   {
     at: 32.1,
-    atMobile: 21.4,
+    atMobile: 20.9,
     eyebrow: "₹1,100, or ₹899 each in bulk",
     title: ["Thoughtful gifts.", "Lasting impressions."],
     text: "The Luxe Bath & Body Care Kit, beautifully boxed for the people who matter.",
@@ -154,7 +155,7 @@ export function HeroVideo() {
           className="absolute inset-0 md:hidden"
           style={{
             background:
-              "linear-gradient(180deg, rgb(246 240 232 / 0.82) 0%, rgb(246 240 232 / 0.5) 22%, rgb(246 240 232 / 0) 40%), linear-gradient(0deg, rgb(246 240 232 / 0.9) 0%, rgb(246 240 232 / 0) 22%)",
+              "linear-gradient(180deg, rgb(246 240 232 / 0.94) 0%, rgb(246 240 232 / 0.82) 24%, rgb(246 240 232 / 0.4) 36%, rgb(246 240 232 / 0) 48%), linear-gradient(0deg, rgb(246 240 232 / 0.9) 0%, rgb(246 240 232 / 0) 22%)",
           }}
         />
       </div>
@@ -173,7 +174,7 @@ export function HeroVideo() {
                   aria-hidden={!on}
                   className={cn(
                     "absolute inset-x-0 top-0 md:bottom-0 md:top-auto transition-[opacity,filter] duration-[1000ms] ease-[var(--ease-editorial)]",
-                    on ? "opacity-100 blur-0" : "pointer-events-none opacity-0 blur-[4px]",
+                    on ? "opacity-100 md:blur-0" : "pointer-events-none opacity-0 md:blur-[4px]",
                   )}
                 >
                   <p

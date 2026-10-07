@@ -120,7 +120,7 @@ export function SiteHeader() {
           </nav>
           <button
             type="button"
-            className="eyebrow relative z-[60] flex h-11 items-center gap-3 justify-self-start lg:hidden"
+            className="eyebrow relative z-[60] -ml-2 flex h-11 min-w-11 items-center gap-3 justify-self-start px-2 lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}

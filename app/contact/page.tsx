@@ -52,7 +52,7 @@ export default function ContactPage() {
                     href={instagram.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-underline block font-display text-2xl text-chocolate"
+                    className="link-underline block py-1 font-display text-2xl text-chocolate"
                   >
                     @{instagram.href.replace(/\/$/, "").split("/").pop()} on Instagram
                   </a>
