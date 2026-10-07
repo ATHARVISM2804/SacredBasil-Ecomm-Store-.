@@ -4,6 +4,7 @@ import { seedProducts } from "@/data/catalog";
 import { site } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { Ornament } from "@/components/ui/Ornament";
+import { SocialLinks } from "@/components/footer/SocialLinks";
 
 const explore = [
   { label: "Shop all", href: "/collections" },
@@ -28,6 +29,8 @@ export function Footer() {
           <Logo variant="lockup" className="w-32 text-champagne" />
           <p className="mt-8 max-w-xs font-display text-[1.3rem] italic leading-snug text-ivory/75">{site.statement}</p>
           <Ornament tone="champagne" className="mt-8 justify-start" />
+          <p className="eyebrow mt-10 text-champagne/80">Follow &amp; message us</p>
+          <SocialLinks className="mt-5" />
         </div>
 
         <nav aria-label="Shop" className="md:col-span-2 md:col-start-6">

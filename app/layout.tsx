@@ -44,6 +44,8 @@ export const viewport: Viewport = {
   themeColor: "#3e271b",
 };
 
+const profiles = site.social.filter((s) => s.href.startsWith("https://") && s.network !== "whatsapp").map((s) => s.href);
+
 const organizationLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -51,7 +53,7 @@ const organizationLd = {
   url: site.url,
   description: site.description,
   ...(site.contact.email ? { email: site.contact.email } : {}),
-  ...(site.social.length ? { sameAs: site.social.map((s) => s.href) } : {}),
+  ...(profiles.length ? { sameAs: profiles } : {}),
 };
 
 /** Adds `motion` before first paint so reveal start-states never flash. */

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 /** Real photographs from past orders, closing with the invitation to order. */
 export function PreviousWork() {
-  const picks = [0, 2, 3, 6, 8, 11].map((i) => previousWork[i]);
+  const picks = [0, 2, 3, 6, 8, 11, 4].map((i) => previousWork[i]);
 
   return (
     <section aria-labelledby="work-title" className="section-y bg-ivory">
@@ -27,11 +27,15 @@ export function PreviousWork() {
           </p>
         </div>
 
-        <ul className="mt-14 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-3 md:gap-5">
+        <ul className="mt-14 grid grid-cols-2 gap-3 md:mt-20 md:grid-flow-dense md:grid-cols-3 md:gap-5">
           {picks.map((w, i) => (
             <li
               key={w.src}
-              className={cn("relative overflow-hidden rounded-[3px]", i === 0 || i === 4 ? "aspect-[4/5] md:row-span-2 md:aspect-auto" : "aspect-[4/3]")}
+              className={cn(
+                "relative overflow-hidden rounded-[3px]",
+                i === 0 || i === 4 ? "aspect-square md:row-span-2 md:aspect-auto" : "aspect-square md:aspect-[4/3]",
+                i === 6 && "col-span-2 aspect-[2/1] md:col-span-1 md:aspect-[4/3]",
+              )}
               data-reveal="image"
               data-reveal-delay={String((i % 3) * 0.08)}
             >

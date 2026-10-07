@@ -7,7 +7,7 @@ import { orderTerms } from "@/data/site";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { StudioRange } from "@/components/shop/StudioRange";
 import { ButtonLink } from "@/components/ui/Button";
-import { Ornament } from "@/components/ui/Ornament";
+import { ImageHero } from "@/components/sections/ImageHero";
 import { absoluteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -49,22 +49,15 @@ export default async function CollectionsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd).replace(/</g, "\\u003c") }}
       />
-      <section className="bg-ivory pb-14 pt-40 text-center md:pt-48">
-        <div className="shell">
-          <Ornament />
-          <p className="eyebrow mt-6 text-gold">The Diwali Gifting Collection</p>
-          <h1 className="display-hero mx-auto mt-5 max-w-[16ch] text-chocolate">
-            <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask">
-              <span className="block">Shop the collection</span>
-            </span>
-          </h1>
-          <p className="lede mx-auto mt-6 text-cocoa/70" data-reveal="fade">
-            Four handcrafted gift sets. The more you gift, the less each one costs. Prices are exclusive of shipping.
-          </p>
-        </div>
-      </section>
+      <ImageHero
+        label="The Diwali Gifting Collection"
+        title="Gifts, made by hand."
+        intro="Four handcrafted gift sets. The more you gift, the less each one costs. Prices are exclusive of shipping."
+        image="/images/site/hero-shop.webp"
+        alt="The Sacred Basil gifting collection on a travertine console: the chocolate Luxe box, the floral gift boxes and the festive ritual set"
+      />
 
-      <section aria-label="Gift sets" className="bg-ivory pb-[var(--section-y)]">
+      <section aria-label="Gift sets" className="bg-ivory py-[var(--section-y)]">
         <ul className="shell grid gap-x-6 gap-y-16 sm:grid-cols-2 lg:gap-x-10">
           {products.map((p, i) => (
             <li key={p.id} data-reveal="fade" data-reveal-delay={String((i % 2) * 0.08)}>

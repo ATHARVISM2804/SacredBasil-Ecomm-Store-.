@@ -58,3 +58,5 @@ next-env.d.ts
 /docs/inputs/**/*
 !/docs/inputs/SB Diwali Gifting Collection.pdf
 /reel/
+/docs/product-photos/**/*.mp4
+/docs/site-images/**/*.png

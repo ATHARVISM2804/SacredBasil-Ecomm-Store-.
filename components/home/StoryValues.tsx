@@ -11,14 +11,14 @@ export function StoryValues() {
     <section aria-labelledby="story-title" className="section-y bg-cream/60">
       <div className="shell grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-6">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[3px]" data-reveal="image">
+          <div className="relative aspect-[3/2] overflow-hidden rounded-[3px]" data-reveal="image">
             <div data-reveal-media className="absolute inset-0">
               <Image
-                src="/images/products/founders.webp"
-                alt="Sacred Basil founders Parita and Ananya"
+                src="/images/site/founders-wide.webp"
+                alt="Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beside the Luxe Bath & Body Care Kit"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover object-[50%_15%]"
+                className="object-cover"
               />
             </div>
           </div>

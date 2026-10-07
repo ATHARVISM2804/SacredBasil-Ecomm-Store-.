@@ -22,8 +22,15 @@ export const site = {
     address: "B 805, Sarang, Nanded City, Sinhgad Road, Pune",
   },
 
-  /** Social profiles. Leave empty until supplied. */
-  social: [] as { label: string; href: string }[],
+  /**
+   * Social profiles shown in the footer. WhatsApp and email come from the
+   * brochure; add Instagram (and others) here once the handles are supplied:
+   *   { network: "instagram", label: "Instagram", href: "https://instagram.com/<handle>" }
+   */
+  social: [
+    { network: "whatsapp", label: "WhatsApp", href: "https://wa.me/919959241078" },
+    { network: "email", label: "Email", href: "mailto:contactsacredbasil@gmail.com" },
+  ] as { network: "instagram" | "whatsapp" | "email" | "facebook" | "linkedin"; label: string; href: string }[],
 
   /** Placeholder frames name the photograph that belongs there when true. */
   showPlaceholderCaptions: false,

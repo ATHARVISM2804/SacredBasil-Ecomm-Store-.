@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/data/site";
-import { PageHero } from "@/components/sections/PageHero";
+import { ImageHero } from "@/components/sections/ImageHero";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 
 export const metadata: Metadata = {
@@ -15,14 +15,16 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero
+      <ImageHero
         label="Contact"
         title="Start a conversation."
         intro="A question about a collection, a personal gift or something you have in mind. We would love to hear from you."
+        image="/images/site/hero-contact.webp"
+        alt="A cream Sacred Basil correspondence card and brass pen beside the chocolate Luxe gift box, with marigold petals and tulsi"
       />
       <section aria-label="Contact form" className="bg-ivory pb-[var(--section-y)]">
         <div className="shell">
-          <div className="grid gap-16 border-t border-[var(--line)] pt-16 md:pt-24 lg:grid-cols-12 lg:gap-8">
+          <div className="grid gap-16 pt-[var(--section-y)] lg:grid-cols-12 lg:gap-8">
             <aside className="space-y-10 lg:col-span-4">
               <div className="space-y-3">
                 <p className="eyebrow text-gold">Write to us</p>

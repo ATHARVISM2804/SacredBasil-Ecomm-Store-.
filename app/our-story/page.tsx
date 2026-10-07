@@ -5,6 +5,7 @@ import { previousWork } from "@/data/catalog";
 import { brandValues, founders, site } from "@/data/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Ornament } from "@/components/ui/Ornament";
+import { ImageHero } from "@/components/sections/ImageHero";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -19,32 +20,16 @@ const icons = [Leaf, Rabbit, FlaskConicalOff, Sprout];
 export default function OurStoryPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ivory">
-        <div className="grid min-h-[92svh] lg:grid-cols-[1.15fr_1fr]">
-          <div className="shell order-2 flex flex-col justify-center pb-16 pt-10 lg:order-1 lg:max-w-none lg:pl-[max(var(--gutter),calc((100vw-1400px)/2+var(--gutter)))] lg:pr-16 lg:pt-40">
-            <Ornament className="justify-start" />
-            <p className="eyebrow mt-6 text-gold">About us</p>
-            <h1 className="display-hero mt-5 text-chocolate">
-              <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask">
-                <span className="block">Rooted in purpose. Driven by care.</span>
-              </span>
-            </h1>
-            <p className="lede mt-7 max-w-md text-cocoa/75" data-reveal="fade" data-reveal-delay="0.3">
-              Sacred Basil is a doctor-led brand where authenticity, quality and intention come first.
-            </p>
-          </div>
-          <div className="relative order-1 h-[58svh] lg:order-2 lg:h-auto">
-            <Image
-              src="/images/products/founders.webp"
-              alt="Sacred Basil founders Parita and Ananya"
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-[50%_15%]"
-            />
-          </div>
-        </div>
-      </section>
+      <ImageHero
+        label="About us"
+        title="Rooted in purpose. Driven by care."
+        intro="Sacred Basil is a doctor-led brand where authenticity, quality and intention come first."
+        image="/images/site/founders-wide.webp"
+        alt="Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beside the Luxe Bath & Body Care Kit"
+        layout="split"
+        position="80% 35%"
+        mobilePosition="62% 30%"
+      />
 
       <section aria-labelledby="aim-title" className="section-y bg-chocolate text-center text-ivory">
         <div className="shell">
@@ -105,6 +90,76 @@ export default function OurStoryPage() {
               );
             })}
           </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="craft-title" className="section-y relative overflow-hidden bg-chocolate text-ivory">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(55%_70%_at_75%_40%,rgb(220_194_151/0.12),transparent_70%)]"
+        />
+        <div className="shell relative grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            <Ornament tone="champagne" className="justify-start" />
+            <p className="eyebrow mt-6 text-champagne">Made by hand</p>
+            <h2 id="craft-title" className="display-section mt-4">
+              <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask">
+                <span className="block">Poured, labelled and packed by us.</span>
+              </span>
+            </h2>
+            <p className="lede mt-6 text-ivory/75" data-reveal="fade">
+              Every bottle of our Aromatic Body Oil is filled by hand in small batches in Pune, and every kit is
+              handcrafted and individually assembled.
+            </p>
+            <ul className="mt-8 space-y-3 border-t border-[var(--line-light)] pt-6 text-[0.95rem] text-ivory/75">
+              {brandValues.slice(0, 3).map((v) => (
+                <li key={v.title} className="flex items-center gap-3">
+                  <span aria-hidden className="size-1.5 rounded-full bg-champagne" />
+                  {v.title}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-[1fr_1.25fr_1fr] md:gap-5 lg:col-span-8">
+            {[
+              { src: "/video/craft/oil-1.mp4", poster: "/video/craft/oil-1.jpg", label: "Filling Aromatic Body Oil by hand" },
+              { src: "/video/craft/oil-3.mp4", poster: "/video/craft/oil-3.jpg", label: "A freshly labelled bottle of Aromatic Body Oil" },
+            ].map((v, i) => (
+              <div
+                key={v.src}
+                className={cn("relative aspect-[9/16] overflow-hidden rounded-[3px]", i === 1 && "md:order-3")}
+                data-reveal="fade"
+                data-reveal-delay={String(i * 0.12)}
+              >
+                <video
+                  className="absolute inset-0 size-full object-cover"
+                  src={v.src}
+                  poster={v.poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={v.label}
+                />
+              </div>
+            ))}
+            <div
+              className="relative col-span-2 aspect-[4/5] overflow-hidden rounded-[3px] md:order-2 md:col-span-1 md:aspect-auto"
+              data-reveal="image"
+            >
+              <div data-reveal-media className="absolute inset-0">
+                <Image
+                  src="/images/site/aromatic-body-oil.webp"
+                  alt="Sacred Basil Aromatic Body Oil bottles on travertine with a brass bowl of oil and tulsi"
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

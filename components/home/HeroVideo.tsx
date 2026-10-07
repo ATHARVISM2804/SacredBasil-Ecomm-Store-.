@@ -120,7 +120,7 @@ export function HeroVideo() {
     <section
       aria-labelledby="hero-title"
       data-header="light"
-      className="relative h-[100svh] min-h-[36rem] bg-ivory md:bg-chocolate-deep"
+      className="relative h-[100svh] min-h-[36rem] overflow-hidden bg-ivory md:bg-chocolate-deep"
     >
       {/* Film */}
       <div className="hero-emerge absolute inset-0 overflow-hidden max-md:[@media(max-height:720px)]:top-12">

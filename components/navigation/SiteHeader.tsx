@@ -24,17 +24,20 @@ const right = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [overFilm, setOverFilm] = useState(false);
+  const [overFilm, setOverFilm] = useState<"light" | "clear" | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 768px)");
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-      // Over a full-bleed film section (data-header="light"), stay transparent with light text.
-      const film = document.querySelector<HTMLElement>('[data-header="light"]');
-      const bottom = film?.getBoundingClientRect().bottom ?? 0;
-      setOverFilm(desktop.matches && bottom > 90);
+      // Over a full-bleed opening section, stay transparent:
+      //   data-header="light"  dark film or photo, light text (desktop only)
+      //   data-header="clear"  light photo, dark text (all widths)
+      const film = document.querySelector<HTMLElement>("[data-header]");
+      const tone = film?.dataset.header === "clear" ? "clear" : "light";
+      const over = (film?.getBoundingClientRect().bottom ?? 0) > 90 && (tone === "clear" || desktop.matches);
+      setOverFilm(over ? tone : null);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -54,9 +57,10 @@ export function SiteHeader() {
 
   if (pathname.startsWith("/admin")) return null;
 
-  const light = (darkHeroRoutes.includes(pathname) && !scrolled) || overFilm || menuOpen;
-  // Light pages get a soft cream bar from the start so the nav never sits on photography.
-  const solid = !light;
+  const light = (darkHeroRoutes.includes(pathname) && !scrolled) || overFilm === "light" || menuOpen;
+  // Light pages get a soft cream bar from the start so the nav never sits on photography,
+  // except over a light opening photograph, where it stays clear with dark text.
+  const solid = !light && overFilm !== "clear";
 
   const navLink = (item: { label: string; href: string }) => {
     const active = pathname === item.href || pathname.startsWith(`${item.href}/`);

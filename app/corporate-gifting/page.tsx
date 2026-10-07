@@ -7,6 +7,7 @@ import { corporateCustomisation, orderTerms } from "@/data/site";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { ButtonLink } from "@/components/ui/Button";
 import { Ornament } from "@/components/ui/Ornament";
+import { ImageHero } from "@/components/sections/ImageHero";
 
 export const metadata: Metadata = {
   title: "Corporate Wellness Gifting",
@@ -35,41 +36,21 @@ export default async function CorporateGiftingPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-chocolate text-ivory">
-        <div className="relative grid min-h-[88svh] lg:grid-cols-[1.15fr_1fr]">
-          <div className="shell order-2 flex flex-col justify-center pb-16 pt-10 lg:order-1 lg:max-w-none lg:pl-[max(var(--gutter),calc((100vw-1400px)/2+var(--gutter)))] lg:pr-16 lg:pt-40">
-            <Ornament tone="champagne" className="justify-start" />
-            <p className="eyebrow mt-6 text-champagne">Corporate wellness gifting</p>
-            <h1 className="display-hero mt-5">
-              <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask">
-                <span className="block">Thoughtful gifting, made for teams.</span>
-              </span>
-            </h1>
-            <p className="lede mt-7 max-w-md text-ivory/75" data-reveal="fade" data-reveal-delay="0.3">
-              Thoughtfully curated Diwali wellness gifts for clients, teams and business associates. Handcrafted
-              Ayurvedic-inspired self-care with premium, eco-conscious presentation.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3" data-reveal="fade" data-reveal-delay="0.45">
-              <ButtonLink href="#enquire" variant="light">
-                Request a quote
-              </ButtonLink>
-              <ButtonLink href="#pricing" variant="text" className="text-ivory">
-                See bulk pricing
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="relative order-1 h-[52svh] lg:order-2 lg:h-auto">
-            <Image
-              src="/images/products/luxe-kit-closed-premium.webp"
-              alt="A Luxe Bath & Body Care Kit box with gold foil, ready for corporate gifting"
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="hero-drift object-cover"
-            />
-          </div>
-        </div>
-      </section>
+      <ImageHero
+        tone="dark"
+        label="Corporate wellness gifting"
+        title="Thoughtful gifting, made for teams."
+        intro="Thoughtfully curated Diwali wellness gifts for clients, teams and business associates. Handcrafted Ayurvedic-inspired self-care with premium, eco-conscious presentation."
+        image="/images/site/hero-corporate.webp"
+        alt="Rows of chocolate Sacred Basil Luxe gift boxes tied with gold ribbon on a walnut table, prepared for a corporate order"
+      >
+        <ButtonLink href="#enquire" variant="light">
+          Request a quote
+        </ButtonLink>
+        <ButtonLink href="#pricing" variant="text" className="text-ivory">
+          See bulk pricing
+        </ButtonLink>
+      </ImageHero>
 
       <section aria-labelledby="made-personal" className="section-y bg-ivory">
         <div className="shell text-center">

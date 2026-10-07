@@ -19,8 +19,8 @@ export function LuxeSpotlight({ product: p }: { product: Product }) {
           <div className="relative mx-auto aspect-[3/4] max-w-lg overflow-hidden rounded-[3px]" data-reveal="image">
             <div data-reveal-media className="absolute inset-0">
               <Image
-                src="/images/products/luxe-kit-open-premium.webp"
-                alt="The Luxe Bath & Body Care Kit open, showing body scrub, face scrub, scented candle, artisanal soap and body oil set in cream"
+                src="/images/site/luxe-spotlight.webp"
+                alt="The Luxe Bath & Body Care Kit standing open on a travertine plinth: body scrub, face scrub, body oil, scented candle and artisanal soap in the cream insert"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="object-cover"
