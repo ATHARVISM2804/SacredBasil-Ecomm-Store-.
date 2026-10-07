@@ -1,6 +1,5 @@
 "use server";
 
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { site } from "@/data/site";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -27,7 +26,8 @@ export async function sendMagicLink(_prev: ActionState, fd: FormData): Promise<A
   const email = String(fd.get("email") ?? "").trim();
   if (!EMAIL_RE.test(email)) return { ok: false, message: "Enter a valid email address.", errors: { email: "Invalid email" } };
 
-  const origin = (await headers()).get("origin") ?? site.url;
+  // Trusted config only; never build auth links from request headers.
+  const origin = site.url;
   const supabase = await createSupabaseServerClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,
