@@ -4,8 +4,7 @@ import { FlaskConicalOff, Leaf, Rabbit, Sprout } from "lucide-react";
 import { previousWork } from "@/data/catalog";
 import { brandValues, founders, site } from "@/data/site";
 import { ButtonLink } from "@/components/ui/Button";
-import { Ornament } from "@/components/ui/Ornament";
-import { ImageHero } from "@/components/sections/ImageHero";
+import { Lotus, Ornament } from "@/components/ui/Ornament";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -20,16 +19,46 @@ const icons = [Leaf, Rabbit, FlaskConicalOff, Sprout];
 export default function OurStoryPage() {
   return (
     <>
-      <ImageHero
-        label="About us"
-        title="Rooted in purpose. Driven by care."
-        intro="Sacred Basil is a doctor-led brand where authenticity, quality and intention come first."
-        image="/images/site/founders-wide.webp"
-        alt="Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beside the Luxe Bath & Body Care Kit"
-        layout="split"
-        position="80% 35%"
-        mobilePosition="62% 30%"
-      />
+      {/* Opening: the full founders photograph, never cropped, so the SB
+          monogram, the Luxe box and the candle stay in view. */}
+      <section aria-labelledby="story-title" className="bg-ivory pb-[var(--section-y)] pt-36 md:pt-44 lg:pb-24">
+        <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-4">
+            <p className="eyebrow flex items-center gap-3 text-gold" data-reveal="fade">
+              <Lotus className="h-3.5 w-6" />
+              About us
+            </p>
+            <h1
+              id="story-title"
+              className="mt-5 text-balance font-display text-[clamp(2.75rem,4.4vw,4.6rem)] font-light leading-[1.02] tracking-[-0.015em] text-chocolate"
+            >
+              <span className="block overflow-hidden pb-[0.08em]" data-reveal="mask" data-reveal-delay="0.15">
+                <span className="block">Rooted in purpose. Driven by care.</span>
+              </span>
+            </h1>
+            <p className="lede mt-6 max-w-md text-cocoa/78" data-reveal="fade" data-reveal-delay="0.45">
+              Sacred Basil is a doctor-led brand where authenticity, quality and intention come first.
+            </p>
+            <p className="eyebrow mt-9 text-cocoa/55" data-reveal="fade" data-reveal-delay="0.6">
+              Parita &amp; Ananya, founders
+            </p>
+          </div>
+
+          <figure className="-mx-[var(--gutter)] sm:mx-0 lg:col-span-8">
+            <div className="hero-emerge relative aspect-[4/3] overflow-hidden bg-cream sm:aspect-[3/2] sm:rounded-[3px]">
+              <Image
+                src="/images/site/founders-wide.webp"
+                alt="Sacred Basil founders Parita and Ananya in the Sacred Basil studio, beneath the gold SB monogram, beside the Luxe Bath & Body Care Kit and a lit candle"
+                fill
+                priority
+                quality={85}
+                sizes="(min-width: 1024px) 64vw, 100vw"
+                className="object-cover object-[30%_50%] sm:object-center"
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
 
       <section aria-labelledby="aim-title" className="section-y bg-chocolate text-center text-ivory">
         <div className="shell">
