@@ -13,5 +13,7 @@ export function safeNext(next: string | null | undefined, fallback = "/account")
     return fallback;
   }
   if (url.origin !== base) return fallback;
+  // Dot segments can normalise to "//host", which a browser reads as another site.
+  if (url.pathname.startsWith("//")) return fallback;
   return url.pathname + url.search + url.hash;
 }
