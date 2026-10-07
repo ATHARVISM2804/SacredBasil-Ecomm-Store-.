@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const { email, phones, address } = site.contact;
+  const instagram = site.social.find((s) => s.network === "instagram");
 
   return (
     <>
@@ -44,6 +45,19 @@ export default function ContactPage() {
                   </a>
                 ))}
               </div>
+              {instagram && (
+                <div className="space-y-3">
+                  <p className="eyebrow text-gold">Follow us</p>
+                  <a
+                    href={instagram.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline block font-display text-2xl text-chocolate"
+                  >
+                    @{instagram.href.replace(/\/$/, "").split("/").pop()} on Instagram
+                  </a>
+                </div>
+              )}
               <div className="space-y-2">
                 <p className="eyebrow text-gold">Studio</p>
                 <p className="text-cocoa/75">{address}</p>

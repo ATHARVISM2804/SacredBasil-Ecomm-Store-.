@@ -24,10 +24,10 @@ export const site = {
 
   /**
    * Social profiles shown in the footer. WhatsApp and email come from the
-   * brochure; add Instagram (and others) here once the handles are supplied:
-   *   { network: "instagram", label: "Instagram", href: "https://instagram.com/<handle>" }
+   * brochure; add other networks here once supplied.
    */
   social: [
+    { network: "instagram", label: "Instagram", href: "https://www.instagram.com/sacredbasil.in/" },
     { network: "whatsapp", label: "WhatsApp", href: "https://wa.me/919959241078" },
     { network: "email", label: "Email", href: "mailto:contactsacredbasil@gmail.com" },
   ] as { network: "instagram" | "whatsapp" | "email" | "facebook" | "linkedin"; label: string; href: string }[],
