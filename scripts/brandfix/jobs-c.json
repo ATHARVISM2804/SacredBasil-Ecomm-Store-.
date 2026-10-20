@@ -1,0 +1,2082 @@
+[
+ {
+  "name": "lavender",
+  "src": "docs/site-images/ai-originals/products/scented-candle-lavender-jar.webp",
+  "out": "public/images/products/scented-candle-lavender-jar.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/c/lavender-prev.png",
+  "crop": [
+   520,
+   610,
+   700,
+   720
+  ],
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     562,
+     639,
+     650,
+     700
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 606,
+    "cy": 670,
+    "w": 66,
+    "color": [
+     66,
+     30,
+     16
+    ],
+    "finish": "print",
+    "shade_ref": 0
+   }
+  ]
+ },
+ {
+  "name": "mahogany",
+  "src": "docs/site-images/ai-originals/products/scented-candle-mahogany-jar.webp",
+  "out": "public/images/products/scented-candle-mahogany-jar.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/c/mahogany-prev.png",
+  "crop": [
+   470,
+   570,
+   700,
+   720
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     512,
+     588,
+     652,
+     704
+    ],
+    "ink": "dark",
+    "thresh": 7,
+    "grow": 2,
+    "stroke": 25,
+    "fit": 1,
+    "texbox": [
+     430,
+     600,
+     500,
+     700
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 575,
+    "cy": 648,
+    "w": 112,
+    "color": [
+     72,
+     44,
+     22
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "serenity",
+  "src": "docs/site-images/ai-originals/products/serenity-box-open-3-products.webp",
+  "out": "public/images/products/serenity-box-open-3-products.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/c/serenity-prev.png",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     514,
+     160,
+     602,
+     238
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 558,
+    "cy": 200,
+    "w": 76,
+    "color": [
+     30,
+     22,
+     20
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     466,
+     790,
+     552,
+     866
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 509,
+    "cy": 829,
+    "w": 73,
+    "color": [
+     40,
+     30,
+     26
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     438,
+     909,
+     582,
+     930
+    ],
+    "ink": "dark",
+    "thresh": 5,
+    "grow": 2,
+    "stroke": 15,
+    "fit": 1,
+    "fitbox": [
+     430,
+     909,
+     590,
+     945
+    ],
+    "grain": 0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     440,
+     1069,
+     506,
+     1131
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 473,
+    "cy": 1102,
+    "w": 60,
+    "color": [
+     40,
+     30,
+     26
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     742,
+     910,
+     793,
+     956
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 767,
+    "cy": 932,
+    "w": 43,
+    "color": [
+     42,
+     32,
+     28
+    ],
+    "finish": "print"
+   },
+   {
+    "tag": "leftbox",
+    "op": "erase",
+    "poly": [
+     [
+      0,
+      148
+     ],
+     [
+      96,
+      143
+     ],
+     [
+      116,
+      203
+     ],
+     [
+      119,
+      232
+     ],
+     [
+      112,
+      249
+     ],
+     [
+      0,
+      287
+     ]
+    ],
+    "ink": "dark",
+    "thresh": 35,
+    "grow": 3,
+    "stroke": 21,
+    "grain": 0,
+    "smooth": 3
+   },
+   {
+    "tag": "leftbox",
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 39,
+    "cy": 214,
+    "w": 102,
+    "angle": -17.6,
+    "color": [
+     30,
+     20,
+     14
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "tranquil-box-open-4-products",
+  "src": "docs/site-images/ai-originals/products/tranquil-box-open-4-products.webp",
+  "out": "public/images/products/tranquil-box-open-4-products.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     461,
+     161,
+     550,
+     241
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 505.0,
+    "cy": 200.5,
+    "w": 77.5,
+    "color": [
+     40,
+     20,
+     5
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     336,
+     750,
+     414,
+     816
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 374.5,
+    "cy": 782.5,
+    "w": 62.0,
+    "color": [
+     57,
+     35,
+     16
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     608,
+     883,
+     656,
+     927
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 631.5,
+    "cy": 904.5,
+    "w": 37.7,
+    "color": [
+     38,
+     21,
+     10
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     313,
+     1051,
+     377,
+     1110
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 344.5,
+    "cy": 1080.0,
+    "w": 54.3,
+    "color": [
+     50,
+     30,
+     14
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     819,
+     976,
+     875,
+     1025
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 846.5,
+    "cy": 1000.0,
+    "w": 43.2,
+    "color": [
+     41,
+     20,
+     9
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "unwind-lit",
+  "src": "docs/site-images/ai-originals/products/unwind-candle-tin-oudh-tabac-lit.webp",
+  "out": "public/images/products/unwind-candle-tin-oudh-tabac-lit.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     757,
+     611,
+     828,
+     679
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 792,
+    "cy": 645,
+    "w": 53,
+    "angle": -10,
+    "color": [
+     40,
+     22,
+     12
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "unwind-styled",
+  "src": "docs/site-images/ai-originals/products/unwind-candle-tin-oudh-tabac-styled.webp",
+  "out": "public/images/products/unwind-candle-tin-oudh-tabac-styled.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     684,
+     788,
+     768,
+     852
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 726,
+    "cy": 821,
+    "w": 54,
+    "angle": -10,
+    "vangle": 82,
+    "vscale": 0.82,
+    "color": [
+     58,
+     36,
+     22
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "work-01",
+  "src": "docs/site-images/ai-originals/products/work-01.webp",
+  "out": "public/images/products/work-01.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     782,
+     357,
+     909,
+     456
+    ],
+    "ink": "bright",
+    "thresh": 15.0,
+    "grow": 2,
+    "stroke": 21,
+    "fit": 1,
+    "grain": 0.9
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 841.5,
+    "cy": 406.0,
+    "w": 98.6,
+    "color": [
+     237,
+     178,
+     109
+    ],
+    "finish": "foil",
+    "light": 0.2
+   },
+   {
+    "op": "erase",
+    "box": [
+     260,
+     654,
+     412,
+     766
+    ],
+    "ink": "bright",
+    "thresh": 15.0,
+    "grow": 2,
+    "stroke": 21,
+    "fit": 1,
+    "grain": 0.9
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 330.0,
+    "cy": 709.5,
+    "w": 113.0,
+    "color": [
+     238,
+     182,
+     115
+    ],
+    "finish": "foil",
+    "light": 0.2
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     633,
+     791,
+     698,
+     839
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 665.0,
+    "cy": 814.5,
+    "w": 42.1,
+    "color": [
+     208,
+     163,
+     128
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     780,
+     772,
+     840,
+     817
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 810.0,
+    "cy": 794.0,
+    "w": 38.8,
+    "color": [
+     206,
+     158,
+     117
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     398,
+     1008,
+     473,
+     1060
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 434.5,
+    "cy": 1033.5,
+    "w": 46.5,
+    "color": [
+     207,
+     162,
+     128
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     633,
+     1000,
+     693,
+     1045
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 662.0,
+    "cy": 1022.0,
+    "w": 38.8,
+    "color": [
+     198,
+     156,
+     127
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     933,
+     1054,
+     1000,
+     1103
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 966.5,
+    "cy": 1078.0,
+    "w": 43.2,
+    "color": [
+     213,
+     164,
+     126
+    ],
+    "finish": "print"
+   },
+   {
+    "tag": "lid",
+    "op": "erase",
+    "poly": [
+     [
+      800,
+      1034
+     ],
+     [
+      842,
+      1034
+     ],
+     [
+      838,
+      1082
+     ],
+     [
+      822,
+      1098
+     ],
+     [
+      790,
+      1098
+     ],
+     [
+      795,
+      1060
+     ]
+    ],
+    "ink": "bright",
+    "thresh": 10,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2
+   },
+   {
+    "tag": "lid",
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 815,
+    "cy": 1062,
+    "w": 31,
+    "angle": -12,
+    "vangle": 104,
+    "vscale": 1.55,
+    "color": [
+     184,
+     140,
+     92
+    ],
+    "finish": "print",
+    "opacity": 0.9
+   }
+  ]
+ },
+ {
+  "name": "work-02",
+  "src": "docs/site-images/ai-originals/products/work-02.webp",
+  "out": "public/images/products/work-02.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     270,
+     435,
+     396,
+     527
+    ],
+    "ink": "bright",
+    "thresh": 13.333333333333334,
+    "grow": 2,
+    "stroke": 21,
+    "fit": 1,
+    "grain": 0.9
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 327.5,
+    "cy": 480.5,
+    "w": 90.8,
+    "color": [
+     213,
+     159,
+     101
+    ],
+    "finish": "foil",
+    "light": 0.2
+   },
+   {
+    "op": "erase",
+    "box": [
+     591,
+     856,
+     655,
+     899
+    ],
+    "ink": "bright",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 622,
+    "cy": 874,
+    "w": 31.7,
+    "angle": 8,
+    "color": [
+     234,
+     192,
+     146
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     774,
+     883,
+     835,
+     925
+    ],
+    "ink": "bright",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 803,
+    "cy": 900,
+    "w": 29.9,
+    "angle": 8,
+    "color": [
+     234,
+     192,
+     146
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     940,
+     924,
+     1006,
+     973
+    ],
+    "ink": "bright",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 975,
+    "cy": 944,
+    "w": 35.2,
+    "angle": 10,
+    "color": [
+     234,
+     192,
+     146
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     524,
+     1026,
+     588,
+     1067
+    ],
+    "ink": "bright",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 558,
+    "cy": 1043,
+    "w": 28.2,
+    "angle": 8,
+    "color": [
+     234,
+     192,
+     146
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     754,
+     1040,
+     813,
+     1079
+    ],
+    "ink": "bright",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 785,
+    "cy": 1056,
+    "w": 28.2,
+    "angle": 4,
+    "color": [
+     234,
+     192,
+     146
+    ],
+    "finish": "print"
+   },
+   {
+    "tag": "toplid",
+    "op": "erase",
+    "box": [
+     866,
+     144,
+     958,
+     166
+    ],
+    "ink": "bright",
+    "thresh": 8,
+    "grow": 2,
+    "stroke": 21,
+    "grain": 0,
+    "smooth": 3
+   },
+   {
+    "tag": "toplid",
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 911,
+    "cy": 155,
+    "w": 66,
+    "angle": 2,
+    "vscale": 0.27,
+    "color": [
+     226,
+     170,
+     100
+    ],
+    "finish": "print",
+    "soften": 0.9,
+    "opacity": 1.0
+   }
+  ]
+ },
+ {
+  "name": "work-03",
+  "src": "docs/site-images/ai-originals/products/work-03.webp",
+  "out": "public/images/products/work-03.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      150,
+      800
+     ],
+     [
+      255,
+      760
+     ],
+     [
+      312,
+      800
+     ],
+     [
+      328,
+      852
+     ],
+     [
+      224,
+      920
+     ],
+     [
+      192,
+      908
+     ],
+     [
+      155,
+      887
+     ]
+    ],
+    "ink": "dark",
+    "thresh": 12,
+    "grow": 2,
+    "stroke": 21,
+    "grain": 0,
+    "smooth": 3
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 243,
+    "cy": 832,
+    "w": 114,
+    "angle": -27,
+    "color": [
+     44,
+     34,
+     30
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     700,
+     650,
+     756,
+     696
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "cx": 726,
+    "cy": 672,
+    "w": 39,
+    "angle": 12,
+    "color": [
+     62,
+     50,
+     42
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "poly": [
+     [
+      895,
+      500
+     ],
+     [
+      944,
+      506
+     ],
+     [
+      944,
+      540
+     ],
+     [
+      928,
+      538
+     ],
+     [
+      900,
+      532
+     ],
+     [
+      895,
+      528
+     ]
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "cx": 918,
+    "cy": 518,
+    "w": 33,
+    "angle": 20,
+    "color": [
+     70,
+     60,
+     52
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "poly": [
+     [
+      1092,
+      655
+     ],
+     [
+      1143,
+      660
+     ],
+     [
+      1143,
+      703
+     ],
+     [
+      1120,
+      700
+     ],
+     [
+      1104,
+      696
+     ],
+     [
+      1092,
+      694
+     ]
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "cx": 1115,
+    "cy": 677,
+    "w": 38,
+    "angle": 15,
+    "color": [
+     70,
+     60,
+     52
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     266,
+     346,
+     294,
+     364
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "finish": "print",
+    "cx": 280,
+    "cy": 355,
+    "w": 19,
+    "angle": 4,
+    "color": [
+     66,
+     50,
+     38
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     367,
+     366,
+     394,
+     385
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "finish": "print",
+    "cx": 381,
+    "cy": 375.5,
+    "w": 19,
+    "angle": 4,
+    "color": [
+     66,
+     50,
+     38
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     475,
+     379,
+     503,
+     399
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "finish": "print",
+    "cx": 489,
+    "cy": 389,
+    "w": 20,
+    "angle": 4,
+    "color": [
+     66,
+     50,
+     38
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     587,
+     392,
+     615,
+     413
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "finish": "print",
+    "cx": 601,
+    "cy": 402.5,
+    "w": 20,
+    "angle": 4,
+    "color": [
+     66,
+     50,
+     38
+    ]
+   }
+  ]
+ },
+ {
+  "name": "work-04",
+  "src": "docs/site-images/ai-originals/products/work-04.webp",
+  "out": "public/images/products/work-04.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      520,
+      790
+     ],
+     [
+      640,
+      755
+     ],
+     [
+      720,
+      768
+     ],
+     [
+      740,
+      860
+     ],
+     [
+      608,
+      930
+     ],
+     [
+      575,
+      915
+     ],
+     [
+      520,
+      880
+     ]
+    ],
+    "ink": "dark",
+    "thresh": 12,
+    "grow": 3,
+    "stroke": 25,
+    "grain": 0,
+    "smooth": 3
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 626,
+    "cy": 838,
+    "w": 142,
+    "angle": -18,
+    "color": [
+     92,
+     78,
+     64
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "work-05",
+  "src": "docs/site-images/ai-originals/products/work-05.webp",
+  "out": "public/images/products/work-05.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     424,
+     301,
+     464,
+     330
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 1.0,
+    "cx": 443,
+    "cy": 314,
+    "w": 32,
+    "angle": 8,
+    "vscale": 0.7,
+    "color": [
+     120,
+     82,
+     50
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     755,
+     328,
+     800,
+     356
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 1.0,
+    "cx": 777,
+    "cy": 342,
+    "w": 34,
+    "angle": 6,
+    "vscale": 0.7,
+    "color": [
+     110,
+     74,
+     44
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     193,
+     376,
+     228,
+     395
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 1.0,
+    "cx": 210,
+    "cy": 386,
+    "w": 26,
+    "angle": 6,
+    "vscale": 0.75,
+    "color": [
+     160,
+     116,
+     84
+    ],
+    "opacity": 0.85
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     963,
+     377,
+     990,
+     399
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 0.35,
+    "cx": 976,
+    "cy": 389,
+    "w": 18.5,
+    "color": [
+     64,
+     40,
+     22
+    ],
+    "bold": 0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1046,
+     377,
+     1073,
+     399
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 0.35,
+    "cx": 1059,
+    "cy": 389,
+    "w": 18.5,
+    "color": [
+     64,
+     40,
+     22
+    ],
+    "bold": 0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1097,
+     393,
+     1118,
+     413
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 0.35,
+    "cx": 1107,
+    "cy": 403,
+    "w": 15.5,
+    "color": [
+     64,
+     40,
+     22
+    ],
+    "bold": 0,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1137,
+     406,
+     1164,
+     430
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "finish": "print",
+    "soften": 0.35,
+    "cx": 1150,
+    "cy": 418,
+    "w": 18.5,
+    "color": [
+     64,
+     40,
+     22
+    ],
+    "bold": 0
+   }
+  ]
+ },
+ {
+  "name": "work-07",
+  "src": "docs/site-images/ai-originals/products/work-07.webp",
+  "out": "public/images/products/work-07.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     124,
+     953,
+     169,
+     988
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 146.0,
+    "cy": 970.0,
+    "w": 37,
+    "angle": 0,
+    "color": [
+     78,
+     48,
+     34
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     373,
+     961,
+     418,
+     996
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 395.0,
+    "cy": 978.0,
+    "w": 37,
+    "angle": 0,
+    "color": [
+     78,
+     48,
+     34
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     631,
+     963,
+     674,
+     997
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 652.0,
+    "cy": 979.5,
+    "w": 35,
+    "angle": 0,
+    "color": [
+     78,
+     48,
+     34
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     872,
+     958,
+     916,
+     993
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 893.5,
+    "cy": 975.0,
+    "w": 36,
+    "angle": 0,
+    "color": [
+     78,
+     48,
+     34
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1136,
+     944,
+     1181,
+     981
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 1158.0,
+    "cy": 962.0,
+    "w": 37,
+    "angle": -3,
+    "color": [
+     78,
+     48,
+     34
+    ],
+    "finish": "print"
+   }
+  ]
+ },
+ {
+  "name": "work-08",
+  "src": "docs/site-images/ai-originals/products/work-08.webp",
+  "out": "public/images/products/work-08.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     234,
+     433,
+     260,
+     461
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 246.5,
+    "cy": 446.5,
+    "w": 25,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     386,
+     428,
+     413,
+     457
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 399.0,
+    "cy": 442.0,
+    "w": 26,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     531,
+     423,
+     561,
+     450
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 545.5,
+    "cy": 436.0,
+    "w": 29,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     209,
+     581,
+     237,
+     610
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 222.5,
+    "cy": 595.0,
+    "w": 27,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     406,
+     578,
+     435,
+     607
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 420.0,
+    "cy": 592.0,
+    "w": 28,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     550,
+     576,
+     580,
+     603
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 564.5,
+    "cy": 589.0,
+    "w": 29,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     225,
+     756,
+     254,
+     784
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 239.0,
+    "cy": 769.5,
+    "w": 28,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     415,
+     734,
+     443,
+     766
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 428.5,
+    "cy": 749.5,
+    "w": 27,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     585,
+     708,
+     616,
+     739
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 600.0,
+    "cy": 723.0,
+    "w": 30,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     256,
+     897,
+     286,
+     929
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 270.5,
+    "cy": 912.5,
+    "w": 29,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     434,
+     891,
+     463,
+     920
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 448.0,
+    "cy": 905.0,
+    "w": 28,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     581,
+     878,
+     612,
+     906
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 596.0,
+    "cy": 891.5,
+    "w": 30,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     261,
+     1063,
+     290,
+     1094
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 275.0,
+    "cy": 1078.0,
+    "w": 28,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     454,
+     1042,
+     484,
+     1074
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 468.5,
+    "cy": 1057.5,
+    "w": 29,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 14,
+    "grow": 1,
+    "stroke": 21,
+    "box": [
+     624,
+     1015,
+     654,
+     1049
+    ],
+    "ink": "dark"
+   },
+   {
+    "op": "logo",
+    "kind": "monogram",
+    "cx": 638.5,
+    "cy": 1031.5,
+    "w": 29,
+    "angle": -5,
+    "color": [
+     84,
+     60,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.4
+   }
+  ]
+ },
+ {
+  "name": "work-12",
+  "src": "docs/site-images/ai-originals/products/work-12.webp",
+  "out": "public/images/products/work-12.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     728,
+     586,
+     850,
+     680
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 2,
+    "stroke": 21,
+    "fit": 1,
+    "texbox": [
+     600,
+     580,
+     700,
+     680
+    ],
+    "grain": 0.9
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 789,
+    "cy": 633,
+    "w": 96,
+    "angle": 0.5,
+    "color": [
+     24,
+     18,
+     14
+    ],
+    "finish": "print"
+   }
+  ]
+ }
+]

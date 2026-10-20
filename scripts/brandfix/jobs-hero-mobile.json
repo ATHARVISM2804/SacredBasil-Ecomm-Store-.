@@ -1,0 +1,922 @@
+[
+ {
+  "name": "F2",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F2.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F2.png",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     394,
+     775,
+     562,
+     922
+    ],
+    "ink": "bright",
+    "thresh": 8,
+    "grow": 3,
+    "tex": [
+     190,
+     0
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 482,
+    "cy": 850,
+    "w": 141,
+    "color": [
+     231,
+     185,
+     120
+    ],
+    "finish": "foil",
+    "light": 0.25
+   }
+  ]
+ },
+ {
+  "name": "F3",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F3.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F3.png",
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      380,
+      900
+     ],
+     [
+      438,
+      768
+     ],
+     [
+      672,
+      773
+     ],
+     [
+      670,
+      955
+     ],
+     [
+      625,
+      994
+     ],
+     [
+      540,
+      974
+     ],
+     [
+      505,
+      958
+     ],
+     [
+      440,
+      956
+     ],
+     [
+      380,
+      938
+     ]
+    ],
+    "ink": "bright",
+    "thresh": 6,
+    "grow": 4,
+    "stroke": 61,
+    "texbox": [
+     690,
+     800,
+     770,
+     880
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 541,
+    "cy": 858,
+    "w": 205,
+    "angle": 17,
+    "vangle": 111,
+    "vscale": 0.8,
+    "color": [
+     226,
+     176,
+     114
+    ],
+    "finish": "foil",
+    "light": 0.3
+   }
+  ]
+ },
+ {
+  "name": "F4",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F4.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F4.png",
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      569,
+      577
+     ],
+     [
+      683,
+      597
+     ],
+     [
+      665,
+      685
+     ],
+     [
+      551,
+      665
+     ]
+    ],
+    "ink": "bright",
+    "thresh": 8,
+    "grow": 2,
+    "stroke": 41,
+    "texbox": [
+     690,
+     595,
+     745,
+     640
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 617,
+    "cy": 632,
+    "w": 84,
+    "angle": 10,
+    "vangle": 102,
+    "color": [
+     201,
+     146,
+     88
+    ],
+    "finish": "foil",
+    "light": 0.25
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      322.1,
+      976.4
+     ],
+     [
+      371.9,
+      987.0
+     ],
+     [
+      364.4,
+      1022.7
+     ],
+     [
+      314.5,
+      1012.1
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 342,
+    "cy": 1000,
+    "w": 33,
+    "angle": 12,
+    "vangle": 97,
+    "color": [
+     227,
+     169,
+     105
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      489.4,
+      1013.7
+     ],
+     [
+      537.3,
+      1023.9
+     ],
+     [
+      530.0,
+      1058.1
+     ],
+     [
+      482.1,
+      1047.9
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 510,
+    "cy": 1036,
+    "w": 34,
+    "angle": 12,
+    "vangle": 101,
+    "color": [
+     216,
+     156,
+     97
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      255.5,
+      1157.2
+     ],
+     [
+      307.1,
+      1169.1
+     ],
+     [
+      298.4,
+      1207.1
+     ],
+     [
+      246.7,
+      1195.2
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 276,
+    "cy": 1182,
+    "w": 36,
+    "angle": 13,
+    "vangle": 97,
+    "color": [
+     227,
+     159,
+     94
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      453.7,
+      1160.0
+     ],
+     [
+      505.6,
+      1171.1
+     ],
+     [
+      497.7,
+      1208.2
+     ],
+     [
+      445.8,
+      1197.2
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 475,
+    "cy": 1184,
+    "w": 36,
+    "angle": 12,
+    "vangle": 101,
+    "color": [
+     213,
+     152,
+     91
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      656.1,
+      1065.3
+     ],
+     [
+      703.8,
+      1076.4
+     ],
+     [
+      695.6,
+      1111.9
+     ],
+     [
+      647.9,
+      1100.9
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 674,
+    "cy": 1088,
+    "w": 34,
+    "angle": 13,
+    "vangle": 102,
+    "color": [
+     222,
+     167,
+     109
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "word": 1.0
+   },
+   {
+    "op": "unlight2",
+    "strip": [
+     [
+      298,
+      1079
+     ],
+     [
+      315,
+      1079
+     ],
+     [
+      315,
+      1145
+     ],
+     [
+      298,
+      1145
+     ]
+    ],
+    "angle": 6,
+    "wick": [
+     305,
+     1132,
+     1139
+    ],
+    "wick_w": 1.4,
+    "wick_color": [
+     118,
+     98,
+     80
+    ],
+    "glow": [
+     306,
+     1110,
+     30,
+     0.07
+    ]
+   }
+  ]
+ },
+ {
+  "name": "F5",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F5.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F5.png",
+  "ops": [
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      250,
+      915
+     ],
+     [
+      375,
+      915
+     ],
+     [
+      375,
+      1003
+     ],
+     [
+      250,
+      1003
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 312,
+    "cy": 960,
+    "w": 84,
+    "color": [
+     225,
+     174,
+     116
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      590,
+      925
+     ],
+     [
+      715,
+      925
+     ],
+     [
+      715,
+      1018
+     ],
+     [
+      590,
+      1018
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 651,
+    "cy": 968,
+    "w": 90,
+    "color": [
+     218,
+     164,
+     108
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "F6",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F6.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F6.png",
+  "ops": [
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      244,
+      898
+     ],
+     [
+      362,
+      898
+     ],
+     [
+      362,
+      994
+     ],
+     [
+      244,
+      994
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 300,
+    "cy": 947,
+    "w": 91,
+    "color": [
+     193,
+     144,
+     93
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      568,
+      954
+     ],
+     [
+      682,
+      954
+     ],
+     [
+      682,
+      1044
+     ],
+     [
+      568,
+      1044
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 623,
+    "cy": 1000,
+    "w": 88,
+    "color": [
+     192,
+     144,
+     95
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "F7",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F7.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F7.png",
+  "ops": [
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      450,
+      955
+     ],
+     [
+      610,
+      955
+     ],
+     [
+      610,
+      1062
+     ],
+     [
+      450,
+      1062
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 530,
+    "cy": 1010,
+    "w": 107,
+    "color": [
+     195,
+     126,
+     61
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "F8",
+  "src": "docs/hero-film/luxe/ai-originals/mobile-frames/F8.png",
+  "out": "docs/hero-film/luxe/mobile-frames-fixed/F8.png",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     525,
+     700,
+     660,
+     812
+    ],
+    "ink": "bright",
+    "thresh": 8,
+    "grow": 3,
+    "texbox": [
+     690,
+     690,
+     770,
+     770
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 590,
+    "cy": 758,
+    "w": 105,
+    "color": [
+     234,
+     183,
+     105
+    ],
+    "finish": "foil",
+    "light": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "poly": [
+     [
+      115,
+      1056
+     ],
+     [
+      189,
+      1056
+     ],
+     [
+      189,
+      1108
+     ],
+     [
+      115,
+      1108
+     ]
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 151,
+    "cy": 1084,
+    "w": 46,
+    "color": [
+     204,
+     148,
+     93
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      293,
+      1078
+     ],
+     [
+      357,
+      1078
+     ],
+     [
+      357,
+      1130
+     ],
+     [
+      293,
+      1130
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 20,
+    "grow": 3,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 325,
+    "cy": 1105,
+    "w": 44,
+    "color": [
+     219,
+     157,
+     91
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      456,
+      1155
+     ],
+     [
+      522,
+      1155
+     ],
+     [
+      522,
+      1202
+     ],
+     [
+      456,
+      1202
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 24,
+    "grow": 2,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 488,
+    "cy": 1179,
+    "w": 44,
+    "color": [
+     207,
+     155,
+     117
+    ],
+    "finish": "print",
+    "soften": 0.35
+   },
+   {
+    "op": "dfill",
+    "poly": [
+     [
+      552,
+      1040
+     ],
+     [
+      607,
+      1040
+     ],
+     [
+      607,
+      1086
+     ],
+     [
+      564,
+      1086
+     ],
+     [
+      561,
+      1079
+     ],
+     [
+      552,
+      1079
+     ]
+    ],
+    "mode": "fit",
+    "ring": 5,
+    "inkonly": 1,
+    "inpaint": 1,
+    "clamp": 10,
+    "thresh": 20,
+    "grow": 3,
+    "feather": 1.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 579,
+    "cy": 1063,
+    "w": 42,
+    "color": [
+     232,
+     172,
+     82
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "poly": [
+     [
+      716,
+      1093
+     ],
+     [
+      783,
+      1093
+     ],
+     [
+      783,
+      1144
+     ],
+     [
+      716,
+      1144
+     ]
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 752,
+    "cy": 1120,
+    "w": 44,
+    "color": [
+     207,
+     145,
+     77
+    ],
+    "finish": "print",
+    "soften": 0.35
+   }
+  ]
+ }
+]

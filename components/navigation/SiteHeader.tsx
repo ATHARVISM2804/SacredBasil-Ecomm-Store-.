@@ -1,83 +1,68 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { UserRound } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, UserRound, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { CartButton } from "@/components/cart/CartButton";
 import { MobileMenu } from "./MobileMenu";
+import { brandMenu, shopMenu, type MenuGroup } from "@/data/site";
 import { cn } from "@/lib/utils";
+import type { AnnouncementSetting } from "@/lib/admin/settings";
 
-/** Routes that open on a dark hero: the header starts with light text over them. */
-const darkHeroRoutes = ["/corporate-gifting"];
-
-const left = [
-  { label: "Shop", href: "/collections" },
-  { label: "Corporate Gifting", href: "/corporate-gifting" },
-];
-const right = [
-  { label: "Our Story", href: "/our-story" },
-  { label: "Contact", href: "/contact" },
-];
-
-export function SiteHeader() {
+/**
+ * Two-row header after Skandinavisk: wordmark and icons, then the shop menu
+ * left and the brand menu right. Solid white and sticky (tucks away while
+ * scrolling down, returns on the way up); the announcement
+ * bar above it scrolls away with the page.
+ */
+export function SiteHeader({ announcement }: { announcement: AnnouncementSetting | null }) {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-  const [overFilm, setOverFilm] = useState<"light" | "clear" | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 768px)");
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      // Over a full-bleed opening section, stay transparent:
-      //   data-header="light"  dark film or photo, light text (desktop only)
-      //   data-header="clear"  light photo, dark text (all widths)
-      const film = document.querySelector<HTMLElement>("[data-header]");
-      const tone = film?.dataset.header === "clear" ? "clear" : "light";
-      const over = (film?.getBoundingClientRect().bottom ?? 0) > 90 && (tone === "clear" || desktop.matches);
-      setOverFilm(over ? tone : null);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [pathname]);
-
-  // Close the menu whenever the route changes.
+  // Close menus whenever the route changes.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
     setMenuOpen(false);
+    setOpenGroup(null);
   }
+
+  // Tuck the header away while scrolling down; bring it back on the way up.
+  const [tucked, setTucked] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 8) return;
+      setTucked(y > last && y > 160);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!openGroup) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenGroup(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openGroup]);
 
   if (pathname.startsWith("/admin")) return null;
 
-  const light = (darkHeroRoutes.includes(pathname) && !scrolled) || overFilm === "light" || menuOpen;
-  // Light pages get a soft cream bar from the start so the nav never sits on photography,
-  // except over a light opening photograph, where it stays clear with dark text.
-  const solid = !light && overFilm !== "clear";
-
-  const navLink = (item: { label: string; href: string }) => {
-    const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-    return (
-      <li key={item.href}>
-        <Link
-          href={item.href}
-          aria-current={active ? "page" : undefined}
-          className={cn(
-            "eyebrow link-underline pb-1 transition-opacity duration-500",
-            active ? "opacity-100" : "opacity-80 hover:opacity-100",
-          )}
-        >
-          {item.label}
-        </Link>
-      </li>
-    );
+  const hover = (label: string | null) => {
+    clearTimeout(closeTimer.current);
+    if (label) setOpenGroup(label);
+    else closeTimer.current = setTimeout(() => setOpenGroup(null), 120);
+  };
+  const isActive = (href: string) => {
+    const path = href.split("#")[0];
+    return path !== "/collections" && (pathname === path || pathname.startsWith(`${path}/`));
   };
 
   return (
@@ -85,88 +70,155 @@ export function SiteHeader() {
       <a href="#main" className="btn btn-primary fixed left-4 top-4 z-[70] -translate-y-24 focus:translate-y-0">
         Skip to content
       </a>
+
+      {announcement && (
+        <div className="bg-chocolate text-ivory">
+          <p className="shell flex h-9 items-center justify-center gap-3 text-center text-[0.78rem]">
+            {/* With a link, phones show just the link; without one, the text shows everywhere. */}
+            <span className={cn("truncate", announcement.link && "hidden sm:inline")}>{announcement.text}</span>
+            {announcement.link && (
+              <Link href={announcement.link} className="shrink-0 underline underline-offset-4">
+                {announcement.linkLabel}
+              </Link>
+            )}
+          </p>
+        </div>
+      )}
+
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow] duration-700 ease-[var(--ease-editorial)]",
-          light ? "text-ivory" : "text-chocolate",
-          solid && "bg-ivory/95 shadow-[0_1px_0_var(--line)] backdrop-blur-md",
+          "sticky top-0 z-50 border-b border-[var(--line)] bg-ivory text-chocolate transition-transform duration-500 ease-[var(--ease-editorial)]",
+          tucked && !menuOpen && !openGroup && "-translate-y-full",
         )}
+        onMouseLeave={() => hover(null)}
       >
-        {/* Announcement bar: folds away once the page scrolls */}
-        <div
-          className={cn(
-            "grid overflow-hidden bg-chocolate text-champagne transition-[grid-template-rows] duration-700 ease-[var(--ease-editorial)]",
-            scrolled || menuOpen ? "grid-rows-[0fr]" : "grid-rows-[1fr]",
-          )}
-        >
-          <div className="min-h-0">
-            <p className="shell flex h-9 items-center justify-center gap-3 text-center text-[0.72rem] tracking-[0.08em]">
-              <span className="hidden sm:inline">Diwali gifting: reserve your festive production slot early.</span>
-              <Link href="/corporate-gifting#enquire" className="link-underline pb-px [background-size:100%_1px]">
-                Enquire now
-              </Link>
-            </p>
-          </div>
-        </div>
-
-        <div
-          className={cn(
-            "shell grid grid-cols-[1fr_auto_1fr] items-center transition-[height] duration-700 ease-[var(--ease-editorial)]",
-            scrolled ? "h-16" : "h-[5.25rem]",
-          )}
-        >
-          <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-9">{left.map(navLink)}</ul>
-          </nav>
-          <button
-            type="button"
-            className="eyebrow relative z-[60] -ml-2 flex h-11 min-w-11 items-center gap-3 justify-self-start px-2 lg:hidden"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            <span aria-hidden className="relative block h-2.5 w-6">
-              <span
-                className={cn(
-                  "absolute left-0 top-0 h-px w-full bg-current transition-transform duration-500",
-                  menuOpen && "translate-y-[5px] rotate-45",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute bottom-0 left-0 h-px w-full bg-current transition-transform duration-500",
-                  menuOpen && "-translate-y-[4px] -rotate-45",
-                )}
-              />
-            </span>
-            <span className="hidden xs:inline">{menuOpen ? "Close" : "Menu"}</span>
-          </button>
-
-          <Link href="/" aria-label="Sacred Basil, home" className="relative z-[60] flex items-center gap-3.5 py-2">
-            <Logo variant="monogram" className={cn("transition-[height] duration-700", scrolled ? "h-7" : "h-9")} />
-            <span aria-hidden className="hidden h-6 w-px bg-current opacity-30 sm:block" />
-            <Logo variant="wordmark" className="hidden h-[0.8rem] sm:block" />
+        <div className="flex h-16 items-center justify-between px-[var(--gutter)] lg:h-[3.75rem] lg:pt-2">
+          <Link href="/" aria-label="Sacred Basil, home" className="flex items-center gap-3 py-2">
+            <Logo variant="monogram" className="h-8 lg:h-7" />
+            <Logo variant="wordmark" className="h-[0.78rem] lg:h-[0.85rem]" />
           </Link>
 
-          <div className={cn("flex items-center justify-end gap-6 lg:gap-9", menuOpen && "invisible")}>
-            <nav aria-label="Secondary" className="hidden lg:block">
-              <ul className="flex items-center gap-9">{right.map(navLink)}</ul>
-            </nav>
-            <div className="flex items-center gap-1 sm:gap-2">
-              <Link
-                href="/account"
-                aria-label="Your account"
-                className="flex size-11 items-center justify-center opacity-85 transition-opacity hover:opacity-100"
-              >
-                <UserRound aria-hidden className="size-[1.15rem]" strokeWidth={1.25} />
-              </Link>
-              <CartButton />
-            </div>
+          <div className="flex items-center gap-1">
+            <Link
+              href="/account"
+              aria-label="Your account"
+              className="grid size-10 place-items-center transition-opacity hover:opacity-70"
+            >
+              <UserRound aria-hidden className="size-5" strokeWidth={1.25} />
+            </Link>
+            <CartButton />
+            <button
+              type="button"
+              className="grid size-10 place-items-center lg:hidden"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              {menuOpen ? (
+                <X aria-hidden className="size-5" strokeWidth={1.25} />
+              ) : (
+                <Menu aria-hidden className="size-5" strokeWidth={1.25} />
+              )}
+            </button>
           </div>
         </div>
+
+        <div className="hidden h-11 items-center justify-between px-[var(--gutter)] lg:flex">
+          <nav aria-label="Shop">
+            <ul className="flex items-center gap-8 text-[0.95rem]">
+              {shopMenu.map((g) => (
+                <li key={g.label} onMouseEnter={() => hover(g.links ? g.label : null)}>
+                  <Link
+                    href={g.href}
+                    aria-expanded={g.links ? openGroup === g.label : undefined}
+                    aria-controls={g.links ? `menu-${slug(g.label)}` : undefined}
+                    onFocus={() => hover(g.links ? g.label : null)}
+                    className={cn(
+                      "border-b py-2.5 transition-colors",
+                      openGroup === g.label || isActive(g.href) ? "border-chocolate" : "border-transparent hover:border-chocolate/40",
+                    )}
+                  >
+                    {g.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <nav aria-label="About">
+            <ul className="flex items-center gap-8 text-[0.95rem]" onMouseEnter={() => hover(null)}>
+              {brandMenu.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    aria-current={isActive(l.href) ? "page" : undefined}
+                    className={cn(
+                      "border-b py-2.5 transition-colors",
+                      isActive(l.href) ? "border-chocolate" : "border-transparent hover:border-chocolate/40",
+                    )}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        {shopMenu
+          .filter((g) => g.links)
+          .map((g) => (
+            <MegaMenu key={g.label} group={g} open={openGroup === g.label} onEnter={() => hover(g.label)} />
+          ))}
       </header>
+
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
+  );
+}
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z]+/g, "-");
+
+function MegaMenu({ group, open, onEnter }: { group: MenuGroup; open: boolean; onEnter: () => void }) {
+  return (
+    <div
+      id={`menu-${slug(group.label)}`}
+      onMouseEnter={onEnter}
+      inert={!open}
+      className={cn(
+        "absolute inset-x-0 top-full hidden border-b border-[var(--line)] bg-ivory transition-[opacity,visibility] duration-300 lg:block",
+        open ? "visible opacity-100" : "pointer-events-none invisible opacity-0",
+      )}
+    >
+      <div className="grid grid-cols-12 gap-8 px-[var(--gutter)] py-10">
+        <ul className="col-span-4 space-y-3 text-[0.95rem]">
+          {group.links?.map((l) => (
+            <li key={l.label}>
+              <Link href={l.href} className="hover:underline hover:underline-offset-4">
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="col-span-8 grid grid-cols-2 gap-6">
+          {group.tiles?.map((t) => (
+            <li key={t.label}>
+              <Link href={t.href} className="group block">
+                <span className="relative block aspect-[16/10] overflow-hidden bg-cream">
+                  <Image
+                    src={t.image}
+                    alt=""
+                    fill
+                    sizes="30vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </span>
+                <span className="mt-3 block text-[0.9rem] uppercase tracking-[0.08em]">{t.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

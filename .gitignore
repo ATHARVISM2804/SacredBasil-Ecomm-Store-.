@@ -60,3 +60,18 @@ next-env.d.ts
 /reel/
 /docs/product-photos/**/*.mp4
 /docs/site-images/**/*.png
+
+# Playwright
+/test-results/
+/playwright-report/
+
+# Image-generation working files (AI drafts, upload packs). Published
+# versions live in public/; prompts and READMEs stay tracked.
+/docs/gen/
+/docs/regen/send/
+/docs/regen2/send/
+/docs/regen2/incoming/
+/docs/site-images/**/*.webp
+/docs/site-images/**/*.jpg
+__pycache__/
+/scripts/.*.mjs

@@ -8,7 +8,7 @@ export function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <article className="bg-ivory pb-[var(--section-y)] pt-44 md:pt-52">
+    <article className="bg-ivory pb-[var(--section-y)] pt-12 md:pt-20">
       <div className="shell">
         <h1 className="display-section text-chocolate">{title}</h1>
         {updated && <p className="eyebrow mt-6 text-cocoa/55">Last updated {updated}</p>}

@@ -43,7 +43,7 @@ export function SocialLinks({ className }: { className?: string }) {
             href={s.href}
             aria-label={s.label}
             {...(s.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            className="grid size-11 place-items-center rounded-full border border-[var(--line-light)] text-champagne transition-colors duration-500 hover:border-champagne hover:bg-champagne hover:text-chocolate-deep"
+            className="grid size-10 place-items-center transition-opacity hover:opacity-60"
           >
             <svg
               aria-hidden

@@ -1,25 +1,28 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Sacred Basil design tokens (docs/spec/02_SACRED_BASIL_DESIGN_SYSTEM.md)
+   Sacred Basil design tokens, v4 (docs/REVAMP-PLAN.md): white pages, sand
+   image grounds, chocolate type, gold accents, one typeface.
    ------------------------------------------------------------------ */
 @theme {
   /* Sacred Basil palette, sampled from the brand brochure */
-  --color-ivory: #f6f0e8;
-  --color-cream: #ece3d6;
+  --color-ivory: #ffffff;
+  --color-cream: #efe7dc;
   --color-sand: #d9c8b0;
   --color-latte: #b99872;
   --color-cocoa: #3a261b;
   --color-espresso: #24170f;
-  --color-chocolate: #3e271b;
-  --color-chocolate-deep: #2a1a12;
-  --color-gold: #a9824a;
+  --color-chocolate: #2e1e16;
+  --color-chocolate-deep: #22160f;
+  --color-gold: #b8904a;
   --color-champagne: #dcc297;
   --color-sage: #8a9178;
   --color-terracotta: #a45f42;
   --color-rose: #b9898a;
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  /* Jost carries the interface and prices; Cormorant sets the headlines. */
+  --font-display: var(--font-jost), "Jost", system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -47,8 +50,8 @@ body {
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: 0.01em;
+  line-height: 1.6;
+  letter-spacing: 0;
   background: var(--color-ivory);
 }
 
@@ -88,53 +91,53 @@ html.lenis body {
 
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     line-height: 1.4;
   }
 
   .display-hero {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(3.1rem, 6.6vw, 7rem);
-    line-height: 0.96;
-    letter-spacing: -0.015em;
-  }
-
-  .display-section {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(2.5rem, 5vw, 5.5rem);
-    line-height: 1.02;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 4.6vw, 4.1rem);
+    line-height: 1.04;
     letter-spacing: -0.01em;
   }
 
+  .display-section {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.95rem, 2.8vw, 2.7rem);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+
   .display-sub {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(1.5rem, 2.4vw, 2.5rem);
-    line-height: 1.15;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.35rem, 1.7vw, 1.6rem);
+    line-height: 1.25;
   }
 
   .lede {
-    font-size: clamp(1rem, 1.15vw, 1.15rem);
-    line-height: 1.75;
+    font-size: clamp(0.98rem, 1.05vw, 1.06rem);
+    line-height: 1.65;
     max-width: 34rem;
   }
 
-  /* Buttons: subtle rounded rectangle, never pill */
+  /* Buttons: square, quiet, uppercase */
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.9rem;
-    min-height: 3.25rem;
+    min-height: 3rem;
     padding: 0 1.6rem;
-    border-radius: 2px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    border-radius: 0;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     transition:
       background-color 0.45s var(--ease-editorial),
@@ -142,8 +145,16 @@ html.lenis body {
       border-color 0.45s var(--ease-editorial),
       transform 0.45s var(--ease-editorial);
   }
-  .btn:hover {
-    transform: translateY(-2px);
+
+  /* Pale label box centred on a full-bleed tile */
+  .tile-label {
+    background: rgb(255 255 255 / 0.86);
+    color: var(--color-chocolate);
+    padding: 0.85rem 1.6rem;
+    font-size: 0.95rem;
+    text-align: center;
+    min-width: 13rem;
+    transition: background-color 0.4s var(--ease-editorial);
   }
   .btn .btn-arrow {
     transition: transform 0.45s var(--ease-editorial);
@@ -364,6 +375,51 @@ html.motion [data-reveal="mask"]:not([data-bound]) > * {
 }
 .glow-breathe {
   animation: glow-breathe 9s ease-in-out infinite;
+}
+
+/* Diwali invitation: rises softly over a fading veil */
+@keyframes invite-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}
+@keyframes veil-in {
+  from {
+    opacity: 0;
+  }
+}
+.invite[open] {
+  animation: invite-in 0.8s var(--ease-editorial) both;
+}
+.invite[open]::backdrop {
+  animation: veil-in 0.6s ease both;
+}
+
+/* Page change: the old page dims away, the new one rises in */
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+::view-transition-old(.page) {
+  animation: page-out 0.25s ease both;
+}
+::view-transition-new(.page) {
+  animation: page-in 0.6s var(--ease-editorial) 0.1s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

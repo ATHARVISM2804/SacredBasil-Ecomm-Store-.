@@ -11,9 +11,59 @@ Status: **approved 2026-10-03**. Phases run in order; each ends with a review be
 | Hero film | AI image-to-video generated from real product photos, then converted to frames |
 | Customer accounts | Guest checkout, with optional login for order history and saved addresses |
 
-## Where we are
+## Where we are (audited 2026-10-19)
 
-A Next.js 16 marketing site with the real SB logo, the wine/champagne palette, six homepage sections, collection and product pages, corporate enquiry, and a scroll-reveal system. There's no database, no cart and no payments. Product photography is still missing, and the contents of three sets are unconfirmed.
+Most of the store is built in code but switched off. The Supabase anon/service keys, the Razorpay keys and the Resend key are empty in `.env.local`. So the storefront serves the static `data/catalog.ts`, `/admin` shows the setup screen, and checkout shows "Online payment coming soon".
+
+| Phase | Status |
+| --- | --- |
+| 0 Inputs and accounts | Partial: brochure and logo only; no product sheet; keys empty |
+| 1 Art direction v3 | Partial: no Ingredients or Made-by-hand sections, no botanical line art |
+| 2 Hero film | Done as a looping MP4 (desktop and mobile) with the official logo |
+| 3 Data layer | Partial: core tables, RLS and seed exist; no reviews/collections/ingredients/audit tables; no RLS tests |
+| 4 Admin catalogue | Mostly done: products CRUD, image upload, stock, settings; announcement bar never rendered on the storefront |
+| 5 Storefront commerce | Partial: cart, drawer, wishlist, gift message; no filters/search/related/reviews |
+| 6 Checkout and payments | Built (server pricing, Razorpay order, signature verify, webhook, idempotent paid); never run in test mode; no GST line or stock reservation |
+| 7 Accounts and orders admin | Mostly done: OTP login, orders, addresses; admin orders, coupons, customers, enquiries; refunds manual; no GST invoice |
+| 8 Essentials | Partial: policies exist but terms/privacy/returns are outdated; sitemap, robots and JSON-LD done; no lifecycle emails, analytics or consent |
+| 9 QA and launch | Not started |
+
+## Completion roadmap
+
+Ordered so the site can take real orders as early as possible. Each step ends with a check.
+
+### A. Brand imagery (in progress)
+1. Remake the 32 images that carry the AI logo. Follow `docs/regen/README.md`: blank labels in ChatGPT, then `scripts/brandfix/regen.py` prints the official logo. **Check:** before/after review of every label; every page in Chrome on desktop and phone.
+2. Commit the logo, hero and image work.
+
+### B. Switch the store on (needs client accounts)
+1. Supabase: create the project, add the keys, apply `supabase/migrations`, run the seed, promote the admin profile. **Check:** `/admin` logs in, products load from the database, RLS blocks anonymous writes.
+2. Razorpay test keys plus webhook secret; Resend key with a verified domain. **Check:** a test payment succeeds, fails and retries, a webhook replay is ignored, and both emails arrive.
+3. Render the announcement bar from settings on the storefront.
+
+### C. Correct commerce gaps
+1. GST breakdown at checkout and on the invoice (GSTIN, HSN, tax lines). Needs whether prices include GST.
+2. Reserve stock at checkout and expire stale pending orders.
+3. Rewrite the terms and privacy pages for online orders, accounts, payments and cookies; publish the real return and refund policy. Needs the client's policy.
+
+### D. Product depth (Phase 1 and 5 leftovers)
+1. Ingredients and how-to-use fields on product pages; Ingredients and Made-by-hand homepage sections. Needs client content.
+2. Shop filters, sort and search; related products.
+3. Reviews: decide whether they are wanted at launch.
+
+### E. Launch readiness
+1. Lifecycle emails (shipped, delivered); analytics behind a cookie-consent banner (if wanted).
+2. Rate limits on enquiry, checkout and coupon APIs; security review.
+3. Playwright end-to-end tests (browse, cart, checkout in test mode, admin fulfilment); Lighthouse and accessibility pass on mobile.
+4. Razorpay live (KYC), Vercel domain, go live.
+5. Housekeeping: update `README.md`; remove unused `data/assets.ts` and `components/ui/EditorialImage.tsx` if confirmed dead.
+
+### Inputs needed from the client
+- Product sheet for the four sets: confirmed contents, sizes, SKU, HSN/GST rate, stock, ingredients, how to use.
+- Whether the studio range (bath salt, ubtan, candles, wax sachets) sells online, with prices.
+- Legal name, GSTIN, registered address; shipping regions and rates; return, refund and cancellation policy; whether prices include GST.
+- Accounts: Supabase, Razorpay (KYC for live), Resend domain, Vercel domain.
+- Yes or no: Google sign-in, GA4/Meta pixel, newsletter, reviews at launch, gift wrap.
 
 ## What the finished site is
 

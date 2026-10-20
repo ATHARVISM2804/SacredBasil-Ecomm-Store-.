@@ -36,12 +36,60 @@ export const site = {
   showPlaceholderCaptions: false,
 } as const;
 
-export const navigation = [
-  { label: "Shop", href: "/collections" },
+export type MenuLink = { label: string; href: string };
+export type MenuTile = { label: string; href: string; image: string };
+export type MenuGroup = { label: string; href: string; links?: MenuLink[]; tiles?: MenuTile[] };
+
+/** Header, row two. Left: what to buy. Right: who we are. */
+export const shopMenu: MenuGroup[] = [
+  {
+    label: "Gift Sets",
+    href: "/collections#gift-sets",
+    links: [
+      { label: "The Luxe Bath & Body Care Kit", href: "/collections/luxe-bath-body-care-kit" },
+      { label: "The Tranquil Box", href: "/collections/tranquil-box" },
+      { label: "The Serenity Box", href: "/collections/serenity-box" },
+      { label: "The Festive Ritual Box / Pouch", href: "/collections/festive-ritual-box-pouch" },
+      { label: "Shop all gift sets", href: "/collections#gift-sets" },
+    ],
+    tiles: [
+      { label: "The Luxe Kit", href: "/collections/luxe-bath-body-care-kit", image: "/images/products/luxe-kit-open-premium.webp" },
+      { label: "Festive Ritual", href: "/collections/festive-ritual-box-pouch", image: "/images/products/festive-ritual-set.webp" },
+    ],
+  },
+  {
+    label: "Bath & Body",
+    href: "/collections#studio",
+    links: [
+      { label: "Aromatic Ubtan", href: "/collections#studio" },
+      { label: "Relaxing Bath Salt", href: "/collections#studio" },
+      { label: "Glycerine Soap", href: "/collections#studio" },
+    ],
+    tiles: [
+      { label: "Aromatic Ubtan", href: "/collections#studio", image: "/images/products/aromatic-ubtan-packet-25g.webp" },
+      { label: "Bath Salt", href: "/collections#studio", image: "/images/products/bath-salt-rose-valley.webp" },
+    ],
+  },
+  {
+    label: "Candles & Home",
+    href: "/collections#studio",
+    links: [
+      { label: "Scented Candles", href: "/collections#studio" },
+      { label: "Unwind Candle, Oudh Tabac", href: "/collections#studio" },
+      { label: "Scented Wax Sachets", href: "/collections#studio" },
+    ],
+    tiles: [
+      { label: "Candles", href: "/collections#studio", image: "/images/products/scented-candle-mahogany-jar.webp" },
+      { label: "Wax Sachets", href: "/collections#studio", image: "/images/products/wax-sachets-collection.webp" },
+    ],
+  },
   { label: "Corporate Gifting", href: "/corporate-gifting" },
+];
+
+export const brandMenu: MenuLink[] = [
   { label: "Our Story", href: "/our-story" },
   { label: "Contact", href: "/contact" },
-] as const;
+];
 
 /** Brand promises, as stated by Sacred Basil. */
 export const brandValues = [

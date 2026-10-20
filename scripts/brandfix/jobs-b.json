@@ -1,0 +1,1634 @@
+[
+ {
+  "name": "luxe-kit-candle",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-candle.webp",
+  "out": "public/images/products/luxe-kit-candle.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-candle.png",
+  "crop": [
+   700,
+   400,
+   1060,
+   600
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     785,
+     428,
+     950,
+     549
+    ],
+    "ink": "both",
+    "thresh": 6,
+    "grow": 4,
+    "stroke": 45,
+    "fit": 1,
+    "texbox": [
+     705,
+     420,
+     760,
+     520
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 868,
+    "cy": 490,
+    "w": 121,
+    "color": [
+     214,
+     156,
+     98
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "luxe-kit-closed-premium",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-closed-premium.webp",
+  "out": "public/images/products/luxe-kit-closed-premium.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-closed.png",
+  "crop": [
+   840,
+   180,
+   1060,
+   380
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     876,
+     206,
+     1022,
+     337
+    ],
+    "ink": "both",
+    "thresh": 6,
+    "grow": 4,
+    "stroke": 45,
+    "fit": 1,
+    "texbox": [
+     1040,
+     190,
+     1100,
+     320
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 951,
+    "cy": 272.5,
+    "w": 132,
+    "color": [
+     222,
+     176,
+     124
+    ],
+    "finish": "foil",
+    "light": 0.22
+   }
+  ]
+ },
+ {
+  "name": "luxe-kit-final",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-final.webp",
+  "out": "public/images/products/luxe-kit-final.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-final.png",
+  "crop": [
+   700,
+   200,
+   1480,
+   760
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     1160,
+     218,
+     1298,
+     333
+    ],
+    "ink": "both",
+    "thresh": 7,
+    "grow": 2,
+    "stroke": 45,
+    "fit": 1,
+    "texbox": [
+     1305,
+     200,
+     1365,
+     320
+    ],
+    "patch": 24
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1230,
+    "cy": 276.5,
+    "w": 114,
+    "color": [
+     214,
+     164,
+     110
+    ],
+    "finish": "foil",
+    "light": 0.22,
+    "foil_grain": 0.6
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     753,
+     589,
+     822,
+     637
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 784,
+    "cy": 615,
+    "w": 46.5,
+    "color": [
+     220,
+     172,
+     122
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     916,
+     609,
+     988,
+     657
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 950,
+    "cy": 635,
+    "w": 46.5,
+    "color": [
+     236,
+     188,
+     140
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1080,
+     676,
+     1140,
+     723
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1110,
+    "cy": 700.5,
+    "w": 45,
+    "color": [
+     226,
+     170,
+     120
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1183,
+     565,
+     1232,
+     609
+    ]
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "poly": [
+     [
+      1178,
+      598
+     ],
+     [
+      1187,
+      598
+     ],
+     [
+      1187,
+      609
+     ],
+     [
+      1178,
+      609
+     ]
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1206,
+    "cy": 588,
+    "w": 42,
+    "color": [
+     244,
+     190,
+     116
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1338,
+     622,
+     1398,
+     667
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1368,
+    "cy": 644.5,
+    "w": 45,
+    "color": [
+     224,
+     174,
+     124
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "luxe-kit-foil",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-foil.webp",
+  "out": "public/images/products/luxe-kit-foil.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-foil.png",
+  "crop": [
+   650,
+   220,
+   1060,
+   560
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      691,
+      394
+     ],
+     [
+      766,
+      247
+     ],
+     [
+      1022,
+      247
+     ],
+     [
+      1022,
+      450
+     ],
+     [
+      988,
+      497
+     ],
+     [
+      703,
+      437
+     ]
+    ],
+    "ink": "bright",
+    "thresh": 6,
+    "grow": 4,
+    "stroke": 61,
+    "tex": [
+     364,
+     -10
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 860,
+    "cy": 370,
+    "w": 288,
+    "angle": 15,
+    "vangle": 94,
+    "vscale": 0.78,
+    "color": [
+     234,
+     178,
+     106
+    ],
+    "finish": "foil",
+    "light": 0.35
+   }
+  ]
+ },
+ {
+  "name": "luxe-kit-open-premium",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-open-premium.webp",
+  "out": "public/images/products/luxe-kit-open-premium.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-open.png",
+  "crop": [
+   720,
+   30,
+   1220,
+   710
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "poly": [
+     [
+      1064,
+      40
+     ],
+     [
+      1172,
+      40
+     ],
+     [
+      1172,
+      140
+     ],
+     [
+      1166,
+      146
+     ],
+     [
+      1058,
+      130
+     ]
+    ],
+    "ink": "both",
+    "thresh": 7,
+    "grow": 3,
+    "stroke": 41,
+    "fit": 1,
+    "texbox": [
+     1180,
+     40,
+     1240,
+     110
+    ],
+    "patch": 24
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1113,
+    "cy": 93,
+    "w": 102,
+    "angle": 6,
+    "color": [
+     204,
+     154,
+     104
+    ],
+    "finish": "foil",
+    "light": 0.2,
+    "foil_grain": 0.5
+   },
+   {
+    "op": "erase",
+    "poly": [
+     [
+      806,
+      457
+     ],
+     [
+      860,
+      464
+     ],
+     [
+      860,
+      488
+     ],
+     [
+      857,
+      500
+     ],
+     [
+      806,
+      489
+     ]
+    ],
+    "ink": "both",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "texbox": [
+     858,
+     466,
+     874,
+     490
+    ],
+    "patch": 12,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 836,
+    "cy": 476,
+    "w": 38,
+    "angle": 12,
+    "color": [
+     226,
+     176,
+     126
+    ],
+    "finish": "foil",
+    "light": 0.12,
+    "foil_grain": 0.2
+   },
+   {
+    "op": "erase",
+    "poly": [
+     [
+      974,
+      491
+     ],
+     [
+      1028,
+      501
+     ],
+     [
+      1028,
+      524
+     ],
+     [
+      1022,
+      537
+     ],
+     [
+      974,
+      528
+     ]
+    ],
+    "ink": "both",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "texbox": [
+     1025,
+     500,
+     1042,
+     530
+    ],
+    "patch": 12,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1002,
+    "cy": 513,
+    "w": 40,
+    "angle": 14,
+    "color": [
+     212,
+     162,
+     110
+    ],
+    "finish": "foil",
+    "light": 0.12,
+    "foil_grain": 0.2
+   },
+   {
+    "op": "erase",
+    "poly": [
+     [
+      1150,
+      543
+     ],
+     [
+      1197,
+      543
+     ],
+     [
+      1197,
+      580
+     ],
+     [
+      1194,
+      590
+     ],
+     [
+      1168,
+      584
+     ],
+     [
+      1149,
+      582
+     ]
+    ],
+    "ink": "both",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "texbox": [
+     1194,
+     550,
+     1206,
+     572
+    ],
+    "patch": 8,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1173,
+    "cy": 567,
+    "w": 42,
+    "angle": 12,
+    "color": [
+     217,
+     164,
+     115
+    ],
+    "finish": "foil",
+    "light": 0.12,
+    "foil_grain": 0.2
+   },
+   {
+    "op": "erase",
+    "poly": [
+     [
+      943,
+      646
+     ],
+     [
+      988,
+      648
+     ],
+     [
+      996,
+      660
+     ],
+     [
+      999,
+      696
+     ],
+     [
+      970,
+      688
+     ],
+     [
+      940,
+      681
+     ]
+    ],
+    "ink": "both",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "texbox": [
+     993,
+     650,
+     1005,
+     680
+    ],
+    "patch": 12,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 968,
+    "cy": 665,
+    "w": 42,
+    "angle": 14,
+    "color": [
+     214,
+     159,
+     108
+    ],
+    "finish": "foil",
+    "light": 0.12,
+    "foil_grain": 0.2
+   },
+   {
+    "op": "erase",
+    "poly": [
+     [
+      738,
+      637
+     ],
+     [
+      795,
+      650
+     ],
+     [
+      797,
+      692
+     ],
+     [
+      770,
+      690
+     ],
+     [
+      735,
+      683
+     ]
+    ],
+    "ink": "both",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "texbox": [
+     790,
+     660,
+     830,
+     690
+    ],
+    "patch": 12,
+    "smooth": 2.5,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 763,
+    "cy": 668,
+    "w": 46,
+    "angle": 13,
+    "color": [
+     222,
+     166,
+     113
+    ],
+    "finish": "foil",
+    "light": 0.12,
+    "foil_grain": 0.2
+   },
+   {
+    "op": "unlight",
+    "flame": [
+     784,
+     562,
+     804,
+     621
+    ],
+    "clone": 22,
+    "feather": 2,
+    "wick": [
+     793,
+     608,
+     615
+    ],
+    "wick_w": 1.5,
+    "wick_color": [
+     110,
+     78,
+     52
+    ],
+    "glow": [
+     793,
+     598,
+     50,
+     0.07
+    ]
+   }
+  ]
+ },
+ {
+  "name": "luxe-kit-scrubs",
+  "src": "docs/site-images/ai-originals/products/luxe-kit-scrubs.webp",
+  "out": "public/images/products/luxe-kit-scrubs.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-scrubs.png",
+  "crop": [
+   540,
+   400,
+   1200,
+   600
+  ],
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     568,
+     428,
+     730,
+     543
+    ],
+    "ink": "both",
+    "thresh": 7,
+    "grow": 3,
+    "stroke": 45,
+    "fit": 1,
+    "fitbox": [
+     495,
+     405,
+     840,
+     545
+    ],
+    "texbox": [
+     735,
+     430,
+     800,
+     500
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 650,
+    "cy": 487,
+    "w": 112,
+    "color": [
+     225,
+     184,
+     141
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "erase",
+    "box": [
+     996,
+     450,
+     1164,
+     565
+    ],
+    "ink": "both",
+    "thresh": 7,
+    "grow": 3,
+    "stroke": 45,
+    "fit": 1,
+    "fitbox": [
+     915,
+     425,
+     1275,
+     568
+    ],
+    "texbox": [
+     1170,
+     450,
+     1230,
+     530
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1084,
+    "cy": 508,
+    "w": 112,
+    "color": [
+     227,
+     185,
+     140
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "festive-orders-production-table",
+  "src": "docs/site-images/ai-originals/products/festive-orders-production-table.webp",
+  "out": "public/images/products/festive-orders-production-table.webp",
+  "preview": null,
+  "crop": null,
+  "ops": [
+   {
+    "op": "fill",
+    "box": [
+     164,
+     199,
+     203,
+     230
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 183.5,
+    "cy": 214.5,
+    "w": 29.1,
+    "angle": -3,
+    "color": [
+     87,
+     69,
+     45
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     368,
+     144,
+     409,
+     175
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 388.5,
+    "cy": 159.5,
+    "w": 29.1,
+    "angle": -3,
+    "color": [
+     93,
+     75,
+     51
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     547,
+     109,
+     585,
+     140
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 566.0,
+    "cy": 124.5,
+    "w": 29.1,
+    "angle": -3,
+    "color": [
+     99,
+     79,
+     52
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     476,
+     372,
+     503,
+     396
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 489.5,
+    "cy": 384.0,
+    "w": 20.9,
+    "angle": 0,
+    "color": [
+     89,
+     50,
+     22
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "fill",
+    "box": [
+     581,
+     397,
+     607,
+     421
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 594.0,
+    "cy": 409.0,
+    "w": 20.9,
+    "angle": -5,
+    "color": [
+     76,
+     38,
+     7
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     680,
+     447,
+     713,
+     472
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 696.5,
+    "cy": 459.5,
+    "w": 22.1,
+    "angle": 0,
+    "color": [
+     99,
+     60,
+     30
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "fill",
+    "box": [
+     787,
+     427,
+     812,
+     450
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 799.5,
+    "cy": 438.5,
+    "w": 19.8,
+    "angle": 0,
+    "color": [
+     85,
+     47,
+     15
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "fill",
+    "box": [
+     852,
+     217,
+     879,
+     239
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 865.5,
+    "cy": 228.0,
+    "w": 18.6,
+    "angle": 0,
+    "color": [
+     81,
+     38,
+     8
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     967,
+     209,
+     992,
+     237
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 979.5,
+    "cy": 223.0,
+    "w": 19.9,
+    "angle": 0,
+    "color": [
+     117,
+     69,
+     35
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     406,
+     552,
+     455,
+     586
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 430.5,
+    "cy": 569.0,
+    "w": 32.6,
+    "angle": -4,
+    "color": [
+     95,
+     77,
+     53
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     575,
+     553,
+     628,
+     595
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 601.5,
+    "cy": 573.0,
+    "w": 36.7,
+    "angle": -5,
+    "color": [
+     109,
+     86,
+     61
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     757,
+     574,
+     819,
+     609
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 788.0,
+    "cy": 591.5,
+    "w": 33.7,
+    "angle": 0,
+    "color": [
+     91,
+     69,
+     46
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     281,
+     556,
+     312,
+     586
+    ],
+    "ink": "dark",
+    "fit": 1,
+    "grain": 0,
+    "feather": 3.0,
+    "fitbox": [
+     276,
+     550,
+     312,
+     592
+    ]
+   },
+   {
+    "op": "clogo",
+    "kind": "lockup",
+    "cx": 304,
+    "cy": 571,
+    "w": 41,
+    "angle": -3,
+    "color": [
+     64,
+     45,
+     20
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "clip": [
+     0,
+     0,
+     313,
+     933
+    ]
+   }
+  ]
+ },
+ {
+  "name": "festive-ritual-organza-pouch",
+  "src": "docs/site-images/ai-originals/products/festive-ritual-organza-pouch.webp",
+  "out": "public/images/products/festive-ritual-organza-pouch.webp",
+  "preview": "/private/tmp/claude-501/-Users-atharvism/386886cc-a4a5-4b40-931b-f3f09e4f1ebb/scratchpad/b/p-pouch.png",
+  "crop": [
+   320,
+   440,
+   900,
+   1160
+  ],
+  "ops": [
+   {
+    "op": "fill",
+    "box": [
+     483,
+     470,
+     591,
+     567
+    ],
+    "ink": "dark",
+    "thresh": 8,
+    "grow": 1,
+    "stroke": 15,
+    "fit": 1,
+    "grain": 0.0,
+    "feather": 3.0,
+    "texbox": [
+     600,
+     470,
+     650,
+     540
+    ],
+    "patch": 12
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 537.0,
+    "cy": 518.5,
+    "w": 100.8,
+    "angle": 0,
+    "color": [
+     104,
+     81,
+     69
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     411,
+     956,
+     493,
+     1034
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 452.0,
+    "cy": 995.0,
+    "w": 76.0,
+    "angle": 0,
+    "color": [
+     78,
+     57,
+     47
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     780,
+     780,
+     853,
+     844
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 816.5,
+    "cy": 812.0,
+    "w": 64.2,
+    "angle": 0,
+    "color": [
+     118,
+     96,
+     90
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "fill",
+    "box": [
+     446,
+     703,
+     626,
+     737
+    ],
+    "fit": 1,
+    "texbox": [
+     460,
+     690,
+     610,
+     703
+    ],
+    "patch": 8,
+    "grain": 1.0,
+    "feather": 2.5
+   },
+   {
+    "op": "utext",
+    "text": "\u0938\u0941\u0917\u0902\u0927\u0940 \u0909\u091f\u0923\u0947",
+    "font": "/System/Library/Fonts/Supplemental/ITFDevanagari.ttc",
+    "index": 5,
+    "size": 20,
+    "cx": 537,
+    "cy": 720,
+    "w": 140,
+    "color": [
+     63,
+     41,
+     30
+    ]
+   },
+   {
+    "op": "remesh",
+    "box": [
+     480,
+     468,
+     594,
+     570
+    ],
+    "tex": [
+     116,
+     0
+    ],
+    "sigma": 1.5,
+    "grain": 1.6,
+    "screen": 2.5
+   },
+   {
+    "op": "erase",
+    "box": [
+     439,
+     1131,
+     453,
+     1148
+    ],
+    "ink": "dark",
+    "thresh": 10,
+    "grow": 2,
+    "stroke": 11,
+    "fit": 1,
+    "texbox": [
+     340,
+     1100,
+     420,
+     1112
+    ],
+    "patch": 8,
+    "grain": 1.0,
+    "feather": 1.5
+   }
+  ]
+ },
+ {
+  "name": "festive-ritual-set",
+  "src": "docs/site-images/ai-originals/products/festive-ritual-set.webp",
+  "out": "public/images/products/festive-ritual-set.webp",
+  "preview": null,
+  "crop": null,
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     844,
+     790,
+     928,
+     870
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 886.0,
+    "cy": 830.0,
+    "w": 78.0,
+    "angle": 0,
+    "color": [
+     95,
+     69,
+     42
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     773,
+     1145,
+     851,
+     1219
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 812.0,
+    "cy": 1182.0,
+    "w": 72.0,
+    "angle": 0,
+    "color": [
+     91,
+     64,
+     36
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1118,
+     1036,
+     1175,
+     1090
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1146.5,
+    "cy": 1063.0,
+    "w": 51.0,
+    "angle": 0,
+    "color": [
+     77,
+     58,
+     40
+    ],
+    "finish": "print",
+    "soften": 0.35,
+    "light": 0.12,
+    "foil_grain": 0.25
+   },
+   {
+    "op": "remesh",
+    "box": [
+     840,
+     786,
+     932,
+     874
+    ],
+    "tex": [
+     -118,
+     0
+    ],
+    "sigma": 1.5,
+    "grain": 1.6,
+    "screen": 2.5
+   },
+   {
+    "op": "remesh",
+    "box": [
+     770,
+     1142,
+     854,
+     1222
+    ],
+    "tex": [
+     -92,
+     0
+    ],
+    "sigma": 1.5,
+    "grain": 1.6,
+    "screen": 2.5
+   },
+   {
+    "op": "fill",
+    "box": [
+     1102,
+     1158,
+     1189,
+     1192
+    ],
+    "fit": 1,
+    "grain": 0,
+    "feather": 2.5
+   },
+   {
+    "op": "utext",
+    "text": "\u0905\u092d\u094d\u092f\u0902\u0917 \u0924\u0947\u0932",
+    "font": "/System/Library/Fonts/Supplemental/ITFDevanagari.ttc",
+    "index": 4,
+    "size": 17,
+    "cx": 1145,
+    "cy": 1175,
+    "w": 80,
+    "color": [
+     38,
+     24,
+     12
+    ]
+   }
+  ]
+ }
+]

@@ -31,7 +31,7 @@ export const studioRange: StudioItem[] = [
     id: "unwind-candle",
     name: "Unwind Candle, Oudh Tabac",
     detail: "Handpoured, 100% soy wax, in a rose-gold tin.",
-    images: [p("unwind-candle-tin-oudh-tabac-lit"), p("unwind-candle-tin-oudh-tabac-styled")],
+    images: [p("unwind-candle-tin-oudh-tabac-styled")],
   },
   {
     id: "scented-candle-lavender",

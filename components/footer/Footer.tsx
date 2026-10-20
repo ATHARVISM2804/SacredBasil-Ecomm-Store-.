@@ -1,106 +1,77 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
 import { seedProducts } from "@/data/catalog";
 import { site } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
-import { Ornament } from "@/components/ui/Ornament";
+import { Lotus } from "@/components/ui/Ornament";
 import { SocialLinks } from "@/components/footer/SocialLinks";
+import { FooterColumn } from "@/components/footer/FooterColumn";
 
-const explore = [
-  { label: "Shop all", href: "/collections" },
-  { label: "Corporate gifting", href: "/corporate-gifting" },
-  { label: "Our story", href: "/our-story" },
-  { label: "Contact", href: "/contact" },
-];
-
-const help = [
+const support = [
   { label: "Your account", href: "/account" },
   { label: "Shipping & delivery", href: "/shipping" },
   { label: "Returns & refunds", href: "/returns" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Terms & conditions", href: "/terms" },
+  { label: "Privacy policy", href: "/privacy" },
 ];
 
+const about = [
+  { label: "Our story", href: "/our-story" },
+  { label: "Corporate gifting", href: "/corporate-gifting" },
+  { label: "Studio range", href: "/collections#studio" },
+  { label: "Contact us", href: "/contact" },
+];
+
+/** Footer, v4: deep chocolate and champagne gold, centred lockup, quiet columns. */
 export function Footer() {
+  const shop = [
+    ...seedProducts.map((p) => ({ label: p.name.replace(/^The /, ""), href: `/collections/${p.slug}` })),
+    { label: "Shop all", href: "/collections" },
+  ];
   return (
     <footer className="bg-chocolate-deep text-ivory">
-      <div className="shell grid grid-cols-2 gap-x-6 gap-y-14 py-20 md:grid-cols-12 md:gap-x-10 md:py-24">
-        <div className="col-span-2 md:col-span-4">
-          <Logo variant="lockup" className="w-32 text-champagne" />
-          <p className="mt-8 max-w-xs font-display text-[1.3rem] italic leading-snug text-ivory/75">{site.statement}</p>
-          <Ornament tone="champagne" className="mt-8 justify-start" />
-          <p className="eyebrow mt-10 text-champagne/80">Follow &amp; message us</p>
-          <SocialLinks className="mt-5" />
-        </div>
+      <div className="px-[var(--gutter)] pb-14 pt-20 text-center md:pt-24">
+        <Link href="/" aria-label="Sacred Basil, home" className="inline-block">
+          <Logo variant="lockup" className="w-32 text-champagne md:w-36" />
+        </Link>
+        <p className="mx-auto mt-8 max-w-md text-[1.05rem] leading-relaxed text-ivory/75">{site.statement}</p>
+        <SocialLinks className="mt-8 justify-center text-champagne" />
+      </div>
 
-        <nav aria-label="Shop" className="md:col-span-2 md:col-start-6">
-          <p className="eyebrow text-champagne/80">Shop</p>
-          <ul className="mt-6 space-y-3 text-[0.92rem]">
-            {seedProducts.map((p) => (
-              <li key={p.id}>
-                <Link href={`/collections/${p.slug}`} className="link-underline text-ivory/75 hover:text-ivory">
-                  {p.name.replace(/^The /, "")}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      <div className="mx-[var(--gutter)] flex items-center gap-4 text-champagne/60" aria-hidden>
+        <span className="h-px flex-1 bg-current opacity-40" />
+        <Lotus className="h-4 w-7" />
+        <span className="h-px flex-1 bg-current opacity-40" />
+      </div>
 
-        <nav aria-label="Explore" className="md:col-span-2">
-          <p className="eyebrow text-champagne/80">Explore</p>
-          <ul className="mt-6 space-y-3 text-[0.92rem]">
-            {explore.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="link-underline text-ivory/75 hover:text-ivory">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="eyebrow mt-10 text-champagne/80">Help</p>
-          <ul className="mt-6 space-y-3 text-[0.92rem]">
-            {help.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="link-underline text-ivory/75 hover:text-ivory">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="col-span-2 md:col-span-3">
-          <p className="eyebrow text-champagne/80">Get in touch</p>
-          <ul className="mt-6 space-y-4 text-[0.92rem] text-ivory/75">
-            <li className="flex gap-3">
-              <Mail aria-hidden className="mt-0.5 size-4 shrink-0 text-champagne" strokeWidth={1.25} />
-              <a href={`mailto:${site.contact.email}`} className="link-underline -my-2 inline-block break-all py-2 hover:text-ivory">
+      <div className="grid px-[var(--gutter)] py-10 lg:grid-cols-4 lg:gap-8 lg:py-16">
+        <FooterColumn title="Shop" links={shop} />
+        <FooterColumn title="Orders & support" links={support} />
+        <FooterColumn title="About" links={about} />
+        <div className="pt-10 lg:pt-0">
+          <p className="text-[0.75rem] uppercase tracking-[0.18em] text-champagne">Get in touch</p>
+          <ul className="mt-6 space-y-3 text-[0.95rem] text-ivory/70">
+            <li>
+              <a href={`mailto:${site.contact.email}`} className="break-all transition-colors hover:text-ivory">
                 {site.contact.email}
               </a>
             </li>
             {site.contact.phones.map((p) => (
-              <li key={p.number} className="flex gap-3">
-                <Phone aria-hidden className="mt-0.5 size-4 shrink-0 text-champagne" strokeWidth={1.25} />
-                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="link-underline -my-2 inline-block py-2 hover:text-ivory">
-                  {p.name}: {p.number}
+              <li key={p.number}>
+                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="transition-colors hover:text-ivory">
+                  {p.name} · {p.number}
                 </a>
               </li>
             ))}
-            <li className="flex gap-3">
-              <MapPin aria-hidden className="mt-0.5 size-4 shrink-0 text-champagne" strokeWidth={1.25} />
-              <span>{site.contact.address}</span>
-            </li>
+            <li className="leading-relaxed">{site.contact.address}</li>
           </ul>
         </div>
       </div>
 
-      <div className="shell">
-        <div className="flex flex-col gap-4 border-t border-[var(--line-light)] py-8 text-xs tracking-[0.06em] text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {site.name}. Handcrafted in Pune, delivered across India.
-          </p>
-          <p>Premium Ayurvedic wellness gifts</p>
-        </div>
+      <div className="flex flex-col gap-2 border-t border-ivory/10 px-[var(--gutter)] py-7 text-[0.8rem] text-ivory/45 sm:flex-row sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </p>
+        <p>Doctor-led · Handmade in small batches in Pune · Delivered across India</p>
       </div>
     </footer>
   );

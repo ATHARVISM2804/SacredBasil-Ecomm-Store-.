@@ -34,7 +34,7 @@ async function loadCustomer(): Promise<CheckoutCustomer | null> {
 export default async function CheckoutPage() {
   const customer = await loadCustomer();
   return (
-    <section className="bg-ivory pb-24 pt-40 md:pb-32 md:pt-48">
+    <section className="bg-ivory pb-24 pt-12 md:pb-32 md:pt-16">
       <div className="shell">
         <p className="eyebrow mb-6 text-cocoa/65">Secure checkout</p>
         <h1 className="display-section text-chocolate">Checkout</h1>

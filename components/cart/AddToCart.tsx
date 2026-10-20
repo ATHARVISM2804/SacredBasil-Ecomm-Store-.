@@ -74,7 +74,35 @@ export function AddToCart({ product, className }: { product: AddToCartProduct; c
         </fieldset>
       )}
 
-      <div className="flex flex-wrap items-end gap-x-8 gap-y-4">
+      {product.tiers.length > 1 && (
+        <fieldset>
+          <legend className="eyebrow mb-3 text-cocoa/70">Price per kit</legend>
+          <div className={cn("grid gap-2", product.tiers.length > 2 ? "grid-cols-3" : "grid-cols-2")}>
+            {product.tiers.map((t) => {
+              const active = t === tier;
+              return (
+                <button
+                  key={t.min}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => !active && update(Math.min(max, t.min))}
+                  className={cn(
+                    "border px-2 py-3 text-center transition-colors",
+                    active ? "border-chocolate bg-chocolate text-ivory" : "border-[var(--line)] text-cocoa hover:border-cocoa/40",
+                  )}
+                >
+                  <span className="block text-[0.95rem] tabular-nums">{formatINR(t.unitPrice)}</span>
+                  <span className={cn("mt-0.5 block text-[0.75rem]", active ? "text-ivory/70" : "text-cocoa/60")}>
+                    {tierLabel(t)} {t.max === t.min ? "kit" : "kits"}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
+
+      <div className="flex items-center justify-between gap-6">
         <div>
           <p className="eyebrow mb-3 text-cocoa/70" aria-hidden>
             Quantity
@@ -82,36 +110,12 @@ export function AddToCart({ product, className }: { product: AddToCartProduct; c
           <QuantityStepper value={quantity} onChange={update} max={max} label={`Quantity of ${product.name}`} />
         </div>
         {tier && (
-          <div aria-live="polite">
-            <p className="font-display text-3xl text-chocolate tabular-nums">
-              {formatINR(tier.unitPrice)}
-              <span className="ml-2 font-sans text-sm text-cocoa/60">each</span>
-            </p>
-            <p className="text-sm text-cocoa/65 tabular-nums">
-              {quantity} × {formatINR(tier.unitPrice)} = {formatINR(quantity * tier.unitPrice)}
-            </p>
+          <div aria-live="polite" className="text-right">
+            <p className="eyebrow mb-3 text-cocoa/70">Total</p>
+            <p className="text-[1.35rem] leading-[2.75rem] text-chocolate tabular-nums">{formatINR(quantity * tier.unitPrice)}</p>
           </div>
         )}
       </div>
-
-      {product.tiers.length > 1 && (
-        <table className="w-full max-w-sm text-sm">
-          <caption className="eyebrow mb-2 text-left text-cocoa/60">Price per kit</caption>
-          <tbody>
-            {product.tiers.map((t) => {
-              const active = t === tier;
-              return (
-                <tr key={t.min} className={cn("border-b border-[var(--line)]", active ? "text-chocolate" : "text-cocoa/60")}>
-                  <th scope="row" className={cn("py-2 text-left font-normal", active && "font-medium")}>
-                    {tierLabel(t)} {t.max === t.min ? "kit" : "kits"}
-                  </th>
-                  <td className={cn("py-2 text-right tabular-nums", active && "font-medium")}>{formatINR(t.unitPrice)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
 
       {product.stock !== null && !soldOut && product.stock <= 10 && (
         <p className="text-sm text-cocoa/65">Only {product.stock} available.</p>
@@ -129,17 +133,17 @@ export function AddToCart({ product, className }: { product: AddToCartProduct; c
         </p>
       )}
 
-      <div className="flex flex-wrap items-center gap-4">
+      <div>
         <button
           type="button"
           onClick={add}
           disabled={soldOut || !tier}
-          className="btn btn-primary disabled:pointer-events-none disabled:opacity-50"
+          className="btn btn-primary w-full justify-center disabled:pointer-events-none disabled:opacity-50"
         >
           <span>{soldOut ? "Currently unavailable" : "Add to bag"}</span>
           {!soldOut && <ArrowRight aria-hidden className="btn-arrow size-3.5" strokeWidth={1.25} />}
         </button>
-        <p className="text-sm text-cocoa/65" role="status">
+        <p className="mt-2 text-sm text-cocoa/65" role="status">
           {added ? "Added to your bag." : ""}
         </p>
       </div>

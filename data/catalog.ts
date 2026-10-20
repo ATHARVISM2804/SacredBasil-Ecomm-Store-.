@@ -10,6 +10,8 @@ import type { Product } from "@/lib/catalog/types";
  */
 
 const prod = (f: string) => `/images/products/${f}.webp`;
+/** Dark studio photographs with the printed logo (docs/gen/lux). */
+const lux = (f: string) => `/images/v5/lux-${f}.webp`;
 
 export const seedProducts: Product[] = [
   {
@@ -17,10 +19,10 @@ export const seedProducts: Product[] = [
     slug: "luxe-bath-body-care-kit",
     name: "The Luxe Bath & Body Care Kit",
     tagline: "Crafted for your Diwali Dawn",
-    shortDescription: "Our signature five-piece ritual in a premium magnetic box.",
+    shortDescription: "Our signature five-piece collection in a premium magnetic box.",
     description:
       "A luxurious self-care ritual, thoughtfully curated to nourish the skin, relax the body and elevate everyday moments.",
-    images: [prod("luxe-kit-final"), prod("luxe-kit-open-premium"), prod("luxe-kit-closed-premium"), prod("luxe-kit-foil"), prod("luxe-kit-scrubs"), prod("luxe-kit-candle")],
+    images: ["/images/v5/luxe-tile.webp", lux("box"), lux("group"), lux("scrubs"), lux("oil"), lux("soap"), lux("candle")],
     contents: [
       { name: "Body Scrub", size: "40 g", quantity: 1, note: "Exfoliates & nourishes" },
       { name: "Face Scrub", size: "25 g", quantity: 1, note: "Gentle care for a natural glow" },
@@ -49,7 +51,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Four handcrafted essentials, with a scented candle, in a magnet closure gift box.",
     description:
       "The Tranquil Box is a calming blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("tranquil-box-open-4-products"), prod("floral-gift-boxes-stacked")],
+    images: [prod("set-tranquil"), prod("tranquil-box-open-4-products"), prod("floral-gift-boxes-stacked")],
     contents: [
       { name: "Artisanal Soap", size: "75 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Ubtan", size: "50 g approx", quantity: 1 },
@@ -78,7 +80,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Three calming essentials in our signature floral gift box.",
     description:
       "The Serenity Box is a calming blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("serenity-box-open-3-products"), prod("floral-gift-boxes-stacked")],
+    images: [prod("set-serenity"), prod("serenity-box-open-3-products"), prod("floral-gift-boxes-stacked")],
     contents: [
       { name: "Artisanal Soap", size: "70 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Body Oil", size: "35 ml", quantity: 1 },
@@ -106,7 +108,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Three handcrafted essentials in a festive box or an organza pouch.",
     description:
       "The Festive Ritual Box/Pouch is a thoughtful blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("festive-ritual-set"), prod("festive-ritual-box-red"), prod("festive-ritual-organza-pouch")],
+    images: [prod("set-festive"), prod("festive-ritual-box-red"), prod("festive-ritual-organza-pouch")],
     contents: [
       { name: "Artisanal Soap", size: "75 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Ubtan", size: "50 g approx", quantity: 1 },

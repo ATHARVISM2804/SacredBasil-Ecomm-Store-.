@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { ViewTransition } from "react";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
@@ -6,7 +7,9 @@ import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { Footer } from "@/components/footer/Footer";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import { Cursor } from "@/components/ui/Cursor";
+import { WelcomeLayer } from "@/components/ui/WelcomeLayer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { loadAnnouncement } from "@/lib/announcement";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -42,6 +45,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#3e271b",
+  viewportFit: "cover",
 };
 
 const profiles = site.social.filter((s) => s.href.startsWith("https://") && s.network !== "whatsapp").map((s) => s.href);
@@ -59,7 +63,8 @@ const organizationLd = {
 /** Adds `motion` before first paint so reveal start-states never flash. */
 const motionScript = `try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')}catch(e){}`;
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const announcement = await loadAnnouncement();
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`} suppressHydrationWarning>
       <head>
@@ -70,12 +75,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body>
-        <SiteHeader />
-        <main id="main">{children}</main>
+        <SiteHeader announcement={announcement} />
+        <main id="main">
+          <ViewTransition default="page">{children}</ViewTransition>
+        </main>
         <Footer />
         <CartDrawer />
         <MotionProvider />
         <Cursor />
+        <WelcomeLayer />
       </body>
     </html>
   );

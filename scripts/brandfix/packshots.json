@@ -1,0 +1,654 @@
+[
+ {
+  "name": "body-scrub",
+  "src": "docs/gen/raw/pack-body-scrub.png",
+  "out": "docs/gen/pack/body-scrub.png",
+  "label": {
+   "auto": true,
+   "shape": "cylinder",
+   "inset": 0.1,
+   "arc": 48
+  },
+  "art": {
+   "lockup_w": 0.3,
+   "name": "Body Scrub",
+   "name_w": 0.62,
+   "ink": [
+    228,
+    208,
+    172
+   ]
+  }
+ },
+ {
+  "name": "face-scrub",
+  "src": "docs/gen/raw/pack-face-scrub.png",
+  "out": "docs/gen/pack/face-scrub.png",
+  "label": {
+   "auto": true,
+   "shape": "cylinder",
+   "inset": 0.1,
+   "arc": 48
+  },
+  "art": {
+   "lockup_w": 0.3,
+   "name": "Face Scrub",
+   "name_w": 0.62,
+   "ink": [
+    228,
+    208,
+    172
+   ]
+  }
+ },
+ {
+  "name": "body-oil",
+  "src": "docs/gen/raw/pack-body-oil.png",
+  "out": "docs/gen/pack/body-oil.png",
+  "label": {
+   "box": [
+    360,
+    540,
+    672,
+    982
+   ],
+   "shape": "cylinder",
+   "inset": 0.06,
+   "arc": 62
+  },
+  "art": {
+   "lockup_w": 0.5,
+   "name": "Body\nOil",
+   "name_w": 0.6,
+   "scale": 0.78,
+   "ink": [
+    228,
+    208,
+    172
+   ]
+  }
+ },
+ {
+  "name": "candle",
+  "src": "docs/gen/raw/pack-candle.png",
+  "out": "docs/gen/pack/candle.png",
+  "label": {
+   "auto": true,
+   "shape": "cylinder",
+   "inset": 0.1,
+   "arc": 48,
+   "within": [
+    140,
+    400,
+    900,
+    820
+   ]
+  },
+  "art": {
+   "lockup_w": 0.28,
+   "name": "Scented Candle",
+   "name_w": 0.7,
+   "ink": [
+    228,
+    208,
+    172
+   ]
+  }
+ },
+ {
+  "name": "soap",
+  "src": "docs/gen/raw/pack-soap.png",
+  "out": "docs/gen/pack/soap.png",
+  "label": {
+   "auto": true,
+   "shape": "flat",
+   "inset": 0.08
+  },
+  "art": {
+   "lockup_w": 0.26,
+   "name": "Artisanal Soap",
+   "name_w": 0.66,
+   "ink": [
+    228,
+    208,
+    172
+   ]
+  }
+ },
+ {
+  "name": "luxe-box",
+  "src": "docs/gen/raw/pack-luxe-box.png",
+  "out": "docs/gen/pack/luxe-box.png",
+  "label": {
+   "box": [
+    300,
+    380,
+    760,
+    900
+   ],
+   "shape": "flat",
+   "inset": 0.04
+  },
+  "art": {
+   "lockup_w": 0.34,
+   "ornament_w": 0.42,
+   "name": "LUXE BATH & BODY CARE KIT",
+   "name_w": 0.98,
+   "tagline": "Crafted for your Diwali Dawn",
+   "tag_w": 0.66,
+   "scale": 0.9,
+   "ink": [
+    214,
+    172,
+    112
+   ]
+  }
+ },
+ {
+  "name": "luxe-open",
+  "src": "docs/gen/raw/pack-luxe-open.png",
+  "out": "docs/gen/pack/luxe-open.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      400,
+      70,
+      880,
+      440
+     ],
+     "shape": "flat",
+     "inset": 0.04
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "ornament_w": 0.36,
+     "name": "LUXE BATH & BODY CARE KIT",
+     "name_w": 0.9,
+     "tagline": "Crafted for your Diwali Dawn",
+     "tag_w": 0.6,
+     "scale": 0.9,
+     "ink": [
+      214,
+      172,
+      112
+     ]
+    }
+   },
+   {
+    "label": {
+     "auto": true,
+     "within": [
+      415,
+      515,
+      560,
+      630
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Body Scrub",
+     "name_w": 0.66,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "auto": true,
+     "within": [
+      660,
+      520,
+      780,
+      625
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Face Scrub",
+     "name_w": 0.66,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "auto": true,
+     "within": [
+      820,
+      500,
+      945,
+      665
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 50
+    },
+    "art": {
+     "lockup_w": 0.55,
+     "name": "Body\nOil",
+     "name_w": 0.6,
+     "scale": 0.75,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "auto": true,
+     "within": [
+      430,
+      715,
+      575,
+      845
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "name": "Scented Candle",
+     "name_w": 0.72,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "auto": true,
+     "within": [
+      685,
+      710,
+      920,
+      845
+     ],
+     "shape": "flat",
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.26,
+     "name": "Artisanal Soap",
+     "name_w": 0.7,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "bath-salt",
+  "src": "docs/gen/raw/pack-bath-salt.png",
+  "out": "docs/gen/pack/bath-salt.png",
+  "label": {
+   "auto": true,
+   "tone": "light",
+   "within": [
+    260,
+    420,
+    760,
+    900
+   ],
+   "shape": "flat",
+   "inset": 0.08,
+   "rect": true
+  },
+  "art": {
+   "lockup_w": 0.3,
+   "name": "RELAXING\nBATH SALT",
+   "name_w": 0.62,
+   "tagline": "Rose Valley",
+   "tag_w": 0.36,
+   "sub": "200 gm",
+   "sub_w": 0.16,
+   "ink": [
+    52,
+    34,
+    24
+   ]
+  }
+ },
+ {
+  "name": "ubtan",
+  "src": "docs/gen/raw/pack-ubtan.png",
+  "out": "docs/gen/pack/ubtan.png",
+  "label": {
+   "auto": true,
+   "tone": "light",
+   "within": [
+    300,
+    360,
+    730,
+    950
+   ],
+   "shape": "flat",
+   "inset": 0.08,
+   "rect": true
+  },
+  "art": {
+   "lockup_w": 0.32,
+   "name": "Aromatic\nUbtan",
+   "name_w": 0.62,
+   "tagline": "Skin cleansing \u00b7 Exfoliating\nSkin polishing \u00b7 Naturally fragrant",
+   "tag_w": 0.86,
+   "sub": "Ayurvedic formulation \u00b7 25 gm",
+   "sub_w": 0.8,
+   "ink": [
+    52,
+    34,
+    24
+   ]
+  }
+ },
+ {
+  "name": "lavender-candle",
+  "src": "docs/gen/raw/pack-lavender-candle.png",
+  "out": "docs/gen/pack/lavender-candle.png",
+  "label": {
+   "box": [
+    284,
+    487,
+    739,
+    846
+   ],
+   "shape": "cylinder",
+   "inset": 0.1,
+   "arc": 40
+  },
+  "art": {
+   "lockup_w": 0.42,
+   "name": "Scented\nCandle",
+   "name_w": 0.85,
+   "sub": "Soy wax \u00b7 Lavender",
+   "sub_w": 0.85,
+   "ink": [
+    52,
+    34,
+    24
+   ],
+   "scale": 0.9
+  }
+ },
+ {
+  "name": "mahogany-candle",
+  "src": "docs/gen/raw/pack-mahogany-candle.png",
+  "out": "docs/gen/pack/mahogany-candle.png",
+  "label": {
+   "box": [
+    326,
+    542,
+    688,
+    913
+   ],
+   "shape": "cylinder",
+   "inset": 0.1,
+   "arc": 40
+  },
+  "art": {
+   "lockup_w": 0.42,
+   "name": "Soy Wax\nScented Candle",
+   "name_w": 0.85,
+   "sub": "Mahogany fragrance",
+   "sub_w": 0.85,
+   "ink": [
+    52,
+    34,
+    24
+   ],
+   "scale": 0.9
+  }
+ },
+ {
+  "name": "floral-box",
+  "src": "docs/gen/raw/pack-floral-box.png",
+  "out": "docs/gen/pack/floral-box.png",
+  "label": {
+   "box": [
+    362,
+    478,
+    650,
+    745
+   ],
+   "shape": "flat",
+   "inset": 0.1
+  },
+  "art": {
+   "lockup_w": 0.62,
+   "ornament": false,
+   "scale": 0.8,
+   "ink": [
+    40,
+    28,
+    22
+   ]
+  }
+ },
+ {
+  "name": "unwind-tin",
+  "src": "docs/gen/raw/pack-unwind-tin.png",
+  "out": "docs/gen/pack/unwind-tin.png",
+  "label": {
+   "auto": true,
+   "tone": "light",
+   "within": [
+    610,
+    480,
+    900,
+    880
+   ],
+   "shape": "flat",
+   "inset": 0.2
+  },
+  "art": {
+   "lockup_w": 0.34,
+   "ornament": false,
+   "name": "Unwind",
+   "name_w": 0.75,
+   "tagline": "Oudh Tabac",
+   "tag_w": 0.5,
+   "sub": "Soy wax candle",
+   "sub_w": 0.55,
+   "ink": [
+    62,
+    40,
+    28
+   ]
+  }
+ },
+ {
+  "name": "organza",
+  "src": "docs/gen/raw/pack-organza.png",
+  "out": "docs/gen/pack/organza.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      402,
+      615,
+      608,
+      770
+     ],
+     "shape": "flat",
+     "inset": 0.08
+    },
+    "art": {
+     "lockup_w": 0.22,
+     "name": "Aromatic Ubtan",
+     "name_w": 0.7,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      280,
+      860,
+      495,
+      1066
+     ],
+     "shape": "flat",
+     "inset": 0.1
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Artisanal\nSoap",
+     "name_w": 0.62,
+     "sub": "Gentle & nourishing",
+     "sub_w": 0.7,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      622,
+      855,
+      775,
+      1068
+     ],
+     "shape": "cylinder",
+     "inset": 0.06,
+     "arc": 60
+    },
+    "art": {
+     "lockup_w": 0.34,
+     "name": "Aromatic\nBody Oil",
+     "name_w": 0.7,
+     "sub": "35 ml",
+     "sub_w": 0.25,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "floral-open",
+  "src": "docs/gen/raw/pack-floral-open.png",
+  "out": "docs/gen/pack/floral-open.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      208,
+      645,
+      368,
+      758
+     ],
+     "shape": "flat",
+     "inset": 0.1
+    },
+    "art": {
+     "lockup_w": 0.24,
+     "name": "Artisanal Soap",
+     "name_w": 0.72,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      480,
+      707,
+      572,
+      826
+     ],
+     "shape": "cylinder",
+     "inset": 0.06,
+     "arc": 60
+    },
+    "art": {
+     "lockup_w": 0.4,
+     "name": "Body\nOil",
+     "name_w": 0.55,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      636,
+      658,
+      808,
+      820
+     ],
+     "shape": "flat",
+     "inset": 0.1
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "name": "Aromatic\nUbtan",
+     "name_w": 0.55,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      282,
+      946,
+      442,
+      1037
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 50
+    },
+    "art": {
+     "lockup_w": 0.24,
+     "name": "Scented Candle",
+     "name_w": 0.78,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   }
+  ]
+ }
+]

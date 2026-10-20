@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
-import { ImageHero } from "@/components/sections/ImageHero";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 
 export const metadata: Metadata = {
@@ -10,71 +10,81 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+/** Contact, v4: details beside a real product photograph, then the form. */
 export default function ContactPage() {
   const { email, phones, address } = site.contact;
   const instagram = site.social.find((s) => s.network === "instagram");
 
+  const detail = (label: string, children: React.ReactNode) => (
+    <div className="border-t border-[var(--line)] pt-5">
+      <p className="text-[0.75rem] uppercase tracking-[0.18em] text-gold">{label}</p>
+      <div className="mt-3 text-[1.1rem] text-chocolate">{children}</div>
+    </div>
+  );
+
   return (
     <>
-      <ImageHero
-        label="Contact"
-        title="Start a conversation."
-        intro="A question about a collection, a personal gift or something you have in mind. We would love to hear from you."
-        image="/images/site/hero-contact.webp"
-        alt="A cream Sacred Basil correspondence card and brass pen beside the chocolate Luxe gift box, with marigold petals and tulsi"
-      />
-      <section aria-label="Contact form" className="bg-ivory pb-[var(--section-y)]">
-        <div className="shell">
-          <div className="grid gap-16 pt-[var(--section-y)] lg:grid-cols-12 lg:gap-8">
-            <aside className="space-y-10 lg:col-span-4">
-              <div className="space-y-3">
-                <p className="eyebrow text-gold">Write to us</p>
-                <a href={`mailto:${email}`} className="link-underline block break-all font-display text-2xl text-chocolate">
-                  {email}
+      <section aria-labelledby="contact-title" className="grid lg:grid-cols-2">
+        <div className="flex flex-col justify-center px-[var(--gutter)] py-16 lg:px-16 lg:py-24 xl:px-24">
+          <p className="text-[0.8rem] uppercase tracking-[0.18em] text-gold">Contact</p>
+          <h1 id="contact-title" className="display-hero mt-5 text-chocolate">
+            Start a conversation.
+          </h1>
+          <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-cocoa/75">
+            A question about a collection, a personal gift or something you have in mind. We would love to hear from you.
+          </p>
+          <div className="mt-12 grid max-w-lg gap-7">
+            {detail(
+              "Write to us",
+              <a href={`mailto:${email}`} className="break-all hover:underline">
+                {email}
+              </a>,
+            )}
+            {detail(
+              "Call or WhatsApp",
+              phones.map((p) => (
+                <a key={p.number} href={`tel:${p.number.replace(/\s/g, "")}`} className="block hover:underline">
+                  {p.name} · {p.number}
                 </a>
-              </div>
-              <div className="space-y-3">
-                <p className="eyebrow text-gold">Call or WhatsApp</p>
-                {phones.map((p) => (
-                  <a
-                    key={p.number}
-                    href={`tel:${p.number.replace(/\s/g, "")}`}
-                    className="link-underline block font-display text-2xl text-chocolate"
-                  >
-                    {p.name}: {p.number}
-                  </a>
-                ))}
-              </div>
-              {instagram && (
-                <div className="space-y-3">
-                  <p className="eyebrow text-gold">Follow us</p>
-                  <a
-                    href={instagram.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-underline block py-1 font-display text-2xl text-chocolate"
-                  >
-                    @{instagram.href.replace(/\/$/, "").split("/").pop()} on Instagram
-                  </a>
-                </div>
+              )),
+            )}
+            {instagram &&
+              detail(
+                "Follow us",
+                <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  @{instagram.href.replace(/\/$/, "").split("/").pop()}
+                </a>,
               )}
-              <div className="space-y-2">
-                <p className="eyebrow text-gold">Studio</p>
-                <p className="text-cocoa/75">{address}</p>
-              </div>
-              <div>
-                <p className="eyebrow text-gold">Gifting for a team?</p>
-                <p className="mt-3 max-w-xs text-cocoa/75">
-                  For corporate and bulk orders, the{" "}
-                  <Link href="/corporate-gifting#enquire" className="underline underline-offset-4">
-                    corporate enquiry form
-                  </Link>{" "}
-                  asks for the details we need to help.
-                </p>
-              </div>
-            </aside>
-            <EnquiryForm kind="general" className="lg:col-span-7 lg:col-start-6" />
+            {detail("Studio", <p className="text-[1rem] text-cocoa/80">{address}</p>)}
           </div>
+        </div>
+        <div className="relative min-h-[26rem] bg-cream lg:min-h-[44rem]">
+          <Image
+            src="/images/products/set-tranquil.webp"
+            alt="The Sacred Basil Tranquil Box open with its Diwali card, soap, ubtan, body oil and candle"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="form-title" className="bg-cream px-[var(--gutter)] py-20 md:py-28">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            <h2 id="form-title" className="display-section text-chocolate">
+              Send us a message
+            </h2>
+            <p className="mt-6 text-[1rem] leading-relaxed text-cocoa/75">
+              Gifting for a team? Our{" "}
+              <Link href="/corporate-gifting#enquire" className="underline underline-offset-4">
+                corporate enquiry form
+              </Link>{" "}
+              asks for the details we need to help.
+            </p>
+          </div>
+          <EnquiryForm kind="general" className="lg:col-span-7 lg:col-start-6" />
         </div>
       </section>
     </>

@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getProducts } from "@/lib/catalog/repository";
-import { lowestPrice, startingPrice } from "@/lib/catalog/pricing";
-import { previousWork } from "@/data/catalog";
-import { orderTerms } from "@/data/site";
-import { ProductCard } from "@/components/shop/ProductCard";
-import { StudioRange } from "@/components/shop/StudioRange";
-import { ButtonLink } from "@/components/ui/Button";
-import { ImageHero } from "@/components/sections/ImageHero";
+import { formatINR, lowestPrice, startingPrice } from "@/lib/catalog/pricing";
+import { studioRange } from "@/data/studio";
+import { CollectionHero, GridHeading, TileGrid, WideBanner } from "@/components/sections/Blocks";
 import { absoluteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -17,6 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/collections" },
 };
 
+/** Shop listing, v4: packshot grids on white, as at Skandinavisk. */
 export default async function CollectionsPage() {
   const products = await getProducts();
 
@@ -43,64 +39,66 @@ export default async function CollectionsPage() {
     })),
   };
 
+  const giftSets = products.map((p) => ({
+    href: `/collections/${p.slug}`,
+    name: p.name.replace(/^The /, ""),
+    image: p.images[0],
+    hoverImage: p.images[1],
+    alt: p.name,
+    meta: `From ${formatINR(startingPrice(p))}`,
+  }));
+
+  const studio = studioRange.map((s) => ({
+    href: `/contact?product=${encodeURIComponent(s.name)}`,
+    name: s.name,
+    image: s.images[0],
+    hoverImage: s.images[1],
+    alt: s.name,
+    meta: "Enquire",
+  }));
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd).replace(/</g, "\\u003c") }}
       />
-      <ImageHero
-        label="The Diwali Gifting Collection"
-        title="Gifts, made by hand."
-        intro="Four handcrafted gift sets. The more you gift, the less each one costs. Prices are exclusive of shipping."
-        image="/images/site/hero-shop.webp"
-        alt="The Sacred Basil gifting collection on a travertine console: the chocolate Luxe box, the floral gift boxes and the festive ritual set"
+      <CollectionHero
+        image="/images/v5/lux-group.webp"
+        alt="The Sacred Basil Luxe kit and its five pieces on a travertine plinth"
+        title="The Diwali Gifting Collection"
+        line="Handcrafted gift sets. The more you gift, the less each one costs."
       />
 
-      <section aria-label="Gift sets" className="bg-ivory py-[var(--section-y)]">
-        <ul className="shell grid gap-x-6 gap-y-16 sm:grid-cols-2 lg:gap-x-10">
-          {products.map((p, i) => (
-            <li key={p.id} data-reveal="fade" data-reveal-delay={String((i % 2) * 0.08)}>
-              <ProductCard product={p} headingLevel="h2" priority={i < 2} sizes="(min-width: 640px) 45vw, 100vw" />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <StudioRange />
-
-      <section aria-labelledby="bulk-title" className="section-y bg-chocolate text-ivory">
-        <div className="shell grid items-center gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <p className="eyebrow text-champagne">Gifting in quantity</p>
-            <h2 id="bulk-title" className="display-section mt-4">
-              Bespoke sets for 100+ kits.
-            </h2>
-            <p className="lede mt-6 text-ivory/75">{orderTerms.bespoke}</p>
-            <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3">
-              <ButtonLink href="/corporate-gifting#enquire" variant="light">
-                Request a quote
-              </ButtonLink>
-              <ButtonLink href="/corporate-gifting" variant="text" className="text-ivory">
-                Corporate gifting
-              </ButtonLink>
-            </div>
-          </div>
-          <ul className="grid grid-cols-3 gap-3 lg:col-span-5 lg:col-start-8">
-            {[0, 6, 11].map((i) => (
-              <li key={i} className="relative aspect-[3/4] overflow-hidden rounded-[3px]">
-                <Image
-                  src={previousWork[i].src}
-                  alt={previousWork[i].alt}
-                  fill
-                  sizes="(min-width: 1024px) 14vw, 30vw"
-                  className="object-cover"
-                />
-              </li>
-            ))}
-          </ul>
+      <section id="gift-sets" aria-labelledby="sets-title" className="scroll-mt-28">
+        <div className="px-[var(--gutter)] pb-10 pt-16 text-center md:pt-20">
+          <h2 id="sets-title" className="display-section">
+            Gift sets
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-[1rem] text-cocoa/70">
+            Finished by hand in Pune. Prices are per set, exclusive of shipping.
+          </p>
         </div>
+        <TileGrid tiles={giftSets} priority />
       </section>
+
+      <section id="studio" aria-label="From our studio" className="scroll-mt-28">
+        <GridHeading
+          title="From our studio"
+          text="Candles, bath salts, soaps and favours, made in small batches. Ask us about availability and custom orders."
+        />
+        <TileGrid tiles={studio} />
+      </section>
+
+      <WideBanner
+        image="/images/v5/lux-box.webp"
+        alt="The Sacred Basil Luxe gift box in chocolate and gold foil on travertine"
+        title="Bespoke sets for 100+ kits"
+        text="Custom logo, branding, packaging and labels for corporate and celebration orders."
+        cta="Request a quote"
+        href="/corporate-gifting#enquire"
+        position="70% 50%"
+      />
     </>
   );
 }

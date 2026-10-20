@@ -1,0 +1,569 @@
+[
+ {
+  "name": "lux-box",
+  "src": "docs/gen/raw/lux-box.png",
+  "out": "docs/gen/lux/lux-box.png",
+  "labels": [
+   {
+    "label": {
+     "quad": [
+      [
+       755,
+       148
+      ],
+      [
+       1402,
+       168
+      ],
+      [
+       1322,
+       606
+      ],
+      [
+       610,
+       532
+      ]
+     ],
+     "inset": 0.14
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "ornament_w": 0.38,
+     "name": "LUXE BATH & BODY CARE KIT",
+     "name_w": 0.9,
+     "tagline": "Crafted for your Diwali Dawn",
+     "tag_w": 0.6,
+     "scale": 0.9,
+     "ink": [
+      214,
+      172,
+      112
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-open",
+  "src": "docs/gen/raw/lux-open.png",
+  "out": "docs/gen/lux/lux-open.png",
+  "labels": [
+   {
+    "label": {
+     "quad": [
+      [
+       468,
+       250
+      ],
+      [
+       652,
+       268
+      ],
+      [
+       645,
+       365
+      ],
+      [
+       450,
+       345
+      ]
+     ],
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Body Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "quad": [
+      [
+       760,
+       300
+      ],
+      [
+       900,
+       312
+      ],
+      [
+       895,
+       393
+      ],
+      [
+       750,
+       383
+      ]
+     ],
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Face Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "quad": [
+      [
+       1000,
+       345
+      ],
+      [
+       1083,
+       348
+      ],
+      [
+       1080,
+       443
+      ],
+      [
+       995,
+       440
+      ]
+     ],
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.55,
+     "name": "Body\nOil",
+     "name_w": 0.6,
+     "scale": 0.8,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "quad": [
+      [
+       490,
+       500
+      ],
+      [
+       648,
+       507
+      ],
+      [
+       632,
+       628
+      ],
+      [
+       473,
+       618
+      ]
+     ],
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "name": "Scented Candle",
+     "name_w": 0.75,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "quad": [
+      [
+       805,
+       545
+      ],
+      [
+       985,
+       560
+      ],
+      [
+       980,
+       670
+      ],
+      [
+       790,
+       655
+      ]
+     ],
+     "inset": 0.06
+    },
+    "art": {
+     "lockup_w": 0.26,
+     "name": "Artisanal Soap",
+     "name_w": 0.72,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-scrubs",
+  "src": "docs/gen/raw/lux-scrubs.png",
+  "out": "docs/gen/lux/lux-scrubs.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      555,
+      432,
+      1027,
+      598
+     ],
+     "shape": "cylinder",
+     "inset": 0.1,
+     "arc": 46,
+     "sag": 6
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Body Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      1068,
+      483,
+      1445,
+      622
+     ],
+     "shape": "cylinder",
+     "inset": 0.1,
+     "arc": 46,
+     "sag": 6
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Face Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-oil",
+  "src": "docs/gen/raw/lux-oil.png",
+  "out": "docs/gen/lux/lux-oil.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      937,
+      333,
+      1228,
+      640
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 60,
+     "sag": 4
+    },
+    "art": {
+     "lockup_w": 0.5,
+     "name": "Body\nOil",
+     "name_w": 0.6,
+     "scale": 0.78,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-candle",
+  "src": "docs/gen/raw/lux-candle.png",
+  "out": "docs/gen/lux/lux-candle.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      777,
+      330,
+      1212,
+      578
+     ],
+     "shape": "cylinder",
+     "inset": 0.1,
+     "arc": 46,
+     "sag": 6
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "name": "Scented Candle",
+     "name_w": 0.7,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-soap",
+  "src": "docs/gen/raw/lux-soap.png",
+  "out": "docs/gen/lux/lux-soap.png",
+  "labels": [
+   {
+    "label": {
+     "box": [
+      822,
+      268,
+      1221,
+      557
+     ],
+     "shape": "flat",
+     "inset": 0.1
+    },
+    "art": {
+     "lockup_w": 0.26,
+     "name": "Artisanal Soap",
+     "name_w": 0.7,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-floral",
+  "src": "docs/gen/raw/lux-floral.png",
+  "out": "docs/gen/lux/lux-floral.png",
+  "labels": [
+   {
+    "label": {
+     "quad": [
+      [
+       938,
+       162
+      ],
+      [
+       1140,
+       183
+      ],
+      [
+       1095,
+       330
+      ],
+      [
+       885,
+       300
+      ]
+     ],
+     "inset": 0.1
+    },
+    "art": {
+     "lockup_w": 0.62,
+     "ornament": false,
+     "scale": 0.8,
+     "ink": [
+      52,
+      34,
+      24
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "name": "lux-group",
+  "src": "docs/gen/raw/lux-group.png",
+  "out": "docs/gen/lux/lux-group.png",
+  "labels": [
+   {
+    "label": {
+     "quad": [
+      [
+       880,
+       118
+      ],
+      [
+       1395,
+       98
+      ],
+      [
+       1395,
+       410
+      ],
+      [
+       880,
+       420
+      ]
+     ],
+     "inset": 0.08
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "ornament_w": 0.38,
+     "name": "LUXE BATH & BODY CARE KIT",
+     "name_w": 0.9,
+     "tagline": "Crafted for your Diwali Dawn",
+     "tag_w": 0.6,
+     "scale": 0.75,
+     "ink": [
+      214,
+      172,
+      112
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      605,
+      463,
+      760,
+      570
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46,
+     "sag": 3
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Body Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      812,
+      510,
+      935,
+      590
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46,
+     "sag": 3
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Face Scrub",
+     "name_w": 0.62,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      998,
+      473,
+      1075,
+      605
+     ],
+     "shape": "cylinder",
+     "inset": 0.06,
+     "arc": 60,
+     "sag": 2
+    },
+    "art": {
+     "lockup_w": 0.55,
+     "name": "Body\nOil",
+     "name_w": 0.6,
+     "scale": 0.8,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      1115,
+      495,
+      1228,
+      595
+     ],
+     "shape": "flat",
+     "inset": 0.07
+    },
+    "art": {
+     "lockup_w": 0.28,
+     "name": "Artisanal Soap",
+     "name_w": 0.75,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   },
+   {
+    "label": {
+     "box": [
+      1325,
+      505,
+      1430,
+      610
+     ],
+     "shape": "cylinder",
+     "inset": 0.08,
+     "arc": 46,
+     "sag": 3
+    },
+    "art": {
+     "lockup_w": 0.3,
+     "name": "Scented Candle",
+     "name_w": 0.78,
+     "ink": [
+      228,
+      208,
+      172
+     ]
+    }
+   }
+  ]
+ }
+]

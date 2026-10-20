@@ -1,0 +1,914 @@
+[
+ {
+  "name": "aromatic-body-oil",
+  "src": "docs/site-images/ai-originals/site/aromatic-body-oil.webp",
+  "out": "public/images/site/aromatic-body-oil.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     276,
+     1006,
+     335,
+     1056
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 305,
+    "cy": 1031,
+    "w": 46,
+    "color": [
+     62,
+     30,
+     16
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     474,
+     1028,
+     531,
+     1080
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 502,
+    "cy": 1054,
+    "w": 46,
+    "color": [
+     62,
+     30,
+     16
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     654,
+     859,
+     708,
+     904
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 681,
+    "cy": 882,
+    "w": 38,
+    "color": [
+     70,
+     38,
+     20
+    ],
+    "finish": "print",
+    "soften": 1.6,
+    "opacity": 0.8
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     801,
+     867,
+     854,
+     912
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 828,
+    "cy": 890,
+    "w": 39,
+    "color": [
+     70,
+     38,
+     20
+    ],
+    "finish": "print",
+    "soften": 1.6,
+    "opacity": 0.8
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     943,
+     880,
+     996,
+     922
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 970,
+    "cy": 902,
+    "w": 37,
+    "color": [
+     70,
+     38,
+     20
+    ],
+    "finish": "print",
+    "soften": 1.4,
+    "opacity": 0.8
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1091,
+     890,
+     1145,
+     935
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1118,
+    "cy": 913,
+    "w": 39,
+    "color": [
+     70,
+     38,
+     20
+    ],
+    "finish": "print",
+    "soften": 1.4,
+    "opacity": 0.8
+   }
+  ]
+ },
+ {
+  "name": "founders-wide",
+  "src": "docs/site-images/ai-originals/site/founders-wide.webp",
+  "out": "public/images/site/founders-wide.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     526,
+     995,
+     602,
+     1059
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 564,
+    "cy": 1028,
+    "w": 63,
+    "color": [
+     226,
+     188,
+     142
+    ],
+    "finish": "foil",
+    "light": 0.2,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     364,
+     1186,
+     428,
+     1232
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 395,
+    "cy": 1202,
+    "w": 30,
+    "color": [
+     218,
+     186,
+     152
+    ],
+    "finish": "print",
+    "bold": 0.5
+   },
+   {
+    "op": "text",
+    "text": "Scented Candle",
+    "font": "Cormorant.ttf",
+    "size": 10,
+    "cx": 395,
+    "cy": 1225,
+    "color": [
+     234,
+     206,
+     174
+    ],
+    "soften": 0.15
+   }
+  ]
+ },
+ {
+  "name": "hero-contact",
+  "src": "docs/site-images/ai-originals/site/hero-contact.webp",
+  "out": "public/images/site/hero-contact.webp",
+  "ops": [
+   {
+    "op": "clone",
+    "poly": [
+     [
+      2134,
+      1074
+     ],
+     [
+      2246,
+      1074
+     ],
+     [
+      2246,
+      1190
+     ],
+     [
+      2236,
+      1192
+     ],
+     [
+      2134,
+      1171
+     ]
+    ],
+    "from": [
+     -110,
+     -28
+    ],
+    "feather": 2.5
+   },
+   {
+    "op": "clone",
+    "poly": [
+     [
+      2134,
+      1167
+     ],
+     [
+      2240,
+      1188
+     ],
+     [
+      2236,
+      1196
+     ],
+     [
+      2134,
+      1192
+     ]
+    ],
+    "from": [
+     -60,
+     -12
+    ],
+    "feather": 2.5
+   },
+   {
+    "op": "erase",
+    "box": [
+     1690,
+     305,
+     1852,
+     451
+    ],
+    "ink": "both",
+    "thresh": 5,
+    "grow": 4,
+    "stroke": 41,
+    "fit": 1,
+    "fitbox": [
+     1680,
+     295,
+     1862,
+     452
+    ],
+    "texbox": [
+     1860,
+     300,
+     1900,
+     420
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1771,
+    "cy": 382,
+    "w": 144,
+    "angle": 4,
+    "color": [
+     208,
+     156,
+     104
+    ],
+    "finish": "foil",
+    "light": 0.22,
+    "foil_grain": 0.4
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1568,
+     999,
+     1650,
+     1044
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1607,
+    "cy": 1022,
+    "w": 74,
+    "vscale": 0.51,
+    "angle": 0,
+    "color": [
+     150,
+     112,
+     62
+    ],
+    "finish": "print",
+    "soften": 0.4
+   }
+  ]
+ },
+ {
+  "name": "hero-corporate",
+  "src": "docs/site-images/ai-originals/site/hero-corporate.webp",
+  "out": "public/images/site/hero-corporate.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     1690,
+     712,
+     1858,
+     859
+    ],
+    "ink": "both",
+    "thresh": 5,
+    "grow": 4,
+    "stroke": 41,
+    "fit": 1,
+    "fitbox": [
+     1680,
+     700,
+     1868,
+     860
+    ],
+    "texbox": [
+     1860,
+     700,
+     1900,
+     820
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1776,
+    "cy": 789,
+    "w": 148,
+    "angle": 4,
+    "color": [
+     236,
+     214,
+     176
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.3
+   }
+  ]
+ },
+ {
+  "name": "hero-shop",
+  "src": "docs/site-images/ai-originals/site/hero-shop.webp",
+  "out": "public/images/site/hero-shop.webp",
+  "ops": [
+   {
+    "op": "erase",
+    "box": [
+     1384,
+     564,
+     1484,
+     654
+    ],
+    "ink": "both",
+    "thresh": 6,
+    "grow": 3,
+    "stroke": 31,
+    "fit": 1,
+    "fitbox": [
+     1382,
+     556,
+     1486,
+     658
+    ],
+    "grain": 0.4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1432,
+    "cy": 609,
+    "w": 88,
+    "color": [
+     34,
+     16,
+     10
+    ],
+    "finish": "print"
+   },
+   {
+    "op": "erase",
+    "box": [
+     1744,
+     505,
+     1892,
+     627
+    ],
+    "ink": "both",
+    "thresh": 5,
+    "grow": 4,
+    "stroke": 41,
+    "fit": 1,
+    "fitbox": [
+     1736,
+     498,
+     1900,
+     630
+    ],
+    "texbox": [
+     1900,
+     520,
+     1940,
+     600
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1828,
+    "cy": 566,
+    "w": 112,
+    "angle": 1,
+    "color": [
+     228,
+     178,
+     126
+    ],
+    "finish": "foil",
+    "light": 0.22,
+    "foil_grain": 0.4
+   }
+  ]
+ },
+ {
+  "name": "luxe-spotlight",
+  "src": "docs/site-images/ai-originals/site/luxe-spotlight.webp",
+  "out": "public/images/site/luxe-spotlight.webp",
+  "ops": [
+   {
+    "op": "hfill",
+    "box": [
+     528,
+     1208,
+     553,
+     1281
+    ],
+    "feather": 1.2
+   },
+   {
+    "op": "erase",
+    "box": [
+     714,
+     421,
+     862,
+     551
+    ],
+    "ink": "both",
+    "thresh": 5,
+    "grow": 4,
+    "stroke": 41,
+    "fit": 1,
+    "fitbox": [
+     700,
+     410,
+     875,
+     552
+    ],
+    "texbox": [
+     880,
+     430,
+     920,
+     540
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 788,
+    "cy": 487,
+    "w": 127,
+    "color": [
+     215,
+     168,
+     123
+    ],
+    "finish": "foil",
+    "light": 0.2,
+    "foil_grain": 0.35
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     509,
+     1047,
+     577,
+     1099
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 544,
+    "cy": 1073,
+    "w": 52,
+    "color": [
+     224,
+     162,
+     103
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.1,
+    "soften": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     725,
+     1053,
+     795,
+     1107
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 760,
+    "cy": 1080,
+    "w": 54,
+    "color": [
+     201,
+     140,
+     88
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.1,
+    "soften": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     943,
+     1079,
+     1028,
+     1133
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 978,
+    "cy": 1106,
+    "w": 53,
+    "color": [
+     201,
+     140,
+     88
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.1,
+    "soften": 0.25,
+    "word": 1.0
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     499,
+     1322,
+     569,
+     1375
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 535,
+    "cy": 1349,
+    "w": 50,
+    "color": [
+     180,
+     116,
+     66
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.1,
+    "soften": 0.25
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     733,
+     1258,
+     801,
+     1315
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 768,
+    "cy": 1287,
+    "w": 54,
+    "color": [
+     201,
+     138,
+     86
+    ],
+    "finish": "foil",
+    "light": 0.15,
+    "foil_grain": 0.1,
+    "soften": 0.25
+   },
+   {
+    "op": "unlight",
+    "flame": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "clone": 0,
+    "wick": [
+     541,
+     1262,
+     1269
+    ],
+    "wick_w": 1.4,
+    "wick_color": [
+     150,
+     122,
+     92
+    ]
+   }
+  ]
+ },
+ {
+  "name": "story-hero-desktop",
+  "src": "docs/site-images/ai-originals/site/story-hero-desktop.webp",
+  "out": "public/images/site/story-hero-desktop.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1912,
+     1664,
+     1986,
+     1725
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1948,
+    "cy": 1696,
+    "w": 57,
+    "color": [
+     226,
+     190,
+     146
+    ],
+    "finish": "foil",
+    "light": 0.2,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1763,
+     1836,
+     1827,
+     1882
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1795,
+    "cy": 1856,
+    "w": 29,
+    "color": [
+     218,
+     188,
+     156
+    ],
+    "finish": "print",
+    "bold": 0.5
+   },
+   {
+    "op": "text",
+    "text": "Scented Candle",
+    "font": "Cormorant.ttf",
+    "size": 9,
+    "cx": 1795,
+    "cy": 1876,
+    "color": [
+     230,
+     202,
+     170
+    ],
+    "soften": 0.15
+   }
+  ]
+ },
+ {
+  "name": "story-hero-mobile",
+  "src": "docs/site-images/ai-originals/site/story-hero-mobile.webp",
+  "out": "public/images/site/story-hero-mobile.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     408,
+     1893,
+     459,
+     1931
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 433,
+    "cy": 1913,
+    "w": 33,
+    "color": [
+     226,
+     190,
+     146
+    ],
+    "finish": "foil",
+    "light": 0.2,
+    "foil_grain": 0.3
+   },
+   {
+    "op": "erase",
+    "box": [
+     320,
+     1997,
+     361,
+     2026
+    ],
+    "ink": "both",
+    "thresh": 5,
+    "grow": 2,
+    "stroke": 15,
+    "grain": 0,
+    "smooth": 3,
+    "radius": 4
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 340,
+    "cy": 2010,
+    "w": 18,
+    "color": [
+     218,
+     188,
+     156
+    ],
+    "finish": "print",
+    "bold": 0.5
+   },
+   {
+    "op": "text",
+    "text": "Scented Candle",
+    "font": "Cormorant.ttf",
+    "size": 6,
+    "cx": 340,
+    "cy": 2022,
+    "color": [
+     230,
+     202,
+     170
+    ],
+    "soften": 0.15
+   }
+  ]
+ },
+ {
+  "name": "founders",
+  "src": "docs/site-images/ai-originals/products/founders.webp",
+  "out": "public/images/products/founders.webp",
+  "ops": [
+   {
+    "op": "lerase",
+    "thresh": 9,
+    "grow": 2,
+    "stroke": 21,
+    "box": [
+     1282,
+     662,
+     1362,
+     733
+    ]
+   },
+   {
+    "op": "logo",
+    "kind": "lockup",
+    "cx": 1324,
+    "cy": 703,
+    "w": 44,
+    "color": [
+     214,
+     190,
+     160
+    ],
+    "finish": "print",
+    "soften": 0.6,
+    "opacity": 0.9
+   }
+  ]
+ }
+]

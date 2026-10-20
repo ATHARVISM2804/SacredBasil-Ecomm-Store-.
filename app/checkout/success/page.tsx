@@ -33,7 +33,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
 
   if (!order) {
     return (
-      <section className="bg-ivory pb-24 pt-40 md:pb-32 md:pt-48">
+      <section className="bg-ivory pb-24 pt-12 md:pb-32 md:pt-16">
         <div className="shell max-w-2xl">
           <p className="eyebrow mb-6 text-cocoa/65">Order</p>
           <h1 className="display-section text-chocolate">We couldn’t find that order</h1>
@@ -58,7 +58,7 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
   const a = order.shipping_address;
 
   return (
-    <section className="bg-ivory pb-24 pt-40 md:pb-32 md:pt-48">
+    <section className="bg-ivory pb-24 pt-12 md:pb-32 md:pt-16">
       <div className="shell max-w-3xl">
         <p className="eyebrow mb-6 text-gold">Order {order.order_number}</p>
         <h1 className="display-section text-chocolate">
