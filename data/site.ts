@@ -32,9 +32,23 @@ export const site = {
     { network: "email", label: "Email", href: "mailto:contactsacredbasil@gmail.com" },
   ] as { network: "instagram" | "whatsapp" | "email" | "facebook" | "linkedin"; label: string; href: string }[],
 
+  /**
+   * Last day to order for delivery before the festival (end of day, IST).
+   * Diwali 2026 is 8 November; 7–8 business days of production plus
+   * shipping puts the cut-off here. Confirm with Sacred Basil before launch.
+   * The note disappears by itself after this date.
+   */
+  festiveCutoff: { festival: "Diwali", orderBy: "2026-10-23" },
+
   /** Placeholder frames name the photograph that belongs there when true. */
   showPlaceholderCaptions: false,
 } as const;
+
+/** WhatsApp chat with Sacred Basil, opening with a message ready to send. */
+export function whatsappLink(text = "Hello Sacred Basil, I’d like some help choosing a gift.") {
+  const base = site.social.find((s) => s.network === "whatsapp")?.href ?? "https://wa.me/919959241078";
+  return `${base}?text=${encodeURIComponent(text)}`;
+}
 
 export type MenuLink = { label: string; href: string };
 export type MenuTile = { label: string; href: string; image: string };

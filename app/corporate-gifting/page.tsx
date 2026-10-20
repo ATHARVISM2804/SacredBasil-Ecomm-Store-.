@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProducts } from "@/lib/catalog/repository";
 import { formatINR, tierLabel } from "@/lib/catalog/pricing";
-import { corporateCustomisation, orderTerms } from "@/data/site";
+import { corporateCustomisation, orderTerms, whatsappLink } from "@/data/site";
+import { SocialIcon } from "@/components/footer/SocialLinks";
 import { previousWork } from "@/data/catalog";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { CollectionHero } from "@/components/sections/Blocks";
@@ -62,6 +63,15 @@ export default async function CorporateGiftingPage() {
           <Link href="#pricing" className="btn border border-chocolate text-chocolate hover:bg-chocolate hover:text-ivory">
             See bulk pricing
           </Link>
+          <a
+            href={whatsappLink("Hello Sacred Basil, I’d like to discuss a corporate gifting order.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn gap-2.5 border border-chocolate text-chocolate hover:bg-chocolate hover:text-ivory"
+          >
+            <SocialIcon network="whatsapp" className="size-4" />
+            Chat on WhatsApp
+          </a>
         </div>
       </section>
 

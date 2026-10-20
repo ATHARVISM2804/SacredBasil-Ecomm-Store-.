@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer/Footer";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import { Cursor } from "@/components/ui/Cursor";
 import { WelcomeLayer } from "@/components/ui/WelcomeLayer";
+import { WhatsAppConcierge } from "@/components/ui/WhatsAppConcierge";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { loadAnnouncement } from "@/lib/announcement";
 
@@ -83,6 +84,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <CartDrawer />
         <MotionProvider />
         <Cursor />
+        <WhatsAppConcierge />
         <WelcomeLayer />
       </body>
     </html>

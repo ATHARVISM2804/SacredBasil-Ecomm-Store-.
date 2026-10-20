@@ -71,7 +71,7 @@ export default async function InvoicePage({
           </div>
           <div>
             <p className="eyebrow mb-2 text-cocoa/60">Ship to</p>
-            <p className="font-medium">{o.customer_name}</p>
+            <p className="font-medium">{a.recipientName || o.customer_name}</p>
             <p className="text-cocoa/80">
               {[a.line1, a.line2].filter(Boolean).join(", ")}
               <br />
@@ -83,8 +83,9 @@ export default async function InvoicePage({
                 </>
               )}
             </p>
-            <p className="text-cocoa/80">{o.phone}</p>
+            <p className="text-cocoa/80">{a.recipientPhone || o.phone}</p>
             {!slip && <p className="text-cocoa/80">{o.email}</p>}
+            {!slip && a.recipientName && <p className="mt-2 text-cocoa/60">Ordered by {o.customer_name}</p>}
           </div>
         </section>
 

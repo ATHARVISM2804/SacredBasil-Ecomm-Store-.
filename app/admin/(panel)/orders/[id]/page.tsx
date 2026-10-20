@@ -41,7 +41,9 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
   };
 
   const addr = o.shipping_address ?? {};
-  const address = [addr.line1, addr.line2, [addr.city, addr.state].filter(Boolean).join(", "), addr.pincode, addr.country]
+  const address = [
+    addr.recipientName && `For ${addr.recipientName}${addr.recipientPhone ? ` · ${addr.recipientPhone}` : ""}`,
+    addr.line1, addr.line2, [addr.city, addr.state].filter(Boolean).join(", "), addr.pincode, addr.country]
     .filter(Boolean)
     .join("\n");
 

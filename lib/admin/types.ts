@@ -33,6 +33,8 @@ export type ShippingAddress = {
   state?: string;
   pincode?: string;
   country?: string;
+  recipientName?: string;
+  recipientPhone?: string;
 };
 
 export type OrderRow = {

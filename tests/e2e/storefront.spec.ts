@@ -149,3 +149,25 @@ test("first visit: cookie bar, then the Diwali invitation", async ({ page }) => 
   await expect(page.getByRole("dialog")).toBeHidden();
   await expect(page.getByRole("region", { name: "Cookie preferences" })).toBeHidden();
 });
+
+test("WhatsApp: floating chat button and a product question with the product named", async ({ page }) => {
+  await page.goto("/collections/luxe-bath-body-care-kit");
+  const chat = page.getByRole("link", { name: "Chat with us on WhatsApp" });
+  await expect(chat).toBeVisible();
+  expect(await chat.getAttribute("href")).toMatch(/^https:\/\/wa\.me\/919959241078\?text=/);
+  const ask = page.getByRole("link", { name: "Ask us on WhatsApp" });
+  expect(decodeURIComponent((await ask.getAttribute("href")) ?? "")).toContain("The Luxe Bath & Body Care Kit");
+});
+
+test("checkout: sending to someone else asks for the recipient", async ({ page }) => {
+  await page.goto("/collections/tranquil-box");
+  await page.locator("#buy").getByRole("button", { name: /Add to bag/ }).click();
+  await page.goto("/checkout");
+  await expect(page.getByLabel("Recipient’s name")).toHaveCount(0);
+  await page.getByLabel("I’m sending this to someone else").check();
+  await expect(page.getByLabel("Recipient’s name")).toBeVisible();
+  await expect(page.getByLabel("Recipient’s mobile")).toBeVisible();
+  await page.getByLabel("I’m sending this to someone else").uncheck();
+  await expect(page.getByLabel("Recipient’s name")).toHaveCount(0);
+  await expectNoOverflow(page);
+});

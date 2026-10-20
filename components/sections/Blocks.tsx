@@ -177,7 +177,7 @@ export function GridHeading({ title, text, href, cta }: { title: string; text?: 
       <h2 className="display-section">{title}</h2>
       {text && <p className="mx-auto mt-3 max-w-xl text-[1rem] text-cocoa/70">{text}</p>}
       {href && cta && (
-        <Link href={href} className="mt-4 inline-block text-[0.9rem] uppercase tracking-[0.08em] underline underline-offset-4">
+        <Link href={href} className="mt-2 inline-block py-2.5 text-[0.9rem] uppercase tracking-[0.08em] underline underline-offset-4">
           {cta}
         </Link>
       )}
@@ -248,7 +248,7 @@ export function BrandStatement() {
       <p className="mt-8 text-[0.85rem] uppercase tracking-[0.16em] text-cocoa/60">Doctor-led · Handmade in Pune</p>
       <Link
         href="/our-story"
-        className="mt-8 inline-block text-[0.9rem] uppercase tracking-[0.08em] text-chocolate underline underline-offset-4"
+        className="mt-6 inline-block py-2.5 text-[0.9rem] uppercase tracking-[0.08em] text-chocolate underline underline-offset-4"
       >
         Our story
       </Link>

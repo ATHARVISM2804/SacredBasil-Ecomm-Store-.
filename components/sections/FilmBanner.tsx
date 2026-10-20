@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Pause, Play } from "lucide-react";
-import { useMediaQuery } from "@/lib/useMediaQuery";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import { useHydrated, useMediaQuery } from "@/lib/useMediaQuery";
 
 /**
  * Full-bleed looping film with an optional headline and button bottom left,
  * like Skandinavisk's "Bundles and duos" banner. Plays only while on screen;
- * paused for reduced motion; has a pause control (WCAG 2.2.2).
+ * paused for reduced motion.
  */
 export function FilmBanner({
   name,
@@ -28,42 +27,53 @@ export function FilmBanner({
   href?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const box = useRef<HTMLElement>(null);
+  const hydrated = useHydrated();
   const isMobile = useMediaQuery("(max-width: 767px)");
   const reduced = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [visible, setVisible] = useState(false);
-  const [paused, setPaused] = useState(false);
+  // Nothing downloads until the banner first comes near the screen.
+  const [near, setNear] = useState(false);
   const kind = isMobile ? "mobile" : "desktop";
 
   useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { rootMargin: "200px" });
-    io.observe(v);
+    const el = box.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        setVisible(e.isIntersecting);
+        if (e.isIntersecting) setNear(true);
+      },
+      { rootMargin: "400px 0px" },
+    );
+    io.observe(el);
     return () => io.disconnect();
-  }, [kind]);
+  }, []);
 
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    if (visible && !reduced && !paused) v.play().catch(() => undefined);
+    if (visible && !reduced) v.play().catch(() => undefined);
     else v.pause();
-  }, [visible, reduced, paused, kind]);
+  }, [visible, reduced, kind, near]);
 
   return (
-    <section aria-label={label} className="relative aspect-[4/5] w-full overflow-hidden bg-chocolate md:aspect-[2/1]">
-      <video
-        key={kind}
-        ref={ref}
-        className="absolute inset-0 size-full object-cover"
-        poster={`/video/v4/${name}-${kind}.jpg`}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-label={label}
-      >
-        <source src={`/video/v4/${name}-${kind}.mp4?v=9`} type="video/mp4" />
-      </video>
+    <section ref={box} aria-label={label} className="relative aspect-[4/5] w-full overflow-hidden bg-chocolate md:aspect-[2/1]">
+      {hydrated && near && (
+        <video
+          key={kind}
+          ref={ref}
+          className="absolute inset-0 size-full object-cover"
+          poster={`/video/v4/${name}-${kind}.jpg`}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={label}
+        >
+          <source src={`/video/v4/${name}-${kind}.mp4?v=9`} type="video/mp4" />
+        </video>
+      )}
       {title && (
         <>
           <div
@@ -81,18 +91,6 @@ export function FilmBanner({
             )}
           </div>
         </>
-      )}
-      {!reduced && (
-        <button
-          type="button"
-          onClick={() => setPaused((p) => !p)}
-          aria-label={paused ? "Play film" : "Pause film"}
-          className={cn(
-            "absolute bottom-4 right-4 grid size-10 place-items-center rounded-full bg-black/35 text-white backdrop-blur-sm transition-colors hover:bg-black/55",
-          )}
-        >
-          {paused ? <Play aria-hidden className="size-4" /> : <Pause aria-hidden className="size-4" />}
-        </button>
       )}
     </section>
   );

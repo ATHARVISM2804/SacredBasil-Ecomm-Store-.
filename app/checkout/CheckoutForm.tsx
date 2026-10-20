@@ -19,6 +19,7 @@ import type {
 } from "@/lib/cart/types";
 import { loadRazorpay, openRazorpay, type RazorpaySuccess } from "@/lib/payments/razorpay-client";
 import { ProductThumb } from "@/components/cart/ProductThumb";
+import { FestiveCutoff } from "@/components/shop/FestiveCutoff";
 import { cn } from "@/lib/utils";
 
 export type SavedAddress = {
@@ -72,6 +73,7 @@ export function CheckoutForm({
   const [addressId, setAddressId] = useState<string>(defaultAddress?.id ?? "new");
   const [address, setAddress] = useState<CheckoutAddress>(defaultAddress ? fromSaved(defaultAddress) : EMPTY_ADDRESS);
   const [saveAddress, setSaveAddress] = useState(false);
+  const forSomeone = address.recipientName !== undefined;
   const [gift, setGift] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
 
@@ -319,6 +321,8 @@ export function CheckoutForm({
 
   const setAddr = (k: keyof CheckoutAddress) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setAddress((a) => ({ ...a, [k]: e.target.value }));
+  const toggleRecipient = (on: boolean) =>
+    setAddress((a) => ({ ...a, recipientName: on ? "" : undefined, recipientPhone: on ? "" : undefined }));
   const setCont = (k: keyof CheckoutContact) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setContact((c) => ({ ...c, [k]: e.target.value }));
 
@@ -385,6 +389,21 @@ export function CheckoutForm({
               </select>
             </div>
           )}
+          <label className="flex items-center gap-3 text-[0.95rem] text-cocoa/85">
+            <input type="checkbox" checked={forSomeone} onChange={(e) => toggleRecipient(e.target.checked)} disabled={busy} className="size-4 accent-[var(--color-chocolate)]" />
+            I’m sending this to someone else
+          </label>
+          {forSomeone && (
+            <div className="grid gap-8 md:grid-cols-2">
+              {field("recipientName", "Recipient’s name", <input {...inputProps("recipientName")} autoComplete="off" value={address.recipientName} onChange={setAddr("recipientName")} maxLength={LIMITS.name} />)}
+              {field(
+                "recipientPhone",
+                "Recipient’s mobile",
+                <input {...inputProps("recipientPhone")} type="tel" inputMode="tel" autoComplete="off" placeholder="98765 43210" value={address.recipientPhone} onChange={setAddr("recipientPhone")} maxLength={16} />,
+                { hint: "Only for the courier. We won’t spoil the surprise." },
+              )}
+            </div>
+          )}
           {field("line1", "Address", <input {...inputProps("line1")} autoComplete="address-line1" value={address.line1} onChange={setAddr("line1")} maxLength={LIMITS.line} placeholder="House / flat, building, street" />)}
           {field("line2", "Area, landmark (optional)", <input {...inputProps("line2")} autoComplete="address-line2" value={address.line2} onChange={setAddr("line2")} maxLength={LIMITS.line} />)}
           <div className="grid gap-8 md:grid-cols-3">
@@ -429,6 +448,7 @@ export function CheckoutForm({
 
       <aside aria-label="Order summary" className="h-fit border border-[var(--line)] bg-cream/40 p-6 md:p-8 lg:sticky lg:top-32">
         <h2 className="display-sub text-chocolate">Order summary</h2>
+        <FestiveCutoff className="mt-4" />
         {status === "loading" && <p className="mt-6 text-sm text-cocoa/60">Loading…</p>}
         {status === "error" && <p className="mt-6 text-sm text-terracotta">We couldn’t load prices. Please refresh.</p>}
         {totals && (

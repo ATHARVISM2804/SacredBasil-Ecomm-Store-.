@@ -14,3 +14,14 @@ export function useMediaQuery(query: string, serverValue = false) {
     () => serverValue,
   );
 }
+
+const noop = () => () => {};
+
+/** False in the server HTML and the first client render, true after. */
+export function useHydrated() {
+  return useSyncExternalStore(
+    noop,
+    () => true,
+    () => false,
+  );
+}

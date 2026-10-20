@@ -32,6 +32,24 @@ const paths: Record<Network, React.ReactNode> = {
   ),
 };
 
+/** One network's line icon, sized by the caller. */
+export function SocialIcon({ network, className }: { network: Network; className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.3}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {paths[network]}
+    </svg>
+  );
+}
+
 /** Footer social links, from data/site.ts. */
 export function SocialLinks({ className }: { className?: string }) {
   if (!site.social.length) return null;
@@ -45,18 +63,7 @@ export function SocialLinks({ className }: { className?: string }) {
             {...(s.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="grid size-10 place-items-center transition-opacity hover:opacity-60"
           >
-            <svg
-              aria-hidden
-              viewBox="0 0 24 24"
-              className="size-[1.15rem]"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.3}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {paths[s.network]}
-            </svg>
+            <SocialIcon network={s.network} className="size-[1.15rem]" />
           </a>
         </li>
       ))}

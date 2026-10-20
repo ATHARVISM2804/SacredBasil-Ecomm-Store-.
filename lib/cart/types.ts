@@ -40,6 +40,9 @@ export type CheckoutAddress = {
   city: string;
   state: string;
   pincode: string;
+  /** Set when the order goes to someone else: who the courier asks for. */
+  recipientName?: string;
+  recipientPhone?: string;
 };
 
 export type CreateOrderRequest = {

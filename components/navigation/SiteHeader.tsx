@@ -77,7 +77,7 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
             {/* With a link, phones show just the link; without one, the text shows everywhere. */}
             <span className={cn("truncate", announcement.link && "hidden sm:inline")}>{announcement.text}</span>
             {announcement.link && (
-              <Link href={announcement.link} className="shrink-0 underline underline-offset-4">
+              <Link href={announcement.link} className="shrink-0 py-2 underline underline-offset-4">
                 {announcement.linkLabel}
               </Link>
             )}
@@ -93,16 +93,17 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
         onMouseLeave={() => hover(null)}
       >
         <div className="flex h-16 items-center justify-between px-[var(--gutter)] lg:h-[3.75rem] lg:pt-2">
-          <Link href="/" aria-label="Sacred Basil, home" className="flex items-center gap-3 py-2">
-            <Logo variant="monogram" className="h-8 lg:h-7" />
-            <Logo variant="wordmark" className="h-[0.78rem] lg:h-[0.85rem]" />
+          <Link href="/" aria-label="Sacred Basil, home" className="flex min-w-0 items-center gap-2.5 py-2 min-[380px]:gap-3">
+            <Logo variant="monogram" className="h-7 shrink-0 min-[380px]:h-8 lg:h-7" />
+            <Logo variant="wordmark" className="h-[0.68rem] shrink-0 min-[380px]:h-[0.78rem] lg:h-[0.85rem]" />
           </Link>
 
           <div className="flex items-center gap-1">
+            {/* Below 380px the account link lives in the menu only, to keep the row on one line. */}
             <Link
               href="/account"
               aria-label="Your account"
-              className="grid size-10 place-items-center transition-opacity hover:opacity-70"
+              className="hidden size-10 place-items-center transition-opacity hover:opacity-70 min-[380px]:grid"
             >
               <UserRound aria-hidden className="size-5" strokeWidth={1.25} />
             </Link>

@@ -78,6 +78,12 @@ export function validateAddress(input: Partial<CheckoutAddress>): FieldErrors {
   else if (city.length > LIMITS.city) e.city = "That city name is too long.";
   if (!(INDIAN_STATES as readonly string[]).includes(str(input.state))) e.state = "Please choose your state.";
   if (!PINCODE_RE.test(str(input.pincode))) e.pincode = "Please enter a valid 6-digit PIN code.";
+  if (input.recipientName !== undefined || input.recipientPhone !== undefined) {
+    const recipient = str(input.recipientName);
+    if (!recipient) e.recipientName = "Please enter the recipient’s name.";
+    else if (recipient.length > LIMITS.name) e.recipientName = "That name is too long.";
+    if (!normalisePhone(str(input.recipientPhone))) e.recipientPhone = "Please enter their 10-digit mobile number.";
+  }
   return e;
 }
 
@@ -88,6 +94,10 @@ export function cleanAddress(a: CheckoutAddress): CheckoutAddress & { country: "
     city: str(a.city),
     state: str(a.state),
     pincode: str(a.pincode),
+    ...(a.recipientName !== undefined && {
+      recipientName: str(a.recipientName),
+      recipientPhone: normalisePhone(str(a.recipientPhone)) ?? undefined,
+    }),
     country: "India",
   };
 }

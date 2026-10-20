@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/data/site";
+import { site, whatsappLink } from "@/data/site";
+import { SocialIcon } from "@/components/footer/SocialLinks";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 
 export const metadata: Metadata = {
@@ -43,10 +44,15 @@ export default function ContactPage() {
             {detail(
               "Call or WhatsApp",
               phones.map((p) => (
-                <a key={p.number} href={`tel:${p.number.replace(/\s/g, "")}`} className="block hover:underline">
+                <a key={p.number} href={`tel:${p.number.replace(/\s/g, "")}`} className="block py-1.5 hover:underline">
                   {p.name} · {p.number}
                 </a>
-              )),
+              )).concat(
+                <a key="wa" href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center gap-2 text-[1rem] underline underline-offset-4">
+                  <SocialIcon network="whatsapp" className="size-[1.1rem]" />
+                  Message us on WhatsApp
+                </a>,
+              ),
             )}
             {instagram &&
               detail(

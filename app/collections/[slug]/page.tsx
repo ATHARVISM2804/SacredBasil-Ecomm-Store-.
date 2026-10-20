@@ -5,9 +5,11 @@ import { notFound } from "next/navigation";
 import { Check, Plus } from "lucide-react";
 import { getProductBySlug, getProducts } from "@/lib/catalog/repository";
 import { formatINR, lowestPrice, startingPrice } from "@/lib/catalog/pricing";
-import { orderTerms } from "@/data/site";
+import { orderTerms, whatsappLink } from "@/data/site";
+import { SocialIcon } from "@/components/footer/SocialLinks";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { StickyBuy } from "@/components/shop/StickyBuy";
+import { FestiveCutoff } from "@/components/shop/FestiveCutoff";
 import { AddToCart } from "@/components/cart/AddToCart";
 import { WishlistButton } from "@/components/cart/WishlistButton";
 import { TileGrid } from "@/components/sections/Blocks";
@@ -95,7 +97,7 @@ export default async function ProductPage({ params }: Props) {
 
         <div className="min-w-0 px-[var(--gutter)] py-10 lg:px-14 lg:py-14 xl:px-20">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[0.82rem] text-cocoa/55">
-            <Link href="/collections" className="hover:underline">
+            <Link href="/collections" className="py-2.5 hover:underline">
               Shop
             </Link>
             <span aria-hidden>/</span>
@@ -116,11 +118,21 @@ export default async function ProductPage({ params }: Props) {
 
           <p className="mt-8 text-[1.35rem] tabular-nums text-chocolate">{formatINR(from)}</p>
           <p className="mt-1 text-[0.85rem] text-cocoa/60">Per set, exclusive of shipping.</p>
+          <FestiveCutoff className="mt-5" />
 
           <div id="buy" className="mt-8">
             <AddToCart product={p} />
-            <div className="mt-4">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
               <WishlistButton productId={p.id} productName={p.name} withLabel />
+              <a
+                href={whatsappLink(`Hello Sacred Basil, I have a question about ${p.name}.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-11 items-center gap-2 text-[0.9rem] text-chocolate underline-offset-4 hover:underline"
+              >
+                <SocialIcon network="whatsapp" className="size-[1.1rem]" />
+                Ask us on WhatsApp
+              </a>
             </div>
           </div>
 
@@ -168,7 +180,7 @@ export default async function ProductPage({ params }: Props) {
                 <p className="mt-2">{orderTerms.bulkPayment}</p>
                 <Link
                   href={`/corporate-gifting?collection=${p.slug}#enquire`}
-                  className="mt-2 inline-block text-chocolate underline underline-offset-4"
+                  className="mt-1 inline-block py-2 text-chocolate underline underline-offset-4"
                 >
                   Request a corporate quote
                 </Link>
