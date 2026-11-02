@@ -64,8 +64,8 @@ export default async function CollectionsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd).replace(/</g, "\\u003c") }}
       />
       <CollectionHero
-        image="/images/v5/lux-group.webp"
-        alt="The Sacred Basil Luxe kit and its five pieces on a travertine plinth"
+        image="/images/v6/luxe-dark-wide.webp"
+        alt="The Sacred Basil Luxe kit open in the studio"
         title="The Diwali Gifting Collection"
         line="Handcrafted gift sets. The more you gift, the less each one costs."
       />
@@ -91,13 +91,13 @@ export default async function CollectionsPage() {
       </section>
 
       <WideBanner
-        image="/images/v5/lux-box.webp"
-        alt="The Sacred Basil Luxe gift box in chocolate and gold foil on travertine"
+        image="/images/v6/hero-luxe-closed.webp"
+        alt="The Sacred Basil Luxe gift box in chocolate and gold foil"
         title="Bespoke sets for 100+ kits"
         text="Custom logo, branding, packaging and labels for corporate and celebration orders."
         cta="Request a quote"
         href="/corporate-gifting#enquire"
-        position="70% 50%"
+        position="85% 50%"
       />
     </>
   );

@@ -97,6 +97,8 @@ export function WideBanner({
   cta,
   href,
   tone = "light",
+  align = "left",
+  scrim = true,
   position = "50% 50%",
 }: {
   image: string;
@@ -107,22 +109,44 @@ export function WideBanner({
   href: string;
   /** "light" = light photo, dark text; "dark" = dark photo, white text. */
   tone?: "light" | "dark";
+  /** Side the copy sits on, over the empty part of the photograph. */
+  align?: "left" | "right";
+  /** Off when the photograph already leaves clean space behind the copy. */
+  scrim?: boolean;
   position?: string;
 }) {
   const dark = tone === "dark";
+  const side = align === "right" ? "270deg" : "90deg";
   return (
-    <section className="relative flex min-h-[28rem] items-end overflow-hidden md:min-h-[34rem]">
-      <Image src={image} alt={alt} fill sizes="100vw" className="object-cover" style={{ objectPosition: position }} />
+    // Phones: photograph on top, copy below on a solid panel, so the text is
+    // never set over a busy image. From md up the copy sits over the photo.
+    <section
+      className={cn(
+        "relative flex flex-col overflow-hidden md:min-h-[34rem] md:flex-row md:items-end",
+        align === "right" && "md:justify-end",
+      )}
+    >
+      <div className="relative aspect-[4/3] md:absolute md:inset-0 md:aspect-auto">
+        <Image src={image} alt={alt} fill sizes="100vw" className="object-cover" style={{ objectPosition: position }} />
+      </div>
+      {scrim && (
+        <div
+          aria-hidden
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background: dark
+              ? `linear-gradient(${side}, rgb(20 12 8 / 0.62) 0%, rgb(20 12 8 / 0.2) 45%, rgb(20 12 8 / 0) 70%)`
+              : `linear-gradient(${side}, rgb(255 255 255 / 0.78) 0%, rgb(255 255 255 / 0.35) 40%, rgb(255 255 255 / 0) 65%)`,
+          }}
+        />
+      )}
       <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background: dark
-            ? "linear-gradient(90deg, rgb(20 12 8 / 0.62) 0%, rgb(20 12 8 / 0.2) 45%, rgb(20 12 8 / 0) 70%)"
-            : "linear-gradient(90deg, rgb(255 255 255 / 0.78) 0%, rgb(255 255 255 / 0.35) 40%, rgb(255 255 255 / 0) 65%)",
-        }}
-      />
-      <div data-reveal="fade" className={cn("relative max-w-xl px-[var(--gutter)] pb-12 md:pb-16", dark ? "text-ivory" : "text-chocolate")}>
+        data-reveal="fade"
+        className={cn(
+          "relative px-[var(--gutter)] py-10 md:max-w-xl md:bg-transparent md:pb-16 md:pt-0",
+          dark ? "bg-chocolate text-ivory" : "bg-cream text-chocolate",
+        )}
+      >
         <h2 className="display-section">{title}</h2>
         {text && <p className={cn("mt-3 text-[1rem] leading-relaxed", dark ? "text-ivory/85" : "text-cocoa/80")}>{text}</p>}
         <Link href={href} className={cn("btn mt-7", dark ? "btn-light" : "btn-primary")}>

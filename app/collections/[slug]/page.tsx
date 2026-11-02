@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Check, Plus } from "lucide-react";
 import { getProductBySlug, getProducts } from "@/lib/catalog/repository";
 import { formatINR, lowestPrice, startingPrice } from "@/lib/catalog/pricing";
-import { orderTerms, whatsappLink } from "@/data/site";
+import { orderTerms, site, whatsappLink } from "@/data/site";
 import { SocialIcon } from "@/components/footer/SocialLinks";
 import { ProductGallery } from "@/components/shop/ProductGallery";
 import { StickyBuy } from "@/components/shop/StickyBuy";
@@ -19,10 +19,10 @@ type Props = { params: Promise<{ slug: string }> };
 
 /** Dark studio photograph for the feature band under each product. */
 const mood: Record<string, { image: string; alt: string }> = {
-  "luxe-bath-body-care-kit": { image: "/images/v5/lux-open.webp", alt: "The Luxe kit open on travertine" },
-  "tranquil-box": { image: "/images/v5/lux-floral.webp", alt: "Sacred Basil floral gift boxes on travertine" },
-  "serenity-box": { image: "/images/v5/lux-floral.webp", alt: "Sacred Basil floral gift boxes on travertine" },
-  "festive-ritual": { image: "/images/v5/lux-soap.webp", alt: "Sacred Basil artisanal rose soap on travertine" },
+  "luxe-bath-body-care-kit": { image: "/images/v6/luxe-dark-45.webp", alt: "The Luxe kit open in the studio" },
+  "tranquil-box": { image: "/images/v6/tranquil-wide.webp", alt: "The Tranquil Box, closed and open, in the studio" },
+  "serenity-box": { image: "/images/v6/serenity-wide.webp", alt: "The Serenity Box, closed and open, in the studio" },
+  "festive-ritual": { image: "/images/v6/festive-wide.webp", alt: "The Festive Ritual box and organza pouch in the studio" },
 };
 
 export async function generateStaticParams() {
@@ -131,13 +131,13 @@ export default async function ProductPage({ params }: Props) {
                 className="flex min-h-11 items-center gap-2 text-[0.9rem] text-chocolate underline-offset-4 hover:underline"
               >
                 <SocialIcon network="whatsapp" className="size-[1.1rem]" />
-                Ask us on WhatsApp
+                {site.orderOnWhatsApp ? "Ask a question" : "Ask us on WhatsApp"}
               </a>
             </div>
           </div>
 
           <ul className="mt-8 space-y-2.5 text-[0.92rem]">
-            {["Handcrafted to order, ready in 7–8 business days", "Premium gift-ready packaging", "Secure payments"].map(
+            {["Handcrafted to order, ready in 7–8 business days", "Premium gift-ready packaging", site.orderOnWhatsApp ? "Order and pay directly on WhatsApp" : "Secure payments"].map(
               (t) => (
                 <li key={t} className="flex items-center gap-3">
                   <Check aria-hidden className="size-4 text-chocolate" strokeWidth={1.5} />
@@ -234,7 +234,9 @@ export default async function ProductPage({ params }: Props) {
 
       <StickyBuy
         productId={p.id}
+        slug={p.slug}
         variantId={p.variants?.[0]?.id}
+        variantName={p.variants?.[0]?.name}
         name={p.name}
         image={p.images[0]}
         price={from}

@@ -1,8 +1,7 @@
 import { getProducts } from "@/lib/catalog/repository";
 import { formatINR, startingPrice } from "@/lib/catalog/pricing";
 import { studioRange } from "@/data/studio";
-import { HeroFilm } from "@/components/home/HeroFilm";
-import { FilmBanner } from "@/components/sections/FilmBanner";
+import { HeroSlides } from "@/components/home/HeroSlides";
 import { BrandStatement, GridHeading, SplitTiles, TileGrid, WideBanner } from "@/components/sections/Blocks";
 
 /** Studio pieces shown on the home page (the rest live on /collections). */
@@ -34,7 +33,7 @@ export default async function HomePage() {
   return (
     <>
       <h1 className="sr-only">Sacred Basil: handcrafted Ayurvedic wellness gifts</h1>
-      <HeroFilm />
+      <HeroSlides />
 
       <GridHeading
         title="The Diwali Gifting Collection"
@@ -44,13 +43,16 @@ export default async function HomePage() {
       />
       <TileGrid tiles={giftSets} priority />
 
-      <FilmBanner
-        name="luxe"
-        label="The Sacred Basil Luxe Bath & Body Care Kit: body scrub, face scrub, body oil and candle"
+      <WideBanner
+        image="/images/v6/luxe-dark-wide.webp"
+        alt="The Sacred Basil Luxe Bath & Body Care Kit open: body scrub, face scrub, scented candle, artisanal soap and body oil"
         title="The Luxe Bath & Body Care Kit"
         text="Five handcrafted pieces in a chocolate and gold-foil box."
         cta="Discover the kit"
         href="/collections/luxe-bath-body-care-kit"
+        tone="dark"
+        align="right"
+        position="25% 50%"
       />
 
       <SplitTiles
@@ -58,14 +60,14 @@ export default async function HomePage() {
           {
             href: "/collections#studio",
             label: "Bath & body",
-            image: "/images/products/bath-salt-rose-valley.webp",
-            alt: "Sacred Basil Relaxing Bath Salt, Rose Valley, on travertine with rose buds",
+            image: "/images/v6/st-bath-salt.webp",
+            alt: "Sacred Basil Relaxing Bath Salt, Rose Valley",
           },
           {
             href: "/collections#studio",
             label: "Candles & home",
-            image: "/images/products/unwind-candle-tin-oudh-tabac-lit.webp",
-            alt: "The Sacred Basil Unwind candle in Oudh Tabac, lit, in a rose-gold tin",
+            image: "/images/v6/st-unwind.webp",
+            alt: "The Sacred Basil Unwind candle in Oudh Tabac, in a rose-gold tin",
           },
         ]}
       />
@@ -80,23 +82,26 @@ export default async function HomePage() {
 
       <BrandStatement />
 
-      <FilmBanner
-        name="gifts"
-        label="Sacred Basil gift boxes"
+      <WideBanner
+        image="/images/v6/group-wide.webp"
+        alt="The four Sacred Basil gift boxes: the Luxe kit, the Tranquil and Serenity boxes and the Festive Ritual box"
         title="Gifting, elevated"
         text="Premium gift boxes for Diwali, celebrations and corporate gifting. The more you gift, the less each one costs."
         cta="Discover gift sets"
         href="/collections#gift-sets"
+        position="80% 50%"
+        scrim={false}
       />
 
       <WideBanner
-        image="/images/products/festive-orders-production-table.webp"
-        alt="A Sacred Basil corporate Diwali order: artisanal soaps, body oils, ubtan and festive boxes ready to pack"
+        image="/images/v6/corporate-hero.webp"
+        alt="Rows of Sacred Basil Luxe gift boxes on a long table, prepared for a corporate order"
         title="Corporate gifting"
         text="Curated sets for teams and clients, with bulk pricing and bespoke options from 100 kits."
         cta="Request a quote"
         href="/corporate-gifting#enquire"
         position="60% 50%"
+        tone="dark"
       />
     </>
   );

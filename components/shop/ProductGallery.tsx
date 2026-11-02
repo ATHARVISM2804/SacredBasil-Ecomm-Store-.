@@ -67,7 +67,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
           >
             <ChevronRight aria-hidden className="size-6" strokeWidth={1} />
           </button>
-          <ul className="absolute inset-x-0 bottom-4 flex justify-center gap-1" aria-label="Choose image">
+          <ul className="absolute inset-x-0 bottom-1 flex justify-center" aria-label="Choose image">
             {images.map((src, i) => (
               <li key={src}>
                 <button
@@ -75,7 +75,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                   onClick={() => show(i)}
                   aria-label={`Show image ${i + 1} of ${images.length}`}
                   aria-current={i === active}
-                  className="grid size-6 place-items-center"
+                  className="grid size-11 place-items-center"
                 >
                   <span
                     className={cn(

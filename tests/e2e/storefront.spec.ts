@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { site } from "../../data/site";
 
 // Returning visitor: cookie choice made and the Diwali invitation seen, so
 // neither covers the page. The first-visit test below clears these.
@@ -16,13 +17,15 @@ async function expectNoOverflow(page: Page) {
   expect(overflow).toBeLessThanOrEqual(0);
 }
 
-test("home: hero film, gift sets and the right video for the screen size", async ({ page }, info) => {
+test("home: hero slides with changing copy, and the gift sets", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Sacred Basil");
+  const hero = page.getByRole("region", { name: "The Diwali Gifting Collection" });
+  await expect(hero.getByRole("heading", { level: 2, name: "Crafted for your Diwali Dawn" })).toBeVisible();
+  await hero.getByRole("button", { name: "Show The Tranquil Box" }).click();
+  await expect(hero.getByRole("link", { name: /Shop the Tranquil Box/ })).toHaveAttribute("href", "/collections/tranquil-box");
   await expect(page.getByRole("heading", { level: 2, name: "The Diwali Gifting Collection" })).toBeVisible();
   await expect(page.getByRole("link", { name: /Luxe Bath & Body Care Kit.*From ₹1,100/ })).toBeVisible();
-  const src = await page.locator("video source").first().getAttribute("src");
-  expect(src).toContain(info.project.name === "phone" ? "/video/v4/hero-mobile.mp4" : "/video/v4/hero-desktop.mp4");
   await expectNoOverflow(page);
 });
 
@@ -48,6 +51,21 @@ test("menus: desktop mega menu and phone menu list the gift sets", async ({ page
   }
 });
 
+test("menu link to a section lands on it, with the header showing", async ({ page }, info) => {
+  await page.goto("/");
+  if (info.project.name === "phone") {
+    await page.getByRole("button", { name: "Open menu" }).click();
+    await page.getByRole("dialog", { name: "Menu" }).getByRole("link", { name: "Bath & Body", exact: true }).click();
+  } else {
+    await page.locator("header nav[aria-label=Shop]").getByRole("link", { name: "Bath & Body", exact: true }).click();
+  }
+  await expect(page).toHaveURL(/\/collections#studio$/);
+  await expect(page.locator("#studio")).toBeInViewport();
+  await expect(page.locator("header")).toBeInViewport();
+  // The desktop mega menu must not stay open over the new page.
+  await expect(page.locator("#menu-bath-body")).toBeHidden();
+});
+
 test("shop lists the four gift sets with prices", async ({ page }) => {
   await page.goto("/collections");
   const sets = page.locator("#gift-sets");
@@ -58,7 +76,23 @@ test("shop lists the four gift sets with prices", async ({ page }) => {
   await expectNoOverflow(page);
 });
 
+test("product page: Order on WhatsApp sends the product, quantity, price and link", async ({ page }) => {
+  test.skip(!site.orderOnWhatsApp, "Bag and checkout are on");
+  await page.goto("/collections/luxe-bath-body-care-kit");
+  await page.getByRole("button", { name: "Increase quantity" }).click();
+  const order = page.locator("#buy").getByRole("link", { name: "Order on WhatsApp" });
+  const href = (await order.getAttribute("href")) ?? "";
+  expect(href).toMatch(/^https:\/\/wa\.me\/917385198433\?text=/);
+  const text = decodeURIComponent(href.split("text=")[1]);
+  expect(text).toContain("The Luxe Bath & Body Care Kit");
+  expect(text).toContain("Quantity: 2");
+  expect(text).toContain("total ₹2,200");
+  expect(text).toContain("/collections/luxe-bath-body-care-kit");
+  await expect(page.getByRole("button", { name: /Cart/ })).toHaveCount(0);
+});
+
 test("product page → add to bag → bag survives a reload → checkout", async ({ page }) => {
+  test.skip(site.orderOnWhatsApp, "Orders go to WhatsApp");
   await page.goto("/collections/luxe-bath-body-care-kit");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Luxe Bath & Body Care Kit");
 
@@ -84,6 +118,7 @@ test("product page → add to bag → bag survives a reload → checkout", async
 });
 
 test("bag starts empty for a new visitor", async ({ page }) => {
+  test.skip(site.orderOnWhatsApp, "Orders go to WhatsApp");
   await page.goto("/cart");
   await expect(page.locator("main").getByText(/^Your bag is empty\./)).toBeVisible();
 });
@@ -151,15 +186,17 @@ test("first visit: cookie bar, then the Diwali invitation", async ({ page }) => 
 });
 
 test("WhatsApp: floating chat button and a product question with the product named", async ({ page }) => {
-  await page.goto("/collections/luxe-bath-body-care-kit");
+  await page.goto("/contact");
   const chat = page.getByRole("link", { name: "Chat with us on WhatsApp" });
   await expect(chat).toBeVisible();
-  expect(await chat.getAttribute("href")).toMatch(/^https:\/\/wa\.me\/919959241078\?text=/);
-  const ask = page.getByRole("link", { name: "Ask us on WhatsApp" });
+  expect(await chat.getAttribute("href")).toMatch(/^https:\/\/wa\.me\/917385198433\?text=/);
+  await page.goto("/collections/luxe-bath-body-care-kit");
+  const ask = page.getByRole("link", { name: site.orderOnWhatsApp ? "Ask a question" : "Ask us on WhatsApp" });
   expect(decodeURIComponent((await ask.getAttribute("href")) ?? "")).toContain("The Luxe Bath & Body Care Kit");
 });
 
 test("checkout: sending to someone else asks for the recipient", async ({ page }) => {
+  test.skip(site.orderOnWhatsApp, "Orders go to WhatsApp");
   await page.goto("/collections/tranquil-box");
   await page.locator("#buy").getByRole("button", { name: /Add to bag/ }).click();
   await page.goto("/checkout");

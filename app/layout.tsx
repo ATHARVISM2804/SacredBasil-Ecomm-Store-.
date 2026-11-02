@@ -81,7 +81,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <ViewTransition default="page">{children}</ViewTransition>
         </main>
         <Footer />
-        <CartDrawer />
+        {!site.orderOnWhatsApp && <CartDrawer />}
         <MotionProvider />
         <Cursor />
         <WhatsAppConcierge />

@@ -49,25 +49,25 @@ export function Footer() {
         <FooterColumn title="About" links={about} />
         <div className="pt-10 lg:pt-0">
           <p className="text-[0.75rem] uppercase tracking-[0.18em] text-champagne">Get in touch</p>
-          <ul className="mt-6 space-y-3 text-[0.95rem] text-ivory/70">
+          <ul className="mt-4 space-y-1 text-[0.95rem] text-ivory/70 lg:mt-6 lg:space-y-3">
             <li>
-              <a href={`mailto:${site.contact.email}`} className="break-all transition-colors hover:text-ivory">
+              <a href={`mailto:${site.contact.email}`} className="inline-flex min-h-11 items-center break-all transition-colors hover:text-ivory lg:min-h-0">
                 {site.contact.email}
               </a>
             </li>
             {site.contact.phones.map((p) => (
               <li key={p.number}>
-                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="transition-colors hover:text-ivory">
+                <a href={`tel:${p.number.replace(/\s/g, "")}`} className="inline-flex min-h-11 items-center transition-colors hover:text-ivory lg:min-h-0">
                   {p.name} · {p.number}
                 </a>
               </li>
             ))}
-            <li className="leading-relaxed">{site.contact.address}</li>
+            <li className="pt-2 leading-relaxed lg:pt-0">{site.contact.address}</li>
           </ul>
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 border-t border-ivory/10 px-[var(--gutter)] py-7 text-[0.8rem] text-ivory/45 sm:flex-row sm:justify-between">
+      <div className="flex flex-col gap-2 border-t border-ivory/10 px-[var(--gutter)] pb-[calc(6rem+env(safe-area-inset-bottom))] pt-7 text-[0.8rem] text-ivory/45 sm:flex-row sm:justify-between md:pb-7">
         <p>
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </p>

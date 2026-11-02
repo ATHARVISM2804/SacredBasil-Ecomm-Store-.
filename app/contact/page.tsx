@@ -37,7 +37,7 @@ export default function ContactPage() {
           <div className="mt-12 grid max-w-lg gap-7">
             {detail(
               "Write to us",
-              <a href={`mailto:${email}`} className="break-all hover:underline">
+              <a href={`mailto:${email}`} className="inline-flex min-h-11 items-center break-all hover:underline">
                 {email}
               </a>,
             )}
@@ -57,7 +57,7 @@ export default function ContactPage() {
             {instagram &&
               detail(
                 "Follow us",
-                <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:underline">
                   @{instagram.href.replace(/\/$/, "").split("/").pop()}
                 </a>,
               )}
@@ -66,8 +66,8 @@ export default function ContactPage() {
         </div>
         <div className="relative min-h-[26rem] bg-cream lg:min-h-[44rem]">
           <Image
-            src="/images/products/set-tranquil.webp"
-            alt="The Sacred Basil Tranquil Box open with its Diwali card, soap, ubtan, body oil and candle"
+            src="/images/v6/contact.webp"
+            alt="Hands holding out a Sacred Basil Luxe Bath & Body Care Kit"
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"

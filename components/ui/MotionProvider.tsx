@@ -34,7 +34,17 @@ export function MotionProvider() {
   }, []);
 
   useEffect(() => {
-    lenisStore.current?.scrollTo(0, { immediate: true, force: true });
+    // A new page starts at the top, unless the link named a section
+    // (/collections#studio): then land on that section, below the header.
+    const target = window.location.hash && document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    let frame = 0;
+    if (target) {
+      frame = requestAnimationFrame(() => {
+        const offset = -(parseFloat(getComputedStyle(target).scrollMarginTop) || 0);
+        if (lenisStore.current) lenisStore.current.scrollTo(target, { immediate: true, force: true, offset });
+        else target.scrollIntoView();
+      });
+    } else lenisStore.current?.scrollTo(0, { immediate: true, force: true });
     const mm = initReveals();
     // Pinned and parallax sections measure layout: re-measure once it settles.
     const refresh = () => ScrollTrigger.refresh();
@@ -42,6 +52,7 @@ export function MotionProvider() {
     document.fonts?.ready.then(refresh);
     window.addEventListener("load", refresh, { once: true });
     return () => {
+      cancelAnimationFrame(frame);
       window.clearTimeout(id);
       window.removeEventListener("load", refresh);
       mm.revert();

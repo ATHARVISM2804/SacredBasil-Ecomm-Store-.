@@ -40,8 +40,8 @@ export default async function CorporateGiftingPage() {
   return (
     <>
       <CollectionHero
-        image="/images/site/hero-corporate.webp"
-        alt="Rows of chocolate Sacred Basil Luxe gift boxes tied with gold ribbon, prepared for a corporate order"
+        image="/images/v6/corporate-hero.webp"
+        alt="Rows of Sacred Basil Luxe gift boxes on a long table, prepared for a corporate order"
         title="Corporate gifting"
         line="Handcrafted wellness gifts for clients, teams and business associates."
       />

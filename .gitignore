@@ -75,3 +75,7 @@ next-env.d.ts
 /docs/site-images/**/*.jpg
 __pycache__/
 /scripts/.*.mjs
+
+# Gemini image working files (refs, raw downloads, frames); keep only the README
+/docs/regen3/**
+!/docs/regen3/README.md

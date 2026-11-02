@@ -3,12 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { Menu, UserRound, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { CartButton } from "@/components/cart/CartButton";
 import { MobileMenu } from "./MobileMenu";
-import { brandMenu, shopMenu, type MenuGroup } from "@/data/site";
+import { brandMenu, shopMenu, site, type MenuGroup } from "@/data/site";
 import { cn } from "@/lib/utils";
 import type { AnnouncementSetting } from "@/lib/admin/settings";
 
@@ -22,7 +22,13 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [tucked, setTucked] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  // After a click in the header the menus stay shut until the pointer leaves
+  // it, so the mega menu cannot reopen over the page that just loaded.
+  const hold = useRef(false);
+  // While a click's page change or #anchor jump plays out, keep the header in place.
+  const pinUntil = useRef(0);
 
   // Close menus whenever the route changes.
   const [lastPath, setLastPath] = useState(pathname);
@@ -30,20 +36,36 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
     setLastPath(pathname);
     setMenuOpen(false);
     setOpenGroup(null);
+    setTucked(false);
   }
 
   // Tuck the header away while scrolling down; bring it back on the way up.
-  const [tucked, setTucked] = useState(false);
+  // Jumps (a link to #gift-sets, a new page) are not scrolling, so they show it.
   useEffect(() => {
     let last = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
-      if (Math.abs(y - last) < 8) return;
-      setTucked(y > last && y > 160);
+      const dy = y - last;
       last = y;
+      if (Math.abs(dy) < 8 || performance.now() < pinUntil.current) return;
+      setTucked(dy > 0 && dy < window.innerHeight * 0.5 && y > 160);
+    };
+    const show = () => {
+      last = window.scrollY;
+      setTucked(false);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("hashchange", show);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", show);
+    };
+  }, []);
+
+  const closeMobile = useCallback(() => {
+    pinUntil.current = performance.now() + 1500;
+    setTucked(false);
+    setMenuOpen(false);
   }, []);
 
   useEffect(() => {
@@ -57,8 +79,18 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
 
   const hover = (label: string | null) => {
     clearTimeout(closeTimer.current);
-    if (label) setOpenGroup(label);
-    else closeTimer.current = setTimeout(() => setOpenGroup(null), 120);
+    if (label && !hold.current) setOpenGroup(label);
+    else if (!label) closeTimer.current = setTimeout(() => setOpenGroup(null), 120);
+  };
+  /** Any link in the header: shut the menus at once, before the page changes. */
+  const navigate = (e: MouseEvent) => {
+    if (!(e.target as HTMLElement).closest("a")) return;
+    clearTimeout(closeTimer.current);
+    hold.current = true;
+    pinUntil.current = performance.now() + 1500;
+    setTucked(false);
+    setOpenGroup(null);
+    (document.activeElement as HTMLElement | null)?.blur();
   };
   const isActive = (href: string) => {
     const path = href.split("#")[0];
@@ -90,9 +122,13 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
           "sticky top-0 z-50 border-b border-[var(--line)] bg-ivory text-chocolate transition-transform duration-500 ease-[var(--ease-editorial)]",
           tucked && !menuOpen && !openGroup && "-translate-y-full",
         )}
-        onMouseLeave={() => hover(null)}
+        onMouseLeave={() => {
+          hold.current = false;
+          hover(null);
+        }}
+        onClickCapture={navigate}
       >
-        <div className="flex h-16 items-center justify-between px-[var(--gutter)] lg:h-[3.75rem] lg:pt-2">
+        <div className="mx-auto flex h-16 max-w-[120rem] items-center justify-between px-[var(--gutter)] lg:h-[3.75rem] lg:pt-2">
           <Link href="/" aria-label="Sacred Basil, home" className="flex min-w-0 items-center gap-2.5 py-2 min-[380px]:gap-3">
             <Logo variant="monogram" className="h-7 shrink-0 min-[380px]:h-8 lg:h-7" />
             <Logo variant="wordmark" className="h-[0.68rem] shrink-0 min-[380px]:h-[0.78rem] lg:h-[0.85rem]" />
@@ -107,7 +143,7 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
             >
               <UserRound aria-hidden className="size-5" strokeWidth={1.25} />
             </Link>
-            <CartButton />
+            {!site.orderOnWhatsApp && <CartButton />}
             <button
               type="button"
               className="grid size-10 place-items-center lg:hidden"
@@ -125,9 +161,9 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
           </div>
         </div>
 
-        <div className="hidden h-11 items-center justify-between px-[var(--gutter)] lg:flex">
+        <div className="mx-auto hidden h-11 max-w-[120rem] items-center justify-between px-[var(--gutter)] lg:flex">
           <nav aria-label="Shop">
-            <ul className="flex items-center gap-8 text-[0.95rem]">
+            <ul className="flex items-center gap-6 text-[0.95rem] xl:gap-8">
               {shopMenu.map((g) => (
                 <li key={g.label} onMouseEnter={() => hover(g.links ? g.label : null)}>
                   <Link
@@ -147,7 +183,7 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
             </ul>
           </nav>
           <nav aria-label="About">
-            <ul className="flex items-center gap-8 text-[0.95rem]" onMouseEnter={() => hover(null)}>
+            <ul className="flex items-center gap-6 text-[0.95rem] xl:gap-8" onMouseEnter={() => hover(null)}>
               {brandMenu.map((l) => (
                 <li key={l.href}>
                   <Link
@@ -173,7 +209,7 @@ export function SiteHeader({ announcement }: { announcement: AnnouncementSetting
           ))}
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={closeMobile} />
     </>
   );
 }
@@ -191,7 +227,7 @@ function MegaMenu({ group, open, onEnter }: { group: MenuGroup; open: boolean; o
         open ? "visible opacity-100" : "pointer-events-none invisible opacity-0",
       )}
     >
-      <div className="grid grid-cols-12 gap-8 px-[var(--gutter)] py-10">
+      <div className="mx-auto grid max-w-[120rem] grid-cols-12 gap-8 px-[var(--gutter)] py-10">
         <ul className="col-span-4 space-y-3 text-[0.95rem]">
           {group.links?.map((l) => (
             <li key={l.label}>
@@ -201,16 +237,16 @@ function MegaMenu({ group, open, onEnter }: { group: MenuGroup; open: boolean; o
             </li>
           ))}
         </ul>
-        <ul className="col-span-8 grid grid-cols-2 gap-6">
+        <ul className="col-span-8 ml-auto grid w-full max-w-[46rem] grid-cols-2 gap-6">
           {group.tiles?.map((t) => (
             <li key={t.label}>
               <Link href={t.href} className="group block">
-                <span className="relative block aspect-[16/10] overflow-hidden bg-cream">
+                <span className="relative block aspect-[4/3] overflow-hidden bg-cream">
                   <Image
                     src={t.image}
                     alt=""
                     fill
-                    sizes="30vw"
+                    sizes="(min-width: 1536px) 23rem, 30vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </span>

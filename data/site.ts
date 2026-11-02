@@ -28,7 +28,7 @@ export const site = {
    */
   social: [
     { network: "instagram", label: "Instagram", href: "https://www.instagram.com/sacredbasil.in/" },
-    { network: "whatsapp", label: "WhatsApp", href: "https://wa.me/919959241078" },
+    { network: "whatsapp", label: "WhatsApp", href: "https://wa.me/917385198433" },
     { network: "email", label: "Email", href: "mailto:contactsacredbasil@gmail.com" },
   ] as { network: "instagram" | "whatsapp" | "email" | "facebook" | "linkedin"; label: string; href: string }[],
 
@@ -40,14 +40,44 @@ export const site = {
    */
   festiveCutoff: { festival: "Diwali", orderBy: "2026-10-23" },
 
+  /**
+   * Orders go to WhatsApp instead of the bag and Razorpay checkout. Set to
+   * false to bring the bag and online payment back.
+   */
+  orderOnWhatsApp: true,
+
   /** Placeholder frames name the photograph that belongs there when true. */
   showPlaceholderCaptions: false,
 } as const;
 
 /** WhatsApp chat with Sacred Basil, opening with a message ready to send. */
 export function whatsappLink(text = "Hello Sacred Basil, I’d like some help choosing a gift.") {
-  const base = site.social.find((s) => s.network === "whatsapp")?.href ?? "https://wa.me/919959241078";
+  const base = site.social.find((s) => s.network === "whatsapp")?.href ?? "https://wa.me/917385198433";
   return `${base}?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * WhatsApp order message. The product link goes last so WhatsApp shows its
+ * preview card, with the product photograph, under the message.
+ */
+export function whatsappOrderLink(order: {
+  name: string;
+  slug: string;
+  variant?: string;
+  quantity: number;
+  unitPrice: number;
+}) {
+  const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+  const lines = [
+    "Hello Sacred Basil, I’d like to order:",
+    "",
+    `${order.name}${order.variant ? ` (${order.variant})` : ""}`,
+    `Quantity: ${order.quantity}`,
+    `Price: ${inr(order.unitPrice)} per set, total ${inr(order.unitPrice * order.quantity)}`,
+    "",
+    `${site.url}/collections/${order.slug}`,
+  ];
+  return whatsappLink(lines.join("\n"));
 }
 
 export type MenuLink = { label: string; href: string };
@@ -67,8 +97,8 @@ export const shopMenu: MenuGroup[] = [
       { label: "Shop all gift sets", href: "/collections#gift-sets" },
     ],
     tiles: [
-      { label: "The Luxe Kit", href: "/collections/luxe-bath-body-care-kit", image: "/images/products/luxe-kit-open-premium.webp" },
-      { label: "Festive Ritual", href: "/collections/festive-ritual-box-pouch", image: "/images/products/festive-ritual-set.webp" },
+      { label: "The Luxe Kit", href: "/collections/luxe-bath-body-care-kit", image: "/images/v6/g-luxe-open.webp" },
+      { label: "Festive Ritual", href: "/collections/festive-ritual-box-pouch", image: "/images/v6/g-festive-set.webp" },
     ],
   },
   {
@@ -80,8 +110,8 @@ export const shopMenu: MenuGroup[] = [
       { label: "Glycerine Soap", href: "/collections#studio" },
     ],
     tiles: [
-      { label: "Aromatic Ubtan", href: "/collections#studio", image: "/images/products/aromatic-ubtan-packet-25g.webp" },
-      { label: "Bath Salt", href: "/collections#studio", image: "/images/products/bath-salt-rose-valley.webp" },
+      { label: "Aromatic Ubtan", href: "/collections#studio", image: "/images/v6/st-ubtan.webp" },
+      { label: "Bath Salt", href: "/collections#studio", image: "/images/v6/st-bath-salt.webp" },
     ],
   },
   {
@@ -93,8 +123,8 @@ export const shopMenu: MenuGroup[] = [
       { label: "Scented Wax Sachets", href: "/collections#studio" },
     ],
     tiles: [
-      { label: "Candles", href: "/collections#studio", image: "/images/products/scented-candle-mahogany-jar.webp" },
-      { label: "Wax Sachets", href: "/collections#studio", image: "/images/products/wax-sachets-collection.webp" },
+      { label: "Candles", href: "/collections#studio", image: "/images/v6/st-mahogany.webp" },
+      { label: "Wax Sachets", href: "/collections#studio", image: "/images/v6/st-sachets.webp" },
     ],
   },
   { label: "Corporate Gifting", href: "/corporate-gifting" },

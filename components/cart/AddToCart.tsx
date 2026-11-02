@@ -9,6 +9,8 @@ import { MAX_QUANTITY } from "@/lib/cart/pricing";
 import { cart } from "@/lib/cart/store";
 import { QuantityStepper } from "./QuantityStepper";
 import { cn } from "@/lib/utils";
+import { site, whatsappOrderLink } from "@/data/site";
+import { SocialIcon } from "@/components/footer/SocialLinks";
 
 type AddToCartProduct = Pick<Product, "id" | "slug" | "name" | "variants" | "tiers" | "bespokeFrom" | "stock">;
 
@@ -133,20 +135,43 @@ export function AddToCart({ product, className }: { product: AddToCartProduct; c
         </p>
       )}
 
-      <div>
-        <button
-          type="button"
-          onClick={add}
-          disabled={soldOut || !tier}
-          className="btn btn-primary w-full justify-center disabled:pointer-events-none disabled:opacity-50"
+      {site.orderOnWhatsApp ? (
+        <a
+          href={
+            soldOut || !tier
+              ? undefined
+              : whatsappOrderLink({
+                  name: product.name,
+                  slug: product.slug,
+                  variant: product.variants?.find((v) => v.id === variantId)?.name,
+                  quantity,
+                  unitPrice: tier.unitPrice,
+                })
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-disabled={soldOut || !tier}
+          className="btn btn-primary w-full justify-center aria-disabled:pointer-events-none aria-disabled:opacity-50"
         >
-          <span>{soldOut ? "Currently unavailable" : "Add to bag"}</span>
-          {!soldOut && <ArrowRight aria-hidden className="btn-arrow size-3.5" strokeWidth={1.25} />}
-        </button>
-        <p className="mt-2 text-sm text-cocoa/65" role="status">
-          {added ? "Added to your bag." : ""}
-        </p>
-      </div>
+          <SocialIcon network="whatsapp" className="size-[1.1rem]" />
+          <span>{soldOut ? "Currently unavailable" : "Order on WhatsApp"}</span>
+        </a>
+      ) : (
+        <div>
+          <button
+            type="button"
+            onClick={add}
+            disabled={soldOut || !tier}
+            className="btn btn-primary w-full justify-center disabled:pointer-events-none disabled:opacity-50"
+          >
+            <span>{soldOut ? "Currently unavailable" : "Add to bag"}</span>
+            {!soldOut && <ArrowRight aria-hidden className="btn-arrow size-3.5" strokeWidth={1.25} />}
+          </button>
+          <p className="mt-2 text-sm text-cocoa/65" role="status">
+            {added ? "Added to your bag." : ""}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -9,9 +9,8 @@ import type { Product } from "@/lib/catalog/types";
  * this file only seeds the database.
  */
 
-const prod = (f: string) => `/images/products/${f}.webp`;
-/** Dark studio photographs with the printed logo (docs/gen/lux). */
-const lux = (f: string) => `/images/v5/lux-${f}.webp`;
+/** Studio photographs made from the brochure's own product shots (docs/regen3). */
+const v6 = (f: string) => `/images/v6/${f}.webp`;
 
 export const seedProducts: Product[] = [
   {
@@ -22,7 +21,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Our signature five-piece collection in a premium magnetic box.",
     description:
       "A luxurious self-care ritual, thoughtfully curated to nourish the skin, relax the body and elevate everyday moments.",
-    images: ["/images/v5/luxe-tile.webp", lux("box"), lux("group"), lux("scrubs"), lux("oil"), lux("soap"), lux("candle")],
+    images: [v6("g-luxe-open"), v6("g-luxe-closed"), v6("g-luxe-lineup")],
     contents: [
       { name: "Body Scrub", size: "40 g", quantity: 1, note: "Exfoliates & nourishes" },
       { name: "Face Scrub", size: "25 g", quantity: 1, note: "Gentle care for a natural glow" },
@@ -51,7 +50,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Four handcrafted essentials, with a scented candle, in a magnet closure gift box.",
     description:
       "The Tranquil Box is a calming blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("set-tranquil"), prod("tranquil-box-open-4-products"), prod("floral-gift-boxes-stacked")],
+    images: [v6("g-tranquil-open"), v6("g-tranquil-closed")],
     contents: [
       { name: "Artisanal Soap", size: "75 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Ubtan", size: "50 g approx", quantity: 1 },
@@ -80,7 +79,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Three calming essentials in our signature floral gift box.",
     description:
       "The Serenity Box is a calming blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("set-serenity"), prod("serenity-box-open-3-products"), prod("floral-gift-boxes-stacked")],
+    images: [v6("g-serenity-open"), v6("g-serenity-closed")],
     contents: [
       { name: "Artisanal Soap", size: "70 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Body Oil", size: "35 ml", quantity: 1 },
@@ -108,7 +107,7 @@ export const seedProducts: Product[] = [
     shortDescription: "Three handcrafted essentials in a festive box or an organza pouch.",
     description:
       "The Festive Ritual Box/Pouch is a thoughtful blend of handcrafted self-care essentials, curated to nourish, relax and restore. A meaningful gift that brings moments of peace and well-being.",
-    images: [prod("set-festive"), prod("festive-ritual-box-red"), prod("festive-ritual-organza-pouch")],
+    images: [v6("g-festive-set"), v6("festive-box")],
     contents: [
       { name: "Artisanal Soap", size: "75 g approx", quantity: 1, note: "Gentle & Nourishing" },
       { name: "Aromatic Ubtan", size: "50 g approx", quantity: 1 },
@@ -133,16 +132,22 @@ export const seedProducts: Product[] = [
   },
 ];
 
-/** Real photographs of past orders (brochure "Our Previous Work"). */
+/**
+ * Past orders (brochure "Our Previous Work"), re-shot in the studio look from
+ * the real order photographs (docs/regen3). Sizes are the files' own.
+ */
+const workSizes = [954, 1045, 1045, 1045, 1045, 1738, 1738, 1738, 1738, 1738, 1992, 1738];
 export const previousWork = Array.from({ length: 12 }, (_, i) => ({
-  src: `/images/products/work-${String(i + 1).padStart(2, "0")}.webp`,
+  src: `/images/v6/work-${String(i + 1).padStart(2, "0")}.webp`,
+  width: 1400,
+  height: workSizes[i],
   alt: [
     "Luxe Bath & Body Care Kits with body scrub, face scrub, body oil, artisanal soap and a lit candle",
     "An open Luxe Bath & Body Care Kit among finished kits, ready to ship",
     "Floral Sacred Basil gift boxes, body oils, ubtan sachets and soaps being packed",
     "Hands closing a floral Sacred Basil gift box",
     "Festive Diwali boxes with soaps and body oils laid out for packing",
-    "A festive Diwali Sacred Basil box among stacked boxes, with a diya and marigolds",
+    "A festive Diwali Sacred Basil box standing in front of a stack of boxes",
     "Rows of gold-tied gift pouches with Sacred Basil cards",
     "Kraft-wrapped soaps and black tulle favours with tags",
     "Sage tulle favours with thank-you tags in a basket",

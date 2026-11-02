@@ -5,21 +5,27 @@ import { useEffect, useState } from "react";
 import { formatINR } from "@/lib/catalog/pricing";
 import { cart } from "@/lib/cart/store";
 import { cn } from "@/lib/utils";
+import { site, whatsappOrderLink } from "@/data/site";
 
 /**
  * Bar that follows the page once the main "Add to bag" (#buy) has scrolled
- * away, as at Skandinavisk. Adds one of the first option.
+ * away, as at Skandinavisk. Adds one of the first option, or orders one on
+ * WhatsApp when site.orderOnWhatsApp is on.
  */
 export function StickyBuy({
   productId,
+  slug,
   variantId,
+  variantName,
   name,
   image,
   price,
   soldOut,
 }: {
   productId: string;
+  slug: string;
   variantId?: string;
+  variantName?: string;
   name: string;
   image: string;
   price: number;
@@ -49,6 +55,17 @@ export function StickyBuy({
         </span>
         <p className="min-w-0 flex-1 truncate text-[0.95rem]">{name}</p>
         <p className="hidden text-[0.95rem] tabular-nums sm:block">{formatINR(price)}</p>
+        {site.orderOnWhatsApp ? (
+          <a
+            href={soldOut ? undefined : whatsappOrderLink({ name, slug, variant: variantName, quantity: 1, unitPrice: price })}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-disabled={soldOut}
+            className="btn btn-primary min-w-[9rem] justify-center aria-disabled:opacity-50 sm:min-w-[14rem]"
+          >
+            {soldOut ? "Unavailable" : "Order on WhatsApp"}
+          </a>
+        ) : (
         <button
           type="button"
           disabled={soldOut}
@@ -60,6 +77,7 @@ export function StickyBuy({
         >
           {soldOut ? "Unavailable" : "Add to bag"}
         </button>
+        )}
       </div>
     </div>
   );

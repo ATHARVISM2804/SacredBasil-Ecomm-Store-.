@@ -131,8 +131,8 @@ function DiwaliInvite({ onClose }: { onClose: () => void }) {
       <div className="grid md:grid-cols-[1fr_1.05fr]">
         <div className="relative aspect-[16/10] bg-cream md:aspect-auto md:min-h-[32rem]">
           <Image
-            src="/images/v5/lux-group.webp"
-            alt="The Sacred Basil Luxe kit and its five handcrafted pieces on travertine"
+            src="/images/v6/g-luxe-lineup.webp"
+            alt="The Sacred Basil Luxe kit and its five handcrafted pieces"
             fill
             sizes="(min-width: 768px) 28rem, 100vw"
             className="object-cover object-[50%_60%] md:object-[72%_50%]"
