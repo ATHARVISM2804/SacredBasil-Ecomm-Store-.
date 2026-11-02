@@ -4,9 +4,24 @@
  * (docs/inputs/SB Diwali Gifting Collection.pdf).
  */
 
+/**
+ * Canonical address. NEXT_PUBLIC_SITE_URL wins; on Vercel a missing or
+ * localhost value falls back to the project's production domain, so links,
+ * Open Graph images and WhatsApp order links never point at localhost.
+ */
+const vercelHost =
+  process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl =
+  envUrl && !(vercelHost && /localhost|127\.0\.0\.1/.test(envUrl))
+    ? envUrl
+    : vercelHost
+      ? `https://${vercelHost}`
+      : "http://localhost:3000";
+
 export const site = {
   name: "Sacred Basil",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: siteUrl,
   title: "Sacred Basil — Handcrafted Ayurvedic Wellness Gifts",
   description:
     "Handcrafted, Ayurvedic-inspired bath and body gifts from Sacred Basil, a doctor-led brand from Pune. Thoughtfully curated for Diwali, celebrations and corporate gifting.",

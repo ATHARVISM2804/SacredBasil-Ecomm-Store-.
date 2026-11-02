@@ -7,6 +7,15 @@ import { gsap, ScrollTrigger, initReveals, prefersReducedMotion } from "@/lib/an
 
 export const lenisStore: { current: Lenis | null } = { current: null };
 
+/** A malformed fragment (/#%E0) must not throw and break the page. */
+function safeDecode(s: string) {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+}
+
 /**
  * Lenis smooth scrolling synced to GSAP's ticker, plus the declarative
  * reveal system. Both stand down entirely under reduced motion.
@@ -36,7 +45,7 @@ export function MotionProvider() {
   useEffect(() => {
     // A new page starts at the top, unless the link named a section
     // (/collections#studio): then land on that section, below the header.
-    const target = window.location.hash && document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    const target = window.location.hash && document.getElementById(safeDecode(window.location.hash.slice(1)));
     let frame = 0;
     if (target) {
       frame = requestAnimationFrame(() => {
